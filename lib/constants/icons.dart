@@ -1,3 +1,3 @@
 class MIcons {
-  static const mail = 'assets/icons/mail.svg';
+  static const mail = 'assets/icons/email.svg';
 }

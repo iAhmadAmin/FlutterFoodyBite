@@ -38,6 +38,9 @@ class LoginPage extends StatelessWidget {
                         height: getRelativeHeight(0.1),
                       ),
                       const AppTitle(color: Colors.white),
+                      // SizedBox(
+                      //   height: getRelativeHeight(0.25),
+                      // ),
                       const Spacer(),
                       Column(
                         children: [
@@ -67,7 +70,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: kPadding * 4),
+                      const Spacer(),
                       MButton(
                         label: 'Login',
                         onTap: () {},

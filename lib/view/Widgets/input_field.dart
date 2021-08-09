@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodybite/constants/icons.dart';
 
 class InputField extends StatefulWidget {
@@ -46,6 +46,9 @@ class _InputFieldState extends State<InputField> {
         hintStyle: Theme.of(context).textTheme.bodyText1.copyWith(
               color: Colors.white,
             ),
+        prefixIcon: SvgPicture.asset(
+          MIcons.mail,
+        ),
         filled: true,
         fillColor: Colors.white.withOpacity(0.25),
         border: OutlineInputBorder(

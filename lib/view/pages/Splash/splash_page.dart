@@ -49,8 +49,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     ));
 
     _scaleAnimation = Tween<double>(
-      begin: 1,
-      end: 1.2,
+      begin: 1.2,
+      end: 1.45,
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: const Interval(0.5, 1),
