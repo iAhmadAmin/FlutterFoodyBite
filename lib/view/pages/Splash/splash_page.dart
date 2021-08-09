@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodybite/Utils/size_config.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/images.dart';
 
@@ -11,7 +10,6 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   AnimationController _animationController;
   AnimationController _slideAnimationController;
-
   Animation<Offset> _slideAnimation;
   Animation<double> _rotateAnimation;
   Animation<double> _scaleAnimation;
@@ -20,17 +18,17 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(milliseconds: 1100), () {
       _slideAnimationController.forward();
     });
 
     _slideAnimationController = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
 
     _animationController = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 1200),
       vsync: this,
     )..forward();
 
@@ -44,7 +42,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
     _rotateAnimation = Tween<double>(
       begin: -0.06,
-      end: 0,
+      end: 0.01,
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.linear,
@@ -52,10 +50,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
     _scaleAnimation = Tween<double>(
       begin: 1,
-      end: 1.1,
+      end: 1.2,
     ).animate(CurvedAnimation(
       parent: _animationController,
-      curve: Curves.linear,
+      curve: const Interval(0.5, 1),
     ));
   }
 

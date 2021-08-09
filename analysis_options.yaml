@@ -7,7 +7,7 @@ linter:
     unnecessary_parenthesis: true
     prefer_final_locals: true
     avoid_redundant_argument_values: true
-    curly_braces_in_flow_control_structures: true
+    #curly_braces_in_flow_control_structures: true
     prefer_const_constructors_in_immutables: true
     always_declare_return_types: false
     type_annotate_public_apis: true

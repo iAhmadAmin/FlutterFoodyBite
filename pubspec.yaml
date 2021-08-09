@@ -12,7 +12,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   get: ^4.3.4
-  #flutter_svg: ^0.22.0
+  simple_animations: ^3.1.1
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +25,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
   fonts:
