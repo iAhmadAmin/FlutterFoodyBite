@@ -6,8 +6,14 @@ import 'package:foodybite/view/Widgets/app_title.dart';
 import 'package:foodybite/view/Widgets/input_field.dart';
 import 'package:foodybite/view/Widgets/mbutton.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
+
   final _passwordController = TextEditingController();
 
   @override
@@ -92,5 +98,12 @@ class LoginPage extends StatelessWidget {
             ],
           ),
         ));
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
   }
 }
