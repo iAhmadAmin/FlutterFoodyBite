@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/Utils/size_config.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/Widgets/app_title.dart';
 import 'package:foodybite/view/Widgets/input_field.dart';
 import 'package:foodybite/view/Widgets/mbutton.dart';
+import 'package:foodybite/view/pages/Register/register_page.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -13,8 +17,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
-
   final _passwordController = TextEditingController();
+  final _loginFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,20 +49,29 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const AppTitle(color: Colors.white),
                       const Spacer(),
-                      Column(
-                        children: [
-                          InputField(
-                            controller: _emailController,
-                            hint: 'Email',
-                          ),
-                          const SizedBox(height: kPadding),
-                          InputField(
-                            controller: _passwordController,
-                            isPassword: true,
-                            hint: 'Password',
-                          ),
-                          const SizedBox(height: kPadding),
-                        ],
+                      Form(
+                        key: _loginFormKey,
+                        child: Column(
+                          children: [
+                            InputField(
+                              iconPath: MIcons.mail,
+                              controller: _emailController,
+                              hint: 'Email',
+                              validator: (val) =>
+                                  Validators.emailValidator(val),
+                            ),
+                            const SizedBox(height: kPadding),
+                            InputField(
+                              iconPath: MIcons.lock,
+                              controller: _passwordController,
+                              isPassword: true,
+                              hint: 'Password',
+                              validator: (val) =>
+                                  Validators.passwordValidator(val),
+                            ),
+                            const SizedBox(height: kPadding),
+                          ],
+                        ),
                       ),
                       Align(
                         alignment: Alignment.centerRight,
@@ -73,14 +86,16 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: kPadding * 4),
+                      const SizedBox(height: kPadding * 5),
                       MButton(
                         label: 'Login',
-                        onTap: () {},
+                        onTap: inputValidation,
                       ),
-                      const SizedBox(height: kPadding * 4),
+                      const SizedBox(height: kPadding * 5),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.off(() => RegisterPage());
+                        },
                         child: Text(
                           'Create New Account',
                           style: Theme.of(context).textTheme.subtitle1.copyWith(
@@ -98,6 +113,12 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
         ));
+  }
+
+  void inputValidation() {
+    if (_loginFormKey.currentState.validate()) {
+      print('validate');
+    }
   }
 
   @override
