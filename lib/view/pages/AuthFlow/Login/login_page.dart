@@ -4,12 +4,12 @@ import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
-import 'package:foodybite/view/pages/ForgotPass/forgot_pass_page.dart';
-import 'package:foodybite/view/pages/Welcome/welcome_page.dart';
+import 'package:foodybite/view/pages/AuthFlow/ForgotPass/forgot_pass_page.dart';
+import 'package:foodybite/view/pages/AuthFlow/Welcome/welcome_page.dart';
 import 'package:foodybite/view/widgets/app_title.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
-import 'package:foodybite/view/pages/Register/register_page.dart';
+import 'package:foodybite/view/pages/AuthFlow/Register/register_page.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {

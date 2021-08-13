@@ -3,4 +3,5 @@ class Images {
   static const login = 'assets/images/login.jpg';
   static const register = 'assets/images/register.jpg';
   static const welcome = 'assets/images/welcome.jpg';
+  static const food = 'assets/images/food.jpg';
 }
