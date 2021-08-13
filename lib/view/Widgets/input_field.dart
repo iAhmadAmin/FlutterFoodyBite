@@ -70,7 +70,7 @@ class _InputFieldState extends State<InputField> {
               )
             : null,
         filled: true,
-        fillColor: Colors.white.withOpacity(0.25),
+        fillColor: kTextFieldColor,
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(12),

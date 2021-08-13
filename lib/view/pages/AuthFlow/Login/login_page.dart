@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:foodybite/Utils/size_config.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
-import 'package:foodybite/view/Widgets/app_title.dart';
-import 'package:foodybite/view/Widgets/input_field.dart';
-import 'package:foodybite/view/Widgets/mbutton.dart';
+import 'package:foodybite/view/pages/ForgotPass/forgot_pass_page.dart';
+import 'package:foodybite/view/pages/Welcome/welcome_page.dart';
+import 'package:foodybite/view/widgets/app_title.dart';
+import 'package:foodybite/view/widgets/input_field.dart';
+import 'package:foodybite/view/widgets/mbutton.dart';
 import 'package:foodybite/view/pages/Register/register_page.dart';
 import 'package:get/get.dart';
 
@@ -76,7 +78,9 @@ class _LoginPageState extends State<LoginPage> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(() => ForgotPassPage());
+                          },
                           child: Text(
                             'Forgot Password?',
                             style:
@@ -86,10 +90,13 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: kPadding * 5),
+                      const SizedBox(height: kPadding * 8),
                       MButton(
                         label: 'Login',
-                        onTap: inputValidation,
+                        onTap: () {
+                          //inputValidation,
+                          Get.off(() => WelcomePage());
+                        },
                       ),
                       const SizedBox(height: kPadding * 5),
                       GestureDetector(

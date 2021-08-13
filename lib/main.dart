@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodybite/Utils/size_config.dart';
+import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/Login/login_page.dart';
 import 'package:get/get.dart';
 

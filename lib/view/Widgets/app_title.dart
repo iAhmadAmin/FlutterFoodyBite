@@ -12,6 +12,7 @@ class AppTitle extends StatelessWidget {
             color: color,
             letterSpacing: 0.5,
             fontWeight: FontWeight.bold,
+            height: 0.6,
           ),
     );
   }
