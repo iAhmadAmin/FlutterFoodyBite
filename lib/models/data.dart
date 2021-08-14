@@ -8,7 +8,7 @@ List<Restaurant> restaurantList = [
     rating: 4.5,
     address: '394 Broome St, New York, NY 10013, USA',
     isOpen: true,
-    category: 'Italian',
+    category: FCategory.Italian,
   ),
   Restaurant(
     imagePath: Images.food,
@@ -16,6 +16,6 @@ List<Restaurant> restaurantList = [
     rating: 4.3,
     address: '7 Spring St, New York, NY 10012, USA',
     isOpen: true,
-    category: 'Chinese',
+    category: FCategory.Chinese,
   ),
 ];

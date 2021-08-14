@@ -1,5 +1,16 @@
 import 'package:flutter/cupertino.dart';
 
+enum FCategory {
+  Italian,
+  Chinese,
+  American,
+  Indian,
+  Thai,
+  Korean,
+  Arabian,
+  Maxian,
+}
+
 class Restaurant {
   Restaurant({
     @required this.address,
@@ -10,7 +21,8 @@ class Restaurant {
     @required this.rating,
   });
 
-  String name, address, imagePath, category;
+  String name, address, imagePath;
+  FCategory category;
   double rating;
   bool isOpen;
 }

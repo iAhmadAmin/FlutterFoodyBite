@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodybite/models/restaurant_model.dart';
 
 // Single Colors
 const kPrimaryColor = Color(0xFF5663FF);
@@ -41,3 +42,24 @@ const kKorianGradient = LinearGradient(colors: [
   Color(0xFFFF5673),
   Color(0xFFFF8C48),
 ]);
+
+LinearGradient getCategoryGradient(FCategory category) {
+  switch (category) {
+    case FCategory.American:
+      return kAmericanGradient;
+    case FCategory.Arabian:
+      return kArabianGradient;
+    case FCategory.Chinese:
+      return kChineseGradient;
+    case FCategory.Indian:
+      return kIndianGradient;
+    case FCategory.Italian:
+      return kItalianGradient;
+    case FCategory.Korean:
+      return kKorianGradient;
+    case FCategory.Maxian:
+      return kMaxicanGradient;
+    case FCategory.Thai:
+      return kThaiGradient;
+  }
+}
