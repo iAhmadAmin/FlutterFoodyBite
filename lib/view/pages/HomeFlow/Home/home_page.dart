@@ -5,10 +5,12 @@ import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/pages/HomeFlow/Trending/trending_restaurants_page.dart';
 import 'package:foodybite/view/widgets/category_tile.dart';
 import 'package:foodybite/view/widgets/heading_bar.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
 import 'package:foodybite/view/widgets/search_field.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -36,7 +38,9 @@ class _HomePageState extends State<HomePage> {
               HeadinBar(
                 label: 'Trending Restaurants',
                 count: '29',
-                onTap: () {},
+                onTap: () {
+                  Get.to(() => const TrendingRestarurantsPage());
+                },
               ),
               SizedBox(
                 height: getRelativeWidth(0.7),
@@ -48,6 +52,10 @@ class _HomePageState extends State<HomePage> {
                       return index < restaurantList.length
                           ? RestaurantTile(
                               restaurant: restaurantList[index],
+                              margin: const EdgeInsets.only(
+                                left: kPadding,
+                                bottom: 3,
+                              ),
                             )
                           : const SizedBox(
                               width: kPadding,

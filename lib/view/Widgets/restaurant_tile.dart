@@ -10,9 +10,11 @@ class RestaurantTile extends StatelessWidget {
   const RestaurantTile({
     Key key,
     @required this.restaurant,
+    this.margin = const EdgeInsets.fromLTRB(kPadding, kPadding, kPadding, 0),
   }) : super(key: key);
 
   final Restaurant restaurant;
+  final EdgeInsetsGeometry margin;
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,9 @@ class RestaurantTile extends StatelessWidget {
     const int circleLimit = noOfFriends > 4 ? 4 : noOfFriends;
     const int more = noOfFriends - 4 > 0 ? noOfFriends - 4 : 0;
     return Container(
-        margin: const EdgeInsets.only(
-          left: kPadding,
-          bottom: 3,
-        ),
+        margin: margin,
         height: getRelativeWidth(0.7),
-        width: getRelativeWidth(0.9),
+        width: getRelativeWidth(1),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(kBorderRadius),
             color: Colors.white,
@@ -40,7 +39,7 @@ class RestaurantTile extends StatelessWidget {
           children: [
             SizedBox(
                 height: getRelativeWidth(0.5),
-                width: getRelativeWidth(0.9),
+                width: getRelativeWidth(1),
                 child: Stack(
                   children: [
                     SizedBox.expand(
@@ -130,7 +129,7 @@ class RestaurantTile extends StatelessWidget {
                 )),
             SizedBox(
               height: getRelativeWidth(0.17),
-              width: getRelativeWidth(0.9),
+              width: getRelativeWidth(1),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: kPadding / 2,

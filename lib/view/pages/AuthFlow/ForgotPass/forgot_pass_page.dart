@@ -6,7 +6,6 @@ import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
-import 'package:get/get.dart';
 
 class ForgotPassPage extends StatefulWidget {
   @override

@@ -18,4 +18,12 @@ List<Restaurant> restaurantList = [
     isOpen: true,
     category: FCategory.Chinese,
   ),
+  Restaurant(
+    imagePath: Images.food,
+    name: 'Uncle Boons',
+    rating: 4.2,
+    address: '7 Spring St, New York, NY 10012, USA',
+    isOpen: false,
+    category: FCategory.Chinese,
+  ),
 ];

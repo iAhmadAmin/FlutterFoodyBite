@@ -7,7 +7,10 @@ import 'package:foodybite/constants/icons.dart';
 class SearchField extends StatelessWidget {
   const SearchField({
     Key key,
+    this.hint = 'Search',
   }) : super(key: key);
+
+  final String hint;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class SearchField extends StatelessWidget {
         style:
             Theme.of(context).textTheme.subtitle1.copyWith(color: kTextColor),
         decoration: InputDecoration(
-          hintText: 'Find Restaurants',
+          hintText: hint,
           hintStyle: Theme.of(context)
               .textTheme
               .subtitle1
