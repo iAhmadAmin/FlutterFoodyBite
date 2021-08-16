@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/AuthFlow/ForgotPass/forgot_pass_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Filter/filter_page.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'JosefinSans',
+        scaffoldBackgroundColor: kBackgroundColor,
       ),
       home: Root(),
     );

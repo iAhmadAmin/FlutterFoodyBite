@@ -3,7 +3,6 @@ import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
-import 'package:foodybite/view/pages/HomeFlow/Filter/Components/slider_thumb_shape.dart';
 import 'package:get/get.dart';
 
 class FilterPage extends StatefulWidget {
@@ -14,6 +13,7 @@ class FilterPage extends StatefulWidget {
 class _FilterPageState extends State<FilterPage> {
   FCategory selectedCategory = FCategory.Italian;
   double _sliderValue = 10;
+  int _rating = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -122,11 +122,12 @@ class _FilterPageState extends State<FilterPage> {
                   thumbColor: kPrimaryColor,
                   valueIndicatorColor: kPrimaryColor,
                   trackHeight: 6,
-                  thumbShape: const SliderThumbShape(
-                    thumbHeight: 40,
-                    min: 0,
-                    max: 10,
-                  ),
+                  // thumbShape: const SliderThumbShape(
+                  //   thumbHeight: 40,
+                  //   min: 0,
+                  //   max: 10,
+                  //   thumbRadius: 20,
+                  // ),
                 ),
                 child: Slider(
                     label: _sliderValue.round().toString(),
@@ -156,8 +157,111 @@ class _FilterPageState extends State<FilterPage> {
                   ),
                 ],
               ),
-            )
+            ),
+            const SizedBox(
+              height: kPadding * 2,
+            ),
+            const Text('Ratings',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
+                )),
+            const SizedBox(
+              height: kPadding * 1.6,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: kPadding,
+                vertical: kPadding / 2,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(kBorderRadius / 2),
+                color: Colors.grey[100],
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (var i = 1; i <= 5; i++)
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _rating = i;
+                        });
+                      },
+                      child: Icon(
+                        Icons.star,
+                        color: i <= _rating
+                            ? Colors.yellow[700]
+                            : Colors.grey[300],
+                        size: 52,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            const Spacer(),
+            Row(
+              children: [
+                Expanded(
+                  child: RoundButton(
+                    onTap: () {},
+                    label: 'Reset',
+                    rightRound: false,
+                  ),
+                ),
+                const VerticalDivider(
+                  color: Colors.white,
+                  width: 0.5,
+                ),
+                Expanded(
+                  child: RoundButton(
+                    onTap: () {},
+                    label: 'Apply',
+                    leftRound: false,
+                  ),
+                ),
+              ],
+            ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class RoundButton extends StatelessWidget {
+  const RoundButton({
+    Key key,
+    @required this.label,
+    @required this.onTap,
+    this.rightRound = true,
+    this.leftRound = true,
+  }) : super(key: key);
+
+  final String label;
+  final VoidCallback onTap;
+  final bool rightRound, leftRound;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        height: 55,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(leftRound ? 30 : 0),
+            topRight: Radius.circular(rightRound ? 30 : 0),
+          ),
+          color: kPrimaryColor,
+        ),
+        child: Center(
+          child: Text(
+            label,
+            style: Theme.of(context).textTheme.bodyText1.copyWith(
+                  color: Colors.white,
+                ),
+          ),
         ),
       ),
     );
