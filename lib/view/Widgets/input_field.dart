@@ -7,16 +7,19 @@ class InputField extends StatefulWidget {
     @required this.hint,
     this.validator,
     @required this.controller,
-    @required this.iconPath,
+    this.iconPath,
     this.isPassword = false,
     this.textInputType = TextInputType.text,
+    this.isWhite = true,
+    this.maxLines = 1,
   });
 
   final String hint, iconPath;
   final Function validator;
   final TextEditingController controller;
-  final bool isPassword;
+  final bool isPassword, isWhite;
   final TextInputType textInputType;
+  final int maxLines;
 
   @override
   _InputFieldState createState() => _InputFieldState();
@@ -38,24 +41,27 @@ class _InputFieldState extends State<InputField> {
           },
       textAlignVertical: TextAlignVertical.center,
       style: Theme.of(context).textTheme.bodyText1.copyWith(
-            color: Colors.white,
+            color: widget.isWhite ? Colors.white : Colors.black,
           ),
-      cursorColor: Colors.white,
+      maxLines: widget.maxLines,
+      cursorColor: widget.isWhite ? Colors.white : Colors.black,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       obscureText: widget.isPassword ? _hidePass : false,
       decoration: InputDecoration(
         hintText: widget.hint,
         hintStyle: Theme.of(context).textTheme.subtitle2.copyWith(
-              color: Colors.white,
+              color: widget.isWhite ? Colors.white : kSecondaryTextColor,
             ),
-        prefixIcon: Transform.scale(
-          scale: 0.4,
-          child: SvgPicture.asset(
-            widget.iconPath,
-            color: Colors.white,
-            height: 12,
-          ),
-        ),
+        prefixIcon: widget.iconPath != null
+            ? Transform.scale(
+                scale: 0.4,
+                child: SvgPicture.asset(
+                  widget.iconPath,
+                  color: Colors.white,
+                  height: 12,
+                ),
+              )
+            : null,
         suffixIcon: widget.isPassword
             ? GestureDetector(
                 onTap: () {
@@ -71,8 +77,20 @@ class _InputFieldState extends State<InputField> {
             : null,
         filled: true,
         fillColor: kTextFieldColor,
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none,
+        enabledBorder: OutlineInputBorder(
+          borderSide: widget.isWhite
+              ? BorderSide.none
+              : BorderSide(
+                  color: kSecondaryTextColor,
+                ),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: widget.isWhite
+              ? BorderSide.none
+              : BorderSide(
+                  color: kSecondaryTextColor,
+                ),
           borderRadius: BorderRadius.circular(12),
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
+import 'package:foodybite/view/widgets/round_button.dart';
 import 'package:get/get.dart';
 
 class FilterPage extends StatefulWidget {
@@ -200,44 +201,6 @@ class _FilterPageState extends State<FilterPage> {
               ],
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class RoundButton extends StatelessWidget {
-  const RoundButton({
-    Key key,
-    @required this.label,
-    @required this.onTap,
-    this.rightRound = true,
-    this.leftRound = true,
-  }) : super(key: key);
-
-  final String label;
-  final VoidCallback onTap;
-  final bool rightRound, leftRound;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        height: 55,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(leftRound ? 30 : 0),
-            topRight: Radius.circular(rightRound ? 30 : 0),
-          ),
-          color: kPrimaryColor,
-        ),
-        child: Center(
-          child: Text(
-            label,
-            style: Theme.of(context).textTheme.bodyText1.copyWith(
-                  color: Colors.white,
-                ),
-          ),
         ),
       ),
     );

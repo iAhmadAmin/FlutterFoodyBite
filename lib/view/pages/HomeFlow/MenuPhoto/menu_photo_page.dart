@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
-import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/models/data.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/pages/HomeFlow/PhotoView/photo_view_page.dart';
+import 'package:get/get.dart';
 
 class MenuPhotoPage extends StatelessWidget {
   const MenuPhotoPage({Key key}) : super(key: key);
@@ -46,13 +48,23 @@ class MenuPhotoPage extends StatelessWidget {
         ),
         child: StaggeredGridView.countBuilder(
           crossAxisCount: 3,
-          itemCount: 22,
+          itemCount: foodsImgList.length,
           itemBuilder: (BuildContext context, int index) {
-            return ClipRRect(
-              borderRadius: BorderRadius.circular(kBorderRadius),
-              child: Image.asset(
-                Images.food,
-                fit: BoxFit.cover,
+            return GestureDetector(
+              onTap: () {
+                Get.to(() => PhotoViewPage(
+                      index: index,
+                    ));
+              },
+              child: Hero(
+                tag: foodsImgList[index],
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(kBorderRadius),
+                  child: Image.asset(
+                    foodsImgList[index],
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             );
           },

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:foodybite/models/review_model.dart';
 
 enum FCategory {
   Italian,
@@ -15,14 +16,18 @@ class Restaurant {
   Restaurant({
     @required this.address,
     @required this.category,
-    @required this.imagePath,
+    @required this.displayFoodImg,
     @required this.isOpen,
     @required this.name,
-    @required this.rating,
+    @required this.totalRating,
+    @required this.reviews,
+    @required this.foodImages,
   });
 
-  String name, address, imagePath;
+  String name, address, displayFoodImg;
   FCategory category;
-  double rating;
+  double totalRating;
+  List<Review> reviews;
   bool isOpen;
+  List<String> foodImages;
 }

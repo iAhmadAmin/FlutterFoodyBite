@@ -2,25 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/models/data.dart';
 import 'package:photo_view/photo_view.dart';
 
 class PhotoViewPage extends StatefulWidget {
-  const PhotoViewPage({Key key}) : super(key: key);
-
+  const PhotoViewPage({@required this.index});
+  final int index;
   @override
   _PhotoViewPageState createState() => _PhotoViewPageState();
 }
 
 class _PhotoViewPageState extends State<PhotoViewPage> {
-  final PageController _pageController = PageController();
-  int _currentPage = 0;
+  PageController _pageController;
+  int _currentPage;
+  @override
+  void initState() {
+    super.initState();
+    _currentPage = widget.index;
+    _pageController = PageController(initialPage: _currentPage);
+  }
+
   @override
   Widget build(BuildContext context) {
-    _pageController.addListener(() {});
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color(0xFF25262E),
+        backgroundColor: Colors.transparent,
         centerTitle: true,
         title: const Text(
           'Preview',
@@ -43,14 +51,17 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
                   _currentPage = value;
                 });
               },
-              children: [
-                for (var i = 1; i <= 8; i++)
-                  PhotoView(
-                      backgroundDecoration: const BoxDecoration(
-                        color: Color(0xFF25262E),
-                      ),
-                      imageProvider: AssetImage(Images.food))
-              ],
+              children: foodsImgList.map((img) {
+                return Hero(
+                  tag: img,
+                  child: PhotoView(
+                    backgroundDecoration: const BoxDecoration(
+                      color: Color(0xFF25262E),
+                    ),
+                    imageProvider: AssetImage(img),
+                  ),
+                );
+              }).toList(),
             ),
             Positioned(
                 bottom: kPadding,
@@ -59,7 +70,7 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      for (var i = 0; i < 8; i++)
+                      for (var i = 0; i < foodsImgList.length; i++)
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 2),
                           child: CircleAvatar(

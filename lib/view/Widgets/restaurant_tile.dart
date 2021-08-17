@@ -25,7 +25,7 @@ class RestaurantTile extends StatelessWidget {
     const int more = noOfFriends - 4 > 0 ? noOfFriends - 4 : 0;
     return GestureDetector(
       onTap: () {
-        Get.to(() => RestaurantPage());
+        Get.to(() => RestaurantPage(restaurant: restaurant));
       },
       child: Container(
           margin: margin,
@@ -54,9 +54,12 @@ class RestaurantTile extends StatelessWidget {
                             topLeft: Radius.circular(kBorderRadius),
                             topRight: Radius.circular(kBorderRadius),
                           ),
-                          child: Image.asset(
-                            restaurant.imagePath,
-                            fit: BoxFit.cover,
+                          child: Hero(
+                            tag: restaurant.displayFoodImg,
+                            child: Image.asset(
+                              restaurant.displayFoodImg,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
@@ -87,7 +90,7 @@ class RestaurantTile extends StatelessWidget {
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
-                                    restaurant.rating.toString(),
+                                    restaurant.totalRating.toString(),
                                     style: Theme.of(context)
                                         .textTheme
                                         .caption

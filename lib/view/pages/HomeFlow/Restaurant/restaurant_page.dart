@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
-import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/pages/HomeFlow/MenuPhoto/menu_photo_page.dart';
+import 'package:foodybite/view/pages/HomeFlow/Reviews/add_review_page.dart';
+import 'package:foodybite/view/pages/HomeFlow/Reviews/review_rating_page.dart';
 import 'package:foodybite/view/widgets/category_chip.dart';
 import 'package:foodybite/view/widgets/heading_bar.dart';
+import 'package:foodybite/view/widgets/review_tile.dart';
+import 'package:foodybite/view/widgets/round_button.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:get/get.dart';
 
 class RestaurantPage extends StatelessWidget {
-  RestaurantPage({Key key}) : super(key: key);
+  const RestaurantPage({
+    @required this.restaurant,
+  });
 
-  final restaurant = restaurantList[0];
+  final Restaurant restaurant;
 
   @override
   Widget build(BuildContext context) {
@@ -34,97 +41,49 @@ class RestaurantPage extends StatelessWidget {
         ],
       ),
       body: SizedBox.expand(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const RestTopTile(),
-              RestInfoTile(restaurant: restaurant),
-              const SizedBox(height: kPadding / 2),
-              const MenuPhotoBar(),
-              const SizedBox(height: kPadding * 1.5),
-              HeadinBar(label: 'Review & Ratings', count: '32', onTap: () {}),
-              const SizedBox(
-                height: kPadding / 2,
-              ),
-              ReviewTile(restaurant: restaurant),
-              ReviewTile(restaurant: restaurant),
-              const SizedBox(height: kPadding * 2),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ReviewTile extends StatelessWidget {
-  const ReviewTile({
-    Key key,
-    @required this.restaurant,
-  }) : super(key: key);
-
-  final Restaurant restaurant;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: kPadding),
-      padding: const EdgeInsets.only(bottom: kPadding),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const CircleAvatar(
-            radius: 22,
-            backgroundImage: AssetImage(Images.food),
-          ),
-          const SizedBox(
-            width: kPadding,
-          ),
-          Expanded(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Stack(
+          children: [
+            SizedBox(
+              height: SizeConfig.screenHeight,
+              width: SizeConfig.screenWidth,
+              child: SingleChildScrollView(
+                child: Column(
                   children: [
-                    Text(
-                      'Jayson Acevedo',
-                      style: Theme.of(context).textTheme.subtitle2.copyWith(
-                            color: kTextColor,
-                            fontWeight: FontWeight.w600,
-                          ),
+                    RestTopTile(imgPath: restaurant.displayFoodImg),
+                    RestInfoTile(restaurant: restaurant),
+                    const SizedBox(height: kPadding / 2),
+                    const MenuPhotoBar(),
+                    const SizedBox(height: kPadding * 1.5),
+                    HeadinBar(
+                        label: 'Review & Ratings',
+                        count: '32',
+                        onTap: () {
+                          Get.to(() => const ReviewRatingPage());
+                        }),
+                    const SizedBox(
+                      height: kPadding / 2,
                     ),
-                    const Spacer(),
-                    Icon(
-                      Icons.star,
-                      size: 18,
-                      color: Colors.yellow[700],
+                    ReviewTile(
+                      review: reviewList[0],
                     ),
-                    const SizedBox(width: 4),
-                    Text(
-                      restaurant.rating.toString(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .caption
-                          .copyWith(fontWeight: FontWeight.w800),
-                    ),
+                    ReviewTile(review: reviewList[1]),
+                    const SizedBox(height: kPadding * 3),
                   ],
                 ),
-                const SizedBox(
-                  height: kPadding / 2,
-                ),
-                Text(
-                  'Lorem ipsum dolor sit amet, consec tetur'
-                  'adipiscing elit, sed do eiusmo temp cididunt'
-                  'ut labore et dolore magna aliqua. Ut enim ad'
-                  'mini veniam quis.',
-                  style: Theme.of(context).textTheme.caption.copyWith(
-                        color: kSecondaryTextColor,
-                      ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+            Positioned(
+              bottom: 0,
+              right: 0,
+              left: 0,
+              child: RoundButton(
+                  label: 'Rate Your Experience',
+                  onTap: () {
+                    Get.to(() => AddReviewPage());
+                  }),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -137,16 +96,22 @@ class MenuPhotoBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final foodPhotos = foodsImgList.getRange(1, 4).toList();
     return Column(
       children: [
-        HeadinBar(label: 'Menu & Photos', count: '25', onTap: () {}),
+        HeadinBar(
+            label: 'Menu & Photos',
+            count: '25',
+            onTap: () {
+              Get.to(() => const MenuPhotoPage());
+            }),
         SizedBox(
           height: getRelativeWidth(0.35),
           child: ListView.builder(
-              itemCount: 4 + 1,
+              itemCount: foodPhotos.length + 1,
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
-                return index < 4
+                return index < foodPhotos.length
                     ? Padding(
                         padding: const EdgeInsets.only(left: kPadding),
                         child: SizedBox(
@@ -154,7 +119,8 @@ class MenuPhotoBar extends StatelessWidget {
                           width: getRelativeWidth(0.4),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(kBorderRadius),
-                            child: Image.asset(Images.food, fit: BoxFit.cover),
+                            child: Image.asset(foodPhotos[index],
+                                fit: BoxFit.cover),
                           ),
                         ),
                       )
@@ -169,9 +135,8 @@ class MenuPhotoBar extends StatelessWidget {
 }
 
 class RestTopTile extends StatelessWidget {
-  const RestTopTile({
-    Key key,
-  }) : super(key: key);
+  final String imgPath;
+  const RestTopTile({@required this.imgPath});
 
   @override
   Widget build(BuildContext context) {
@@ -181,7 +146,8 @@ class RestTopTile extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox.expand(
-            child: Image.asset(Images.food, fit: BoxFit.cover),
+            child: Hero(
+                tag: imgPath, child: Image.asset(imgPath, fit: BoxFit.cover)),
           ),
           Positioned(
             bottom: kPadding,
@@ -309,7 +275,7 @@ class RestInfoTile extends StatelessWidget {
               ),
               const SizedBox(width: 4),
               Text(
-                restaurant.rating.toString(),
+                restaurant.totalRating.toString(),
                 style: Theme.of(context)
                     .textTheme
                     .caption
