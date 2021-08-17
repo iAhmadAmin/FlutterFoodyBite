@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/models/data.dart';
+import 'package:foodybite/view/pages/HomeFlow/Filter/filter_page.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
 import 'package:foodybite/view/widgets/search_field.dart';
 import 'package:get/get.dart';
@@ -28,7 +29,11 @@ class TrendingRestarurantsPage extends StatelessWidget {
       body: SizedBox.expand(
         child: Column(
           children: [
-            const SearchField(),
+            SearchField(
+              onLeadingTap: () {
+                Get.to(() => FilterPage());
+              },
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: restaurantList.length,

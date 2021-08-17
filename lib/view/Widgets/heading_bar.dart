@@ -25,10 +25,10 @@ class HeadinBar extends StatelessWidget {
           children: [
             Text(
               label,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: kTextColor),
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    color: kTextColor,
+                    fontWeight: FontWeight.w600,
+                  ),
             ),
             GestureDetector(
               onTap: onTap,

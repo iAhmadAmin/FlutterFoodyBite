@@ -3,6 +3,7 @@ import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:get/get.dart';
 
 class FilterPage extends StatefulWidget {
@@ -170,35 +171,10 @@ class _FilterPageState extends State<FilterPage> {
             const SizedBox(
               height: kPadding * 1.6,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: kPadding,
-                vertical: kPadding / 2,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kBorderRadius / 2),
-                color: Colors.grey[100],
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  for (var i = 1; i <= 5; i++)
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _rating = i;
-                        });
-                      },
-                      child: Icon(
-                        Icons.star,
-                        color: i <= _rating
-                            ? Colors.yellow[700]
-                            : Colors.grey[300],
-                        size: 52,
-                      ),
-                    ),
-                ],
-              ),
+            RatingBar(
+              onRatingChange: (val) {
+                print(val);
+              },
             ),
             const Spacer(),
             Row(

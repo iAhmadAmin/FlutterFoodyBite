@@ -50,11 +50,14 @@ class _HomePageState extends State<HomePage> {
                     itemCount: restaurantList.length + 1,
                     itemBuilder: (_, index) {
                       return index < restaurantList.length
-                          ? RestaurantTile(
-                              restaurant: restaurantList[index],
-                              margin: const EdgeInsets.only(
-                                left: kPadding,
-                                bottom: 3,
+                          ? SizedBox(
+                              width: getRelativeWidth(0.9),
+                              child: RestaurantTile(
+                                restaurant: restaurantList[index],
+                                margin: const EdgeInsets.only(
+                                  left: kPadding,
+                                  bottom: 3,
+                                ),
                               ),
                             )
                           : const SizedBox(

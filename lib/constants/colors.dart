@@ -5,9 +5,9 @@ import 'package:foodybite/models/restaurant_model.dart';
 const kPrimaryColor = Color(0xFF5663FF);
 const kSecondaryColor = Color(0xFF6E7FAA);
 const kTextColor = Color(0xFF222455);
-final kSecondaryTextColor = const Color(0xFF6E7FAA).withOpacity(0.7);
+final kSecondaryTextColor = const Color(0xFF6E7FAA).withOpacity(0.8);
 final kTextFieldColor = Colors.white.withOpacity(0.25);
-final kBackgroundColor = Colors.white;
+const kBackgroundColor = Colors.white;
 
 // Food Category Gradients
 const kItalianGradient = LinearGradient(colors: [
