@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/pages/HomeFlow/Category/category_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Home/home_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Restaurant/restaurant_page.dart';
 import 'package:get/get.dart';

@@ -58,7 +58,9 @@ class RestaurantPage extends StatelessWidget {
                         label: 'Review & Ratings',
                         count: '32',
                         onTap: () {
-                          Get.to(() => const ReviewRatingPage());
+                          Get.to(() => const ReviewRatingPage(
+                                showMyRatings: false,
+                              ));
                         }),
                     const SizedBox(
                       height: kPadding / 2,

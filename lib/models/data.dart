@@ -1,6 +1,7 @@
 import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/models/review_model.dart';
+import 'package:foodybite/models/user_model.dart';
 
 String r = 'It is a long established fact that a reader will be distracted'
     ' by the readable content of a page when looking at its layout. '
@@ -138,4 +139,52 @@ List<String> foodsImgList = [
   Images.f12,
   Images.f13,
   Images.f14,
+];
+
+List<UserModel> userList = [
+  UserModel(
+    reviews: reviewList,
+    name: 'Patty Howard',
+    imgPath: Images.d1,
+  ),
+  UserModel(
+    reviews: reviewList,
+    name: 'Antonio Banks',
+    imgPath: Images.d2,
+  ),
+  UserModel(
+    reviews: reviewList,
+    name: 'Franklin Cox',
+    imgPath: Images.d3,
+  ),
+  UserModel(
+    reviews: reviewList,
+    name: 'Kristopher Ward',
+    imgPath: Images.d4,
+  ),
+  UserModel(
+    reviews: reviewList,
+    name: 'Christopher Jennings',
+    imgPath: Images.d5,
+  ),
+  UserModel(
+    reviews: reviewList,
+    name: 'Roy Kim',
+    imgPath: Images.d6,
+  ),
+  UserModel(
+    reviews: reviewList,
+    name: 'Drew Willis',
+    imgPath: Images.d7,
+  ),
+  UserModel(
+    reviews: reviewList,
+    name: 'Claude Torres',
+    imgPath: Images.d8,
+  ),
+  UserModel(
+    reviews: reviewList,
+    name: 'Angelo Jordan',
+    imgPath: Images.d9,
+  ),
 ];

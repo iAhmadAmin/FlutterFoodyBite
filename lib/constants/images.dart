@@ -1,9 +1,20 @@
+import 'package:foodybite/models/restaurant_model.dart';
+
 class Images {
   static const splash = 'assets/images/splash.jpg';
   static const login = 'assets/images/login.jpg';
   static const register = 'assets/images/register.jpg';
   static const welcome = 'assets/images/welcome.jpg';
   static const food = 'assets/images/food.jpg';
+
+  static const american = 'assets/images/american.jpg';
+  static const arabian = 'assets/images/arabian.jpg';
+  static const chinese = 'assets/images/chinese.jpg';
+  static const indian = 'assets/images/indian.jpg';
+  static const italian = 'assets/images/italian.jpg';
+  static const korean = 'assets/images/korean.jpg';
+  static const maxican = 'assets/images/maxican.jpg';
+  static const thai = 'assets/images/thai.jpg';
 
   static const f1 = 'assets/images/f (1).jpg';
   static const f2 = 'assets/images/f (2).jpg';
@@ -31,4 +42,27 @@ class Images {
   static const d9 = 'assets/images/dp (9).jpg';
   static const d10 = 'assets/images/dp (10).jpg';
   static const d11 = 'assets/images/dp (11).jpg';
+
+  static String getCategoryImage(FCategory category) {
+    switch (category) {
+      case FCategory.American:
+        return american;
+      case FCategory.Arabian:
+        return arabian;
+      case FCategory.Chinese:
+        return chinese;
+      case FCategory.Indian:
+        return indian;
+      case FCategory.Italian:
+        return italian;
+      case FCategory.Korean:
+        return korean;
+      case FCategory.Maxian:
+        return maxican;
+      case FCategory.Thai:
+        return thai;
+      default:
+        return italian;
+    }
+  }
 }

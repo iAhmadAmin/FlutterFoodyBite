@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
-import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:photo_view/photo_view.dart';
 

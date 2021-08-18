@@ -5,6 +5,7 @@ import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/pages/HomeFlow/Category/category_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Trending/trending_restaurants_page.dart';
 import 'package:foodybite/view/widgets/category_tile.dart';
 import 'package:foodybite/view/widgets/heading_bar.dart';
@@ -71,7 +72,11 @@ class _HomePageState extends State<HomePage> {
               HeadinBar(
                 label: 'Categories',
                 count: '9',
-                onTap: () {},
+                onTap: () {
+                  Get.to(
+                    () => CategorySelectorPage(),
+                  );
+                },
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -79,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     CategoryTile(
                       category: FCategory.Italian,
                     ),

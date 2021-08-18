@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
-import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/review_model.dart';
 
 class ReviewTile extends StatelessWidget {
-  const ReviewTile({@required this.review});
+  const ReviewTile({
+    @required this.review,
+    this.isRestaurant = false,
+  });
   final Review review;
+  final bool isRestaurant;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +20,8 @@ class ReviewTile extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 22,
-            backgroundImage: AssetImage(review.userImgPath),
+            backgroundImage: AssetImage(
+                isRestaurant ? review.restaurantImgPath : review.userImgPath),
           ),
           const SizedBox(
             width: kPadding,
@@ -29,7 +33,7 @@ class ReviewTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      review.userName,
+                      isRestaurant ? review.restaurantName : review.userName,
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
                             color: kTextColor,
                             fontWeight: FontWeight.w600,

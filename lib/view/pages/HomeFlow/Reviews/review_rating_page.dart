@@ -4,7 +4,11 @@ import 'package:foodybite/models/data.dart';
 import 'package:foodybite/view/widgets/review_tile.dart';
 
 class ReviewRatingPage extends StatelessWidget {
-  const ReviewRatingPage({Key key}) : super(key: key);
+  const ReviewRatingPage({
+    @required this.showMyRatings,
+  });
+
+  final bool showMyRatings;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,8 @@ class ReviewRatingPage extends StatelessWidget {
       body: SizedBox.expand(
         child: ListView.builder(
           itemCount: reviewList.length,
-          itemBuilder: (_, index) => ReviewTile(review: reviewList[index]),
+          itemBuilder: (_, index) => ReviewTile(
+              isRestaurant: showMyRatings, review: reviewList[index]),
         ),
       ),
     );
