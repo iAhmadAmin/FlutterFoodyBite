@@ -3,6 +3,7 @@ import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/category_tile.dart';
 import 'package:get/get.dart';
 
@@ -12,19 +13,9 @@ class CategorySelectorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: kBackgroundColor,
-        centerTitle: true,
-        title: const Text(
-          'Category',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.black,
-        ),
+      appBar: MAppBar(
+        title: 'Category',
+        appBar: AppBar(),
       ),
       body: SizedBox.expand(
         child: Padding(

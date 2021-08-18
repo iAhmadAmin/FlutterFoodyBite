@@ -3,6 +3,7 @@ import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:foodybite/view/widgets/round_button.dart';
 import 'package:get/get.dart';
@@ -20,26 +21,14 @@ class _FilterPageState extends State<FilterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: kBackgroundColor,
-        centerTitle: true,
-        title: const Text(
-          'Filter',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.black,
-        ),
+      appBar: MAppBar(
+        title: 'Filter',
+        appBar: AppBar(),
         actions: [
           IconButton(
-            onPressed: () {
-              Get.back();
-            },
+            onPressed: () {},
             icon: const Icon(Icons.close, color: kSecondaryColor),
-          )
+          ),
         ],
       ),
       body: SizedBox.expand(

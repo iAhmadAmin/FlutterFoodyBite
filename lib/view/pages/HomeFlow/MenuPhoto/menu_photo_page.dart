@@ -5,6 +5,7 @@ import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/PhotoView/photo_view_page.dart';
+import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:get/get.dart';
 
 class MenuPhotoPage extends StatelessWidget {
@@ -26,19 +27,9 @@ class MenuPhotoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: kBackgroundColor,
-        centerTitle: true,
-        title: const Text(
-          'Menu & Photos',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.black,
-        ),
+      appBar: MAppBar(
+        title: 'Menu & Photos',
+        appBar: AppBar(),
       ),
       body: Container(
         height: SizeConfig.screenHeight,

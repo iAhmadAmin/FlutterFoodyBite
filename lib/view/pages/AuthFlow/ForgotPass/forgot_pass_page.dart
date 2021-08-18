@@ -4,6 +4,7 @@ import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
+import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
 
@@ -20,10 +21,11 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          title: Text('Forgot Password'),
-          centerTitle: true,
+        appBar: MAppBar(
+          title: 'Forgot Password',
+          appBar: AppBar(),
+          txtColor: Colors.white,
+          bgColor: Colors.transparent,
         ),
         body: SizedBox.expand(
           child: Stack(

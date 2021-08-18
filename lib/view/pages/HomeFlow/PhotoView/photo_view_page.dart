@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/data.dart';
+import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:photo_view/photo_view.dart';
 
 class PhotoViewPage extends StatefulWidget {
@@ -25,19 +26,11 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: const Text(
-          'Preview',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
+      appBar: MAppBar(
+        title: 'Filter',
+        txtColor: Colors.white,
+        bgColor: Colors.transparent,
+        appBar: AppBar(),
       ),
       body: SizedBox.expand(
         child: Stack(

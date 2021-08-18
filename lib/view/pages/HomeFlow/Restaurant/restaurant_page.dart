@@ -7,6 +7,7 @@ import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/MenuPhoto/menu_photo_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/add_review_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/review_rating_page.dart';
+import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/category_chip.dart';
 import 'package:foodybite/view/widgets/heading_bar.dart';
 import 'package:foodybite/view/widgets/review_tile.dart';
@@ -25,10 +26,11 @@ class RestaurantPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+      appBar: MAppBar(
+        title: '',
+        appBar: AppBar(),
+        txtColor: Colors.white,
+        bgColor: Colors.transparent,
         actions: [
           IconButton(
             icon: const Icon(Icons.share),

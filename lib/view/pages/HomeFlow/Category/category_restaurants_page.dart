@@ -5,6 +5,7 @@ import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
 
 class CategoryRestaurantsPage extends StatefulWidget {
@@ -34,19 +35,11 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: Text(
-          _currentCategory.toString().split('.').last,
-          style: const TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
+      appBar: MAppBar(
+        title: _currentCategory.toString().split('.').last,
+        appBar: AppBar(),
+        txtColor: Colors.white,
+        bgColor: Colors.transparent,
       ),
       body: Column(
         children: [
