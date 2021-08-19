@@ -4,6 +4,7 @@ import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
+import 'package:foodybite/view/pages/HomeFlow/Home/home_page.dart';
 import 'package:foodybite/view/widgets/app_title.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
@@ -38,43 +39,48 @@ class WelcomePage extends StatelessWidget {
                       SizedBox(
                         height: getRelativeHeight(0.04),
                       ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: GlassmorphicContainer(
-                          width: 90,
-                          height: 40,
-                          borderRadius: 12,
-                          blur: 3,
-                          alignment: Alignment.bottomCenter,
-                          border: 0,
-                          linearGradient: LinearGradient(
+                      GestureDetector(
+                        onTap: () {
+                          Get.offAll(() => HomePage());
+                        },
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: GlassmorphicContainer(
+                            width: 90,
+                            height: 40,
+                            borderRadius: 12,
+                            blur: 3,
+                            alignment: Alignment.bottomCenter,
+                            border: 0,
+                            linearGradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  const Color(0xFFffffff).withOpacity(0.15),
+                                  const Color(0xFFFFFFFF).withOpacity(0.05),
+                                ],
+                                stops: const [
+                                  0.1,
+                                  1,
+                                ]),
+                            borderGradient: LinearGradient(
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
-                                const Color(0xFFffffff).withOpacity(0.15),
-                                const Color(0xFFFFFFFF).withOpacity(0.05),
+                                Colors.white.withOpacity(0.15),
+                                Colors.white.withOpacity(0.5),
                               ],
-                              stops: const [
-                                0.1,
-                                1,
-                              ]),
-                          borderGradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Colors.white.withOpacity(0.15),
-                              Colors.white.withOpacity(0.5),
-                            ],
-                          ),
-                          child: Center(
-                            child: Text('Skip',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle1
-                                    .copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w300,
-                                    )),
+                            ),
+                            child: Center(
+                              child: Text('Skip',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .subtitle1
+                                      .copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w300,
+                                      )),
+                            ),
                           ),
                         ),
                       ),

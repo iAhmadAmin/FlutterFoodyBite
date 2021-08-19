@@ -6,6 +6,7 @@ import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/Category/category_page.dart';
+import 'package:foodybite/view/pages/HomeFlow/Filter/filter_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Trending/trending_restaurants_page.dart';
 import 'package:foodybite/view/widgets/category_tile.dart';
 import 'package:foodybite/view/widgets/heading_bar.dart';
@@ -32,7 +33,12 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: kPadding * 1.5,
               ),
-              const SearchField(),
+              SearchField(
+                hint: 'Find Restaurants',
+                onLeadingTap: () {
+                  Get.to(() => FilterPage());
+                },
+              ),
               const SizedBox(
                 height: kPadding * 1.5,
               ),
@@ -44,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               SizedBox(
-                height: getRelativeWidth(0.7),
+                height: getRelativeWidth(0.62),
                 width: getRelativeWidth(1),
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -16,6 +18,18 @@ class CategorySelectorPage extends StatelessWidget {
       appBar: MAppBar(
         title: 'Category',
         appBar: AppBar(),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: kPadding),
+            child: GestureDetector(
+              onTap: () {},
+              child: SvgPicture.asset(
+                MIcons.search,
+                height: 20,
+              ),
+            ),
+          ),
+        ],
       ),
       body: SizedBox.expand(
         child: Padding(

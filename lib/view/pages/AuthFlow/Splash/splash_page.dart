@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/view/pages/AuthFlow/Login/login_page.dart';
+import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -20,6 +22,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
     Future.delayed(const Duration(milliseconds: 1100), () {
       _slideAnimationController.forward();
+    });
+
+    Future.delayed(const Duration(milliseconds: 2400), () {
+      Get.off(() => LoginPage());
     });
 
     _slideAnimationController = AnimationController(

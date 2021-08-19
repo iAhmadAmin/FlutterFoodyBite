@@ -38,7 +38,7 @@ class _AddReviewPageState extends State<AddReviewPage> {
                 style: TextStyle(
                   color: kSecondaryTextColor,
                   fontWeight: FontWeight.w600,
-                  fontSize: 18,
+                  fontSize: 14,
                 )),
             const SizedBox(height: kPadding * 2),
             Padding(

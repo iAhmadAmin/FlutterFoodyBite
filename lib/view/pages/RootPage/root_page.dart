@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/icons.dart';
+import 'package:foodybite/view/pages/Favourite/favourite_restaurants_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Home/home_page.dart';
+import 'package:foodybite/view/pages/HomeFlow/Profile/profile_page.dart';
+import 'package:foodybite/view/pages/HomeFlow/Reviews/add_review_page.dart';
+import 'package:foodybite/view/pages/NewReview/new_review_page.dart';
 import 'package:foodybite/view/pages/RootPage/Components/bootm_nav_bar.dart';
 
 class RootPage extends StatefulWidget {
-  const RootPage({Key key}) : super(key: key);
-
   @override
   _RootPageState createState() => _RootPageState();
 }
 
 class _RootPageState extends State<RootPage> {
-  final _pages = const [
+  final _pages = [
     HomePage(),
+    FavouriteRestaurantsPage(),
+    NewReviewPage(),
     Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    ProfilePage(),
   ];
 
   int _selectedIndex = 0;

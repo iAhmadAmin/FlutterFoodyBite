@@ -17,12 +17,6 @@ class ReviewRatingPage extends StatelessWidget {
       appBar: MAppBar(
         title: 'Review & Ratings',
         appBar: AppBar(),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.close, color: kSecondaryColor),
-          ),
-        ],
       ),
       body: SizedBox.expand(
         child: ListView.builder(

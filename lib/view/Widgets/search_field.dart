@@ -6,13 +6,18 @@ import 'package:foodybite/constants/icons.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({
-    Key key,
-    @required this.onLeadingTap,
+    this.onLeadingTap,
     this.hint = 'Search',
-  }) : super(key: key);
+    this.suffixWidget,
+    @required this.controller,
+    this.onFieldSubmitted,
+  });
 
   final String hint;
   final VoidCallback onLeadingTap;
+  final Widget suffixWidget;
+  final TextEditingController controller;
+  final Function(String value) onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +27,19 @@ class SearchField extends StatelessWidget {
       ),
       height: 50,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius / 2),
-          color: Colors.white,
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black12,
-              offset: Offset(0, 1),
-              blurRadius: 5,
-            ),
-          ]),
+        borderRadius: BorderRadius.circular(kBorderRadius / 2),
+        color: Colors.white,
+        border: Border.all(
+          color: kSecondaryTextColor,
+          width: 0.3,
+        ),
+      ),
       child: Row(
         children: [
           Expanded(
             child: TextFormField(
+              onFieldSubmitted: onFieldSubmitted,
+              controller: controller,
               textAlignVertical: TextAlignVertical.center,
               cursorColor: kTextColor,
               style: Theme.of(context)
@@ -59,17 +64,18 @@ class SearchField extends StatelessWidget {
               ),
             ),
           ),
-          GestureDetector(
-            onTap: onLeadingTap,
-            child: Transform.scale(
-              scale: 0.55,
-              child: SvgPicture.asset(
-                MIcons.filter,
-                color: kSecondaryTextColor,
-                height: 30,
+          if (onLeadingTap != null)
+            GestureDetector(
+              onTap: onLeadingTap,
+              child: Transform.scale(
+                scale: 0.55,
+                child: SvgPicture.asset(
+                  MIcons.filter,
+                  color: kSecondaryTextColor,
+                  height: 30,
+                ),
               ),
             ),
-          ),
           const SizedBox(
             width: kPadding,
           ),
