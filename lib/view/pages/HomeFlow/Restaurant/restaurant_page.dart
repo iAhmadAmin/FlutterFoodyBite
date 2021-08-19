@@ -18,9 +18,11 @@ import 'package:get/get.dart';
 class RestaurantPage extends StatelessWidget {
   const RestaurantPage({
     @required this.restaurant,
+    this.isBookmarked = false,
   });
 
   final Restaurant restaurant;
+  final bool isBookmarked;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class RestaurantPage extends StatelessWidget {
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.bookmark_outline),
+            icon: Icon(isBookmarked ? Icons.bookmark : Icons.bookmark_outline),
             onPressed: () {},
           )
         ],
@@ -76,16 +78,17 @@ class RestaurantPage extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              left: 0,
-              child: RoundButton(
-                  label: 'Rate Your Experience',
-                  onTap: () {
-                    Get.to(() => AddReviewPage());
-                  }),
-            ),
+            if (!isBookmarked)
+              Positioned(
+                bottom: 0,
+                right: 0,
+                left: 0,
+                child: RoundButton(
+                    label: 'Rate Your Experience',
+                    onTap: () {
+                      Get.to(() => AddReviewPage());
+                    }),
+              ),
           ],
         ),
       ),

@@ -29,7 +29,10 @@ class RestaurantTile extends StatelessWidget {
     const int more = noOfFriends - 4 > 0 ? noOfFriends - 4 : 0;
     return GestureDetector(
       onTap: () {
-        Get.to(() => RestaurantPage(restaurant: restaurant));
+        Get.to(() => RestaurantPage(
+              restaurant: restaurant,
+              isBookmarked: forFavourite,
+            ));
       },
       child: Container(
           margin: margin,

@@ -5,6 +5,7 @@ import 'package:foodybite/view/pages/HomeFlow/Home/home_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Profile/profile_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/add_review_page.dart';
 import 'package:foodybite/view/pages/NewReview/new_review_page.dart';
+import 'package:foodybite/view/pages/Notifications/notifications_page.dart';
 import 'package:foodybite/view/pages/RootPage/Components/bootm_nav_bar.dart';
 
 class RootPage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _RootPageState extends State<RootPage> {
     HomePage(),
     FavouriteRestaurantsPage(),
     NewReviewPage(),
-    Scaffold(),
+    NotificationsPage(),
     ProfilePage(),
   ];
 
