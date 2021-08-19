@@ -6,7 +6,6 @@ import 'package:foodybite/view/pages/AuthFlow/Splash/splash_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Category/category_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Filter/filter_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Home/home_page.dart';
-import 'package:foodybite/view/pages/HomeFlow/Profile/profile_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Restaurant/restaurant_page.dart';
 import 'package:foodybite/view/pages/RootPage/root_page.dart';
 import 'package:get/get.dart';

@@ -7,9 +7,14 @@ import 'package:foodybite/view/widgets/mbutton.dart';
 import 'package:get/get.dart';
 
 class UserListingPage extends StatelessWidget {
-  const UserListingPage({@required this.appBarTitle, @required this.userList});
+  const UserListingPage(
+      {this.findNewFriends = false,
+      @required this.appBarTitle,
+      this.isFollowing = false,
+      @required this.userList});
   final List<UserModel> userList;
   final String appBarTitle;
+  final bool findNewFriends, isFollowing;
 
   @override
   Widget build(BuildContext context) {
@@ -21,25 +26,27 @@ class UserListingPage extends StatelessWidget {
         body: SizedBox.expand(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: kPadding,
-                  bottom: kPadding * 1.5,
-                ),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Suggestions',
-                    style: Theme.of(context).textTheme.subtitle1.copyWith(
-                          color: kSecondaryTextColor,
-                        ),
+              if (findNewFriends)
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: kPadding,
+                    bottom: kPadding * 1.5,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Suggestions',
+                      style: Theme.of(context).textTheme.subtitle1.copyWith(
+                            color: kSecondaryTextColor,
+                          ),
+                    ),
                   ),
                 ),
-              ),
               Expanded(
                 child: ListView.builder(
                   itemCount: userList.length,
-                  itemBuilder: (_, index) => UserTile(user: userList[index]),
+                  itemBuilder: (_, index) =>
+                      UserTile(isFollowing: isFollowing, user: userList[index]),
                 ),
               ),
             ],
@@ -49,9 +56,9 @@ class UserListingPage extends StatelessWidget {
 }
 
 class UserTile extends StatelessWidget {
-  const UserTile({@required this.user});
-
+  const UserTile({@required this.isFollowing, @required this.user});
   final UserModel user;
+  final bool isFollowing;
 
   @override
   Widget build(BuildContext context) {
@@ -91,8 +98,9 @@ class UserTile extends StatelessWidget {
           ),
           const Spacer(),
           MButton(
+            isFilled: !isFollowing,
             txtSize: 12,
-            label: 'Follow',
+            label: isFollowing ? 'Unfollow' : 'Follow',
             onTap: () {},
             height: 26,
             width: 70,

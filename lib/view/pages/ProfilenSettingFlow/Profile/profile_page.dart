@@ -4,11 +4,18 @@ import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/pages/HomeFlow/Reviews/review_rating_page.dart';
+import 'package:foodybite/view/pages/ProfilenSettingFlow/UserListing/user_listing_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
+  ProfilePage({@required this.isMe});
+
+  final bool isMe;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +53,9 @@ class ProfilePage extends StatelessWidget {
                 CountTile(
                   label: 'Reviews',
                   count: 120,
+                  onTap: () {
+                    Get.to(() => ReviewRatingPage(showMyRatings: true));
+                  },
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(
@@ -56,9 +66,14 @@ class ProfilePage extends StatelessWidget {
                   color: kSecondaryTextColor,
                 ),
                 CountTile(
-                  label: 'Followers',
-                  count: 240,
-                ),
+                    label: 'Followers',
+                    count: 240,
+                    onTap: () {
+                      Get.to(() => UserListingPage(
+                            appBarTitle: 'Followers',
+                            userList: userList,
+                          ));
+                    }),
                 Container(
                   margin: EdgeInsets.symmetric(
                     horizontal: getRelativeWidth(0.07),
@@ -68,25 +83,31 @@ class ProfilePage extends StatelessWidget {
                   color: kSecondaryTextColor,
                 ),
                 CountTile(
-                  label: 'Following',
-                  count: 74,
-                )
+                    label: 'Following',
+                    count: 74,
+                    onTap: () {
+                      Get.to(() => UserListingPage(
+                            appBarTitle: 'Following',
+                            userList: userList,
+                            isFollowing: true,
+                          ));
+                    })
               ]),
               const SizedBox(height: kPadding * 1.5),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 MButton(
-                  label: 'Follow',
-                  onTap: () {},
+                  label: isMe ? 'Edit Profile' : 'Follow',
+                  onTap: isMe ? () {} : () {},
                   width: getRelativeWidth(0.35),
-                  height: 50,
+                  height: 45,
                 ),
                 const SizedBox(width: kPadding),
                 MButton(
                   isFilled: false,
-                  label: 'Block',
-                  onTap: () {},
+                  label: isMe ? 'Settings' : 'Block',
+                  onTap: isMe ? () {} : () {},
                   width: getRelativeWidth(0.35),
-                  height: 50,
+                  height: 45,
                 ),
               ]),
               const SizedBox(height: kPadding),
@@ -101,6 +122,7 @@ class ProfilePage extends StatelessWidget {
                 itemBuilder: (_, index) =>
                     RestaurantTile(restaurant: restaurantList[index]),
               ),
+              const SizedBox(height: kPadding * 4),
             ],
           ),
         ),
@@ -113,27 +135,32 @@ class CountTile extends StatelessWidget {
   const CountTile({
     @required this.count,
     @required this.label,
+    @required this.onTap,
   });
 
   final String label;
   final int count;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Text(
-        count.toString(),
-        style: Theme.of(context).textTheme.headline6.copyWith(
-              color: kPrimaryColor,
-              fontWeight: FontWeight.bold,
-            ),
-      ),
-      const SizedBox(height: kPadding / 3),
-      Text(label,
-          style: Theme.of(context).textTheme.bodyText1.copyWith(
-                color: kSecondaryTextColor,
-                fontWeight: FontWeight.w600,
-              )),
-    ]);
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(children: [
+        Text(
+          count.toString(),
+          style: Theme.of(context).textTheme.headline6.copyWith(
+                color: kPrimaryColor,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+        const SizedBox(height: kPadding / 3),
+        Text(label,
+            style: Theme.of(context).textTheme.bodyText1.copyWith(
+                  color: kSecondaryTextColor,
+                  fontWeight: FontWeight.w600,
+                )),
+      ]),
+    );
   }
 }

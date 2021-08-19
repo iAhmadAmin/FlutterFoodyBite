@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/view/pages/Favourite/favourite_restaurants_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Home/home_page.dart';
-import 'package:foodybite/view/pages/HomeFlow/Profile/profile_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/add_review_page.dart';
 import 'package:foodybite/view/pages/NewReview/new_review_page.dart';
 import 'package:foodybite/view/pages/Notifications/notifications_page.dart';
+import 'package:foodybite/view/pages/ProfilenSettingFlow/Profile/profile_page.dart';
 import 'package:foodybite/view/pages/RootPage/Components/bootm_nav_bar.dart';
 
 class RootPage extends StatefulWidget {
@@ -19,7 +19,7 @@ class _RootPageState extends State<RootPage> {
     FavouriteRestaurantsPage(),
     NewReviewPage(),
     NotificationsPage(),
-    ProfilePage(),
+    ProfilePage(isMe: true),
   ];
 
   int _selectedIndex = 0;
