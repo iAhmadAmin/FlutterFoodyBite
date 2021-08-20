@@ -48,8 +48,8 @@ class RestaurantTile extends StatelessWidget {
               boxShadow: const [
                 BoxShadow(
                   color: Colors.black12,
-                  offset: Offset(1, 2),
-                  blurRadius: 12,
+                  offset: Offset(0, 1),
+                  blurRadius: 2,
                 ),
               ]),
           child: Stack(
@@ -133,8 +133,6 @@ class RestaurantTile extends StatelessWidget {
                               top: kPadding,
                               left: kPadding,
                               child: Container(
-                                height: 26,
-                                width: 60,
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: kPadding / 2,
                                   vertical: kPadding / 6,
@@ -249,7 +247,7 @@ class RestaurantTile extends StatelessWidget {
                           restaurant.address,
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1
+                              .caption
                               .copyWith(color: kSecondaryTextColor),
                         )
                       ],

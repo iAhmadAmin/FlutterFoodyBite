@@ -8,6 +8,7 @@ import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/Category/category_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Filter/filter_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Trending/trending_restaurants_page.dart';
+import 'package:foodybite/view/pages/ProfilenSettingFlow/UserListing/user_listing_page.dart';
 import 'package:foodybite/view/widgets/category_tile.dart';
 import 'package:foodybite/view/widgets/heading_bar.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
@@ -30,8 +31,8 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: kPadding * 1.5,
+              SizedBox(
+                height: getRelativeHeight(0.04),
               ),
               SearchField(
                 hint: 'Find Restaurants',
@@ -40,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               const SizedBox(
-                height: kPadding * 1.5,
+                height: kPadding * 2,
               ),
               HeadinBar(
                 label: 'Trending Restaurants',
@@ -49,6 +50,7 @@ class _HomePageState extends State<HomePage> {
                   Get.to(() => const TrendingRestarurantsPage());
                 },
               ),
+              const SizedBox(height: kPadding / 2),
               SizedBox(
                 height: getRelativeWidth(0.62),
                 width: getRelativeWidth(1),
@@ -73,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                     }),
               ),
               const SizedBox(
-                height: kPadding * 1.5,
+                height: kPadding * 2,
               ),
               HeadinBar(
                 label: 'Categories',
@@ -84,6 +86,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
+              const SizedBox(height: kPadding / 2),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: kPadding,
@@ -104,13 +107,21 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                height: kPadding * 1.5,
+                height: kPadding * 2,
               ),
               HeadinBar(
                 label: 'Friends',
                 count: '56',
-                onTap: () {},
+                onTap: () {
+                  Get.to(
+                    () => UserListingPage(
+                        isFollowing: true,
+                        appBarTitle: 'Following',
+                        userList: userList),
+                  );
+                },
               ),
+              const SizedBox(height: kPadding / 2),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: kPadding),
                 child: Row(
@@ -118,23 +129,23 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.food),
+                      backgroundImage: AssetImage(Images.d1),
                     ),
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.food),
+                      backgroundImage: AssetImage(Images.d2),
                     ),
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.food),
+                      backgroundImage: AssetImage(Images.d3),
                     ),
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.food),
+                      backgroundImage: AssetImage(Images.d4),
                     ),
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.food),
+                      backgroundImage: AssetImage(Images.d5),
                     ),
                   ],
                 ),

@@ -12,8 +12,8 @@ import 'package:foodybite/view/widgets/category_chip.dart';
 import 'package:foodybite/view/widgets/heading_bar.dart';
 import 'package:foodybite/view/widgets/review_tile.dart';
 import 'package:foodybite/view/widgets/round_button.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:get/get.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 
 class RestaurantPage extends StatelessWidget {
   const RestaurantPage({
@@ -57,7 +57,7 @@ class RestaurantPage extends StatelessWidget {
                     RestInfoTile(restaurant: restaurant),
                     const SizedBox(height: kPadding / 2),
                     const MenuPhotoBar(),
-                    const SizedBox(height: kPadding * 1.5),
+                    const SizedBox(height: kPadding * 2),
                     HeadinBar(
                         label: 'Review & Ratings',
                         count: '32',
@@ -67,7 +67,7 @@ class RestaurantPage extends StatelessWidget {
                               ));
                         }),
                     const SizedBox(
-                      height: kPadding / 2,
+                      height: kPadding,
                     ),
                     ReviewTile(
                       review: reviewList[0],
@@ -112,6 +112,7 @@ class MenuPhotoBar extends StatelessWidget {
             onTap: () {
               Get.to(() => const MenuPhotoPage());
             }),
+        const SizedBox(height: kPadding / 2),
         SizedBox(
           height: getRelativeWidth(0.35),
           child: ListView.builder(
@@ -297,7 +298,7 @@ class RestInfoTile extends StatelessWidget {
             restaurant.address,
             style: Theme.of(context)
                 .textTheme
-                .bodyText1
+                .caption
                 .copyWith(color: kSecondaryTextColor),
           ),
           const SizedBox(

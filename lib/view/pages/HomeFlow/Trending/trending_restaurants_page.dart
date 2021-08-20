@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodybite/constants/colors.dart';
+import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/view/pages/HomeFlow/Filter/filter_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -27,11 +27,13 @@ class TrendingRestarurantsPage extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: restaurantList.length,
+                itemCount: restaurantList.length + 1,
                 itemBuilder: (BuildContext context, int index) {
-                  return RestaurantTile(
-                    restaurant: restaurantList[index],
-                  );
+                  return index < restaurantList.length
+                      ? RestaurantTile(
+                          restaurant: restaurantList[index],
+                        )
+                      : const SizedBox(height: kPadding * 2);
                 },
               ),
             ),

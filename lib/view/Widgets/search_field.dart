@@ -31,7 +31,7 @@ class SearchField extends StatelessWidget {
         color: Colors.white,
         border: Border.all(
           color: kSecondaryTextColor,
-          width: 0.3,
+          width: 0.2,
         ),
       ),
       child: Row(

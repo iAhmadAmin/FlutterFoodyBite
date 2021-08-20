@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/utils/size_config.dart';
-import 'package:foodybite/view/pages/RootPage/root_page.dart';
+import 'package:foodybite/view/pages/AuthFlow/Splash/splash_page.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -26,6 +26,6 @@ class Root extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.initSize(context);
-    return RootPage();
+    return SplashPage();
   }
 }

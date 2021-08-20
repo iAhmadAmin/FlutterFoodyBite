@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
-import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/utils/size_config.dart';
-import 'package:foodybite/utils/validators.dart';
-import 'package:foodybite/view/pages/HomeFlow/Home/home_page.dart';
+import 'package:foodybite/view/pages/RootPage/root_page.dart';
 import 'package:foodybite/view/widgets/app_title.dart';
-import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
 import 'package:get/get.dart';
 import 'package:glassmorphism/glassmorphism.dart';
@@ -41,7 +38,9 @@ class WelcomePage extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.offAll(() => HomePage());
+                          Get.offAll(
+                            () => RootPage(),
+                          );
                         },
                         child: Align(
                           alignment: Alignment.centerRight,

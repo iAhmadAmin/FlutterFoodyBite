@@ -22,12 +22,14 @@ class CategoryChip extends StatelessWidget {
           borderRadius: BorderRadius.circular(kBorderRadius),
           gradient: getCategoryGradient(category),
         ),
-        child: Text(
-          category.toString().split('.').last,
-          style: Theme.of(context).textTheme.caption.copyWith(
-                fontSize: 10,
-                color: Colors.white,
-              ),
+        child: Center(
+          child: Text(
+            category.toString().split('.').last,
+            style: Theme.of(context).textTheme.caption.copyWith(
+                  fontSize: 10,
+                  color: Colors.white,
+                ),
+          ),
         ));
   }
 }

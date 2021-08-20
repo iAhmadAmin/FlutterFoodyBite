@@ -5,11 +5,11 @@ import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/pages/AuthFlow/ForgotPass/forgot_pass_page.dart';
+import 'package:foodybite/view/pages/AuthFlow/Register/register_page.dart';
 import 'package:foodybite/view/pages/AuthFlow/Welcome/welcome_page.dart';
 import 'package:foodybite/view/widgets/app_title.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
-import 'package:foodybite/view/pages/AuthFlow/Register/register_page.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: getRelativeHeight(0.1),
+                        height: getRelativeHeight(0.15),
                       ),
                       const AppTitle(color: Colors.white),
                       const Spacer(),
@@ -90,7 +90,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: kPadding * 8),
+                      SizedBox(
+                        height: getRelativeHeight(0.2),
+                      ),
                       MButton(
                         label: 'Login',
                         onTap: () {

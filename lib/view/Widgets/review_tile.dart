@@ -14,12 +14,12 @@ class ReviewTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: kPadding),
-      padding: const EdgeInsets.only(bottom: kPadding),
+      padding: const EdgeInsets.only(bottom: kPadding * 1.5),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CircleAvatar(
-            radius: 22,
+            radius: 24,
             backgroundImage: AssetImage(
                 isRestaurant ? review.restaurantImgPath : review.userImgPath),
           ),

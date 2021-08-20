@@ -6,7 +6,6 @@ import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:foodybite/view/widgets/round_button.dart';
-import 'package:get/get.dart';
 
 class FilterPage extends StatefulWidget {
   @override
@@ -35,7 +34,7 @@ class _FilterPageState extends State<FilterPage> {
         child: Column(
           children: [
             const SizedBox(
-              height: kPadding,
+              height: kPadding * 1.5,
             ),
             const Text('Select Category',
                 style: TextStyle(
@@ -44,7 +43,7 @@ class _FilterPageState extends State<FilterPage> {
                   fontSize: 18,
                 )),
             const SizedBox(
-              height: kPadding,
+              height: kPadding * 1.5,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -66,14 +65,14 @@ class _FilterPageState extends State<FilterPage> {
                         gradient: selectedCategory == c
                             ? getCategoryGradient(c)
                             : null,
-                        border: selectedCategory != c
-                            ? Border.all(
-                                color: kSecondaryColor,
-                                width: 0.2,
-                              )
-                            : null,
+                        // border: selectedCategory != c
+                        //     ? Border.all(
+                        //         color: kSecondaryColor,
+                        //         width: 0.2,
+                        //       )
+                        //     : null,
                       ),
-                      height: 38,
+                      height: 44,
                       width: getRelativeWidth(0.25),
                       child: Center(
                         child: Text(
@@ -159,7 +158,7 @@ class _FilterPageState extends State<FilterPage> {
                   fontSize: 18,
                 )),
             const SizedBox(
-              height: kPadding * 1.6,
+              height: kPadding * 2,
             ),
             RatingBar(
               onRatingChange: (val) {
