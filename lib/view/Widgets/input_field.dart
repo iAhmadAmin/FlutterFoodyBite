@@ -57,7 +57,7 @@ class _InputFieldState extends State<InputField> {
                 scale: 0.4,
                 child: SvgPicture.asset(
                   widget.iconPath,
-                  color: !widget.isWhite ? kSecondaryTextColor : Colors.white,
+                  color: !widget.isWhite ? kPrimaryColor : Colors.white,
                   height: 12,
                 ),
               )
@@ -71,7 +71,7 @@ class _InputFieldState extends State<InputField> {
                 },
                 child: Icon(
                   Icons.remove_red_eye,
-                  color: !_hidePass ? kPrimaryColor : Colors.grey,
+                  color: !_hidePass ? kPrimaryColor : kSecondaryTextColor,
                 ),
               )
             : null,

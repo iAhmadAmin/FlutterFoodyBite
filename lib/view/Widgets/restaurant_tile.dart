@@ -7,20 +7,24 @@ import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/Restaurant/restaurant_page.dart';
-import 'category_chip.dart';
 import 'package:get/get.dart';
+
+import 'category_chip.dart';
 
 class RestaurantTile extends StatelessWidget {
   const RestaurantTile({
     @required this.restaurant,
     this.forAddReview = false,
     this.forFavourite = false,
+    this.forProfile = false,
+    this.menuTap,
     this.margin = const EdgeInsets.fromLTRB(kPadding, kPadding, kPadding, 0),
   });
 
-  final bool forAddReview, forFavourite;
+  final bool forAddReview, forFavourite, forProfile;
   final Restaurant restaurant;
   final EdgeInsetsGeometry margin;
+  final VoidCallback menuTap;
 
   @override
   Widget build(BuildContext context) {
@@ -197,26 +201,27 @@ class RestaurantTile extends StatelessWidget {
                             const SizedBox(
                               width: 6,
                             ),
-                            Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: kPadding * 0.55,
-                                  vertical: kPadding * 0.2,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(kBorderRadius),
-                                  color: kPrimaryColor,
-                                ),
-                                child: Text(
-                                  '1.2 km',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .caption
-                                      .copyWith(
-                                        color: Colors.white,
-                                        fontSize: 10,
-                                      ),
-                                )),
+                            if (!forProfile && !forFavourite)
+                              Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: kPadding * 0.55,
+                                    vertical: kPadding * 0.2,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.circular(kBorderRadius),
+                                    color: kPrimaryColor,
+                                  ),
+                                  child: Text(
+                                    '1.2 km',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .caption
+                                        .copyWith(
+                                          color: Colors.white,
+                                          fontSize: 10,
+                                        ),
+                                  )),
                             const Spacer(),
                             if (!forFavourite && !forAddReview)
                               SizedBox(
@@ -232,6 +237,12 @@ class RestaurantTile extends StatelessWidget {
                                             more: i == 0 ? more : 0,
                                           ),
                                       ])),
+                            if (forProfile)
+                              GestureDetector(
+                                onTap: menuTap,
+                                child: const Icon(Icons.more_vert,
+                                    color: kTextColor),
+                              ),
                           ],
                         ),
                         Text(

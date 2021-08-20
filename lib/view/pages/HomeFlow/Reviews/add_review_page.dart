@@ -5,7 +5,6 @@ import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:foodybite/view/widgets/round_button.dart';
-import 'package:get/get.dart';
 
 class AddReviewPage extends StatefulWidget {
   @override

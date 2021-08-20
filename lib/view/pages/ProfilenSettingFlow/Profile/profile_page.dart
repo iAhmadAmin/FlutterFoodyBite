@@ -4,7 +4,10 @@ import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/utils/size_config.dart';
+import 'package:foodybite/view/dialogs/m_dialogs.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/review_rating_page.dart';
+import 'package:foodybite/view/pages/NewReview/new_review_page.dart';
+import 'package:foodybite/view/pages/ProfilenSettingFlow/EditProfile/edit_profile_page.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/UserListing/user_listing_page.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/settings/settings_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -13,7 +16,7 @@ import 'package:foodybite/view/widgets/restaurant_tile.dart';
 import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
-  ProfilePage({@required this.isMe});
+  const ProfilePage({@required this.isMe});
 
   final bool isMe;
 
@@ -21,7 +24,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MAppBar(
-        title: 'Profile',
+        title: isMe ? 'My Profile' : 'Profile',
         appBar: AppBar(),
       ),
       body: SizedBox.expand(
@@ -30,7 +33,7 @@ class ProfilePage extends StatelessWidget {
             children: [
               //const SizedBox(height: kPadding),
               CircleAvatar(
-                radius: getRelativeWidth(0.16),
+                radius: getRelativeWidth(0.15),
                 backgroundImage: AssetImage(Images.d1),
               ),
               const SizedBox(height: kPadding),
@@ -98,7 +101,13 @@ class ProfilePage extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 MButton(
                   label: isMe ? 'Edit Profile' : 'Follow',
-                  onTap: isMe ? () {} : () {},
+                  onTap: isMe
+                      ? () {
+                          Get.to(
+                            () => EditPofilePage(),
+                          );
+                        }
+                      : () {},
                   width: getRelativeWidth(0.35),
                   height: 45,
                 ),
@@ -122,10 +131,32 @@ class ProfilePage extends StatelessWidget {
               ),
               ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: 3,
-                itemBuilder: (_, index) =>
-                    RestaurantTile(restaurant: restaurantList[index]),
+                itemBuilder: (_, index) => RestaurantTile(
+                  forProfile: true,
+                  restaurant: restaurantList[index],
+                  menuTap: () {
+                    MDialogs.menuDialog(
+                      onDeleteTap: () {
+                        Get.back();
+                        MDialogs.confirmationDialog(
+                          title: 'Are you sure you want to delete this post?',
+                          onYesTap: () {},
+                          onNoTap: () {
+                            Get.back();
+                          },
+                        );
+                      },
+                      onEditTap: () {
+                        Get.back();
+                        Get.to(() => const NewReviewPage(
+                              isUpdate: true,
+                            ));
+                      },
+                    );
+                  },
+                ),
               ),
               const SizedBox(height: kPadding * 4),
             ],

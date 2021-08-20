@@ -5,13 +5,17 @@ import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
+import 'package:foodybite/view/widgets/mbutton.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
-import 'package:foodybite/view/widgets/round_button.dart';
 import 'package:foodybite/view/widgets/search_field.dart';
-import 'package:get/get.dart';
 
 class NewReviewPage extends StatefulWidget {
+  const NewReviewPage({
+    this.isUpdate = false,
+  });
+  final bool isUpdate;
+
   @override
   _NewReviewPageState createState() => _NewReviewPageState();
 }
@@ -34,7 +38,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
 
     return Scaffold(
         appBar: MAppBar(
-          title: 'New Review',
+          title: widget.isUpdate ? 'Edit Review' : 'New Review',
           appBar: AppBar(),
           actions: [
             Padding(
@@ -109,6 +113,15 @@ class _NewReviewPageState extends State<NewReviewPage> {
                   controller: _experienceController,
                 ),
               ),
+              if (widget.isUpdate)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      kPadding, kPadding * 3, kPadding, 0),
+                  child: MButton(
+                    label: 'Update',
+                    onTap: () {},
+                  ),
+                ),
               const SizedBox(height: kPadding * 4),
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/view/dialogs/m_dialogs.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/ChangeLanguage/change_language_page.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/ChangePassword/change_password_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -63,7 +64,15 @@ class SettingsPage extends StatelessWidget {
                 ),
                 const SizedBox(height: kPadding),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    MDialogs.confirmationDialog(
+                      title: 'Are you sure you want to logout?',
+                      onNoTap: () {
+                        Get.back();
+                      },
+                      onYesTap: () {},
+                    );
+                  },
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
