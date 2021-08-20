@@ -57,7 +57,7 @@ class _InputFieldState extends State<InputField> {
                 scale: 0.4,
                 child: SvgPicture.asset(
                   widget.iconPath,
-                  color: Colors.white,
+                  color: !widget.isWhite ? kSecondaryTextColor : Colors.white,
                   height: 12,
                 ),
               )

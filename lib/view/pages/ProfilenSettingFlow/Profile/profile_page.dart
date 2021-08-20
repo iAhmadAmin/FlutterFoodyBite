@@ -6,6 +6,7 @@ import 'package:foodybite/models/data.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/review_rating_page.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/UserListing/user_listing_page.dart';
+import 'package:foodybite/view/pages/ProfilenSettingFlow/settings/settings_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
@@ -105,7 +106,11 @@ class ProfilePage extends StatelessWidget {
                 MButton(
                   isFilled: false,
                   label: isMe ? 'Settings' : 'Block',
-                  onTap: isMe ? () {} : () {},
+                  onTap: isMe
+                      ? () {
+                          Get.to(() => SettingsPage());
+                        }
+                      : () {},
                   width: getRelativeWidth(0.35),
                   height: 45,
                 ),
