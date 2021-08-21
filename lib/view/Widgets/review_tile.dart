@@ -16,7 +16,7 @@ class ReviewTile extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
       padding: const EdgeInsets.only(
         bottom: defaultPadding * 1,
-        top: defaultPadding,
+        top: defaultPadding / 2,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

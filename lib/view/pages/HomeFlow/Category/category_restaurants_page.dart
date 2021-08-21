@@ -6,31 +6,15 @@ import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
+import 'package:get/get.dart';
 
-class CategoryRestaurantsPage extends StatefulWidget {
+class CategoryRestaurantsPage extends StatelessWidget {
   const CategoryRestaurantsPage({@required this.category});
   final FCategory category;
 
   @override
-  _CategoryRestaurantsPageState createState() =>
-      _CategoryRestaurantsPageState();
-}
-
-class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
-  PageController _pageController;
-  int _currentPage;
-  FCategory _currentCategory;
-  @override
-  void initState() {
-    super.initState();
-    _currentCategory = widget.category;
-    _currentPage = FCategory.values.indexOf(widget.category);
-    _pageController = PageController(initialPage: _currentPage);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final List<Color> _colors = getCategoryGradient(widget.category).colors;
+    final List<Color> _colors = getCategoryGradient(category).colors;
 
     return Scaffold(
       //extendBodyBehindAppBar: true,
@@ -52,9 +36,9 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
                   height: 95,
                   width: getRelativeWidth(1),
                   child: Hero(
-                    tag: widget.category,
+                    tag: category,
                     child: Image.asset(
-                      Images.getCategoryImage(_currentCategory),
+                      Images.getCategoryImage(category),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -69,24 +53,6 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
                     ]),
                   ),
                 ),
-                Positioned(
-                    bottom: defaultPadding / 2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: FCategory.values.map((e) {
-                        return Container(
-                          margin: const EdgeInsets.only(right: 4),
-                          height: 4,
-                          width: 20,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: e == _currentCategory
-                                ? Colors.white
-                                : Colors.white.withOpacity(0.5),
-                          ),
-                        );
-                      }).toList(),
-                    )),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: defaultPadding,
@@ -94,56 +60,63 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                          ),
                         ),
                         Text(
-                          _currentCategory.toString().split('.').last,
-                          style: TextStyle(
+                          category.toString().split('.').last,
+                          style: const TextStyle(
                             color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         const SizedBox(width: defaultPadding),
                       ]),
-                )
+                ),
+                Positioned(
+                  bottom: 0,
+                  child: Container(
+                    height: 30,
+                    width: getRelativeWidth(1),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.white.withOpacity(0.01),
+                            Colors.white.withOpacity(0.05),
+                            Colors.white.withOpacity(0.1),
+                            Colors.white.withOpacity(0.3),
+                            Colors.white.withOpacity(0.5),
+                            Colors.white.withOpacity(0.9),
+                          ]),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
           Expanded(
-            child: PageView(
-              controller: _pageController,
-              onPageChanged: (value) {
-                setState(() {
-                  _currentCategory = FCategory.values[value];
-                });
+            child: ListView.builder(
+              itemCount: restaurantList.length + 1,
+              itemBuilder: (BuildContext context, int index) {
+                return index < restaurantList.length
+                    ? RestaurantTile(
+                        restaurant: restaurantList[index],
+                      )
+                    : const SizedBox(height: defaultPadding * 2);
               },
-              children: FCategory.values
-                  .map((c) => FilteredRestaurants(
-                        category: c,
-                      ))
-                  .toList(),
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class FilteredRestaurants extends StatelessWidget {
-  const FilteredRestaurants({@required this.category});
-  final FCategory category;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: restaurantList.length,
-      itemBuilder: (BuildContext context, int index) {
-        return RestaurantTile(
-          restaurant: restaurantList[index],
-        );
-      },
     );
   }
 }
