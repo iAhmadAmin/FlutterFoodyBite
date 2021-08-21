@@ -26,7 +26,7 @@ class _FilterPageState extends State<FilterPage> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.close, color: kSecondaryColor),
+            icon: const Icon(Icons.close, color: secondaryColor),
           ),
         ],
       ),
@@ -34,7 +34,7 @@ class _FilterPageState extends State<FilterPage> {
         child: Column(
           children: [
             const SizedBox(
-              height: kPadding * 1.5,
+              height: defaultPadding * 1.5,
             ),
             const Text('Select Category',
                 style: TextStyle(
@@ -43,15 +43,15 @@ class _FilterPageState extends State<FilterPage> {
                   fontSize: 18,
                 )),
             const SizedBox(
-              height: kPadding * 1.5,
+              height: defaultPadding * 1.5,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: kPadding,
+                horizontal: defaultPadding,
               ),
               child: Wrap(
-                spacing: kPadding,
-                runSpacing: kPadding / 2,
+                spacing: defaultPadding,
+                runSpacing: defaultPadding / 2,
                 children: FCategory.values.map((c) {
                   return GestureDetector(
                     onTap: () {
@@ -61,18 +61,19 @@ class _FilterPageState extends State<FilterPage> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(kBorderRadius / 2),
+                        borderRadius:
+                            BorderRadius.circular(defaultBorderRadius / 2),
                         gradient: selectedCategory == c
                             ? getCategoryGradient(c)
                             : null,
-                        // border: selectedCategory != c
-                        //     ? Border.all(
-                        //         color: kSecondaryColor,
-                        //         width: 0.2,
-                        //       )
-                        //     : null,
+                        border: selectedCategory != c
+                            ? Border.all(
+                                color: secondaryColor,
+                                width: 0.2,
+                              )
+                            : null,
                       ),
-                      height: 44,
+                      height: 42,
                       width: getRelativeWidth(0.25),
                       child: Center(
                         child: Text(
@@ -80,7 +81,7 @@ class _FilterPageState extends State<FilterPage> {
                           style: TextStyle(
                             color: c == selectedCategory
                                 ? Colors.white
-                                : kSecondaryColor,
+                                : secondaryColor,
                           ),
                         ),
                       ),
@@ -90,7 +91,7 @@ class _FilterPageState extends State<FilterPage> {
               ),
             ),
             const SizedBox(
-              height: kPadding * 2,
+              height: defaultPadding * 2,
             ),
             const Text('Distance',
                 style: TextStyle(
@@ -99,7 +100,7 @@ class _FilterPageState extends State<FilterPage> {
                   fontSize: 18,
                 )),
             const SizedBox(
-              height: kPadding / 2,
+              height: defaultPadding,
             ),
             SizedBox(
               height: 50,
@@ -107,10 +108,10 @@ class _FilterPageState extends State<FilterPage> {
               child: SliderTheme(
                 data: SliderTheme.of(context).copyWith(
                   tickMarkShape: SliderTickMarkShape.noTickMark,
-                  activeTrackColor: kPrimaryColor,
-                  inactiveTrackColor: Colors.grey[300],
-                  thumbColor: kPrimaryColor,
-                  valueIndicatorColor: kPrimaryColor,
+                  activeTrackColor: primaryColor,
+                  inactiveTrackColor: primaryColor.withOpacity(0.2),
+                  thumbColor: primaryColor,
+                  valueIndicatorColor: primaryColor,
                   trackHeight: 6,
                   // thumbShape: const SliderThumbShape(
                   //   thumbHeight: 40,
@@ -122,7 +123,6 @@ class _FilterPageState extends State<FilterPage> {
                 child: Slider(
                     label: _sliderValue.round().toString(),
                     value: _sliderValue,
-                    min: 0,
                     max: 100,
                     divisions: 20,
                     onChanged: (val) {
@@ -133,23 +133,23 @@ class _FilterPageState extends State<FilterPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kPadding),
+              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     '0',
-                    style: TextStyle(color: kSecondaryTextColor),
+                    style: TextStyle(color: ktextColor),
                   ),
                   Text(
                     '100',
-                    style: TextStyle(color: kSecondaryTextColor),
+                    style: TextStyle(color: ktextColor),
                   ),
                 ],
               ),
             ),
             const SizedBox(
-              height: kPadding * 2,
+              height: defaultPadding * 2,
             ),
             const Text('Ratings',
                 style: TextStyle(
@@ -158,7 +158,7 @@ class _FilterPageState extends State<FilterPage> {
                   fontSize: 18,
                 )),
             const SizedBox(
-              height: kPadding * 2,
+              height: defaultPadding * 2,
             ),
             RatingBar(
               onRatingChange: (val) {

@@ -16,24 +16,30 @@ class NotificationsPage extends StatelessWidget {
       ),
       body: SizedBox.expand(
           child: ListView.builder(
-        itemCount: notificationList.length,
-        itemBuilder: (_, index) =>
-            NotificationTile(notification: notificationList[index]),
+        itemCount: notificationList.length + 1,
+        itemBuilder: (_, index) => index < notificationList.length
+            ? NotificationTile(notification: notificationList[index])
+            : const SizedBox(
+                height: 100,
+              ),
       )),
     );
   }
 }
 
 class NotificationTile extends StatelessWidget {
-  NotificationTile({@required this.notification});
+  const NotificationTile({@required this.notification});
 
   final NotificationModel notification;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: kPadding),
-      padding: const EdgeInsets.only(bottom: kPadding),
+      margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: const EdgeInsets.only(
+        bottom: defaultPadding / 2,
+        top: defaultPadding,
+      ),
       child: Row(
         children: [
           CircleAvatar(
@@ -41,7 +47,7 @@ class NotificationTile extends StatelessWidget {
             backgroundImage: AssetImage(notification.iconPath),
           ),
           const SizedBox(
-            width: kPadding,
+            width: defaultPadding,
           ),
           Expanded(
             child: Column(
@@ -53,25 +59,25 @@ class NotificationTile extends StatelessWidget {
                     Text(
                       notification.source,
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
-                            color: kTextColor,
+                            color: textColor,
                             fontWeight: FontWeight.w600,
                           ),
                     ),
                     Text(
                       DateTimeUtils.dateToString(notification.dateTime),
                       style: Theme.of(context).textTheme.caption.copyWith(
-                            color: kSecondaryTextColor,
+                            color: ktextColor,
                           ),
                     ),
                   ],
                 ),
                 const SizedBox(
-                  height: kPadding / 2,
+                  height: defaultPadding / 2,
                 ),
                 Text(
                   notification.description,
                   style: Theme.of(context).textTheme.caption.copyWith(
-                        color: kSecondaryTextColor,
+                        color: ktextColor,
                       ),
                 ),
               ],

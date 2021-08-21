@@ -29,7 +29,7 @@ class WelcomePage extends StatelessWidget {
               SizedBox.expand(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: kPadding * 2,
+                    horizontal: defaultPadding,
                   ),
                   child: Column(
                     children: [

@@ -2,44 +2,47 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 
 // Single Colors
-const kPrimaryColor = Color(0xFF5663FF);
-const kSecondaryColor = Color(0xFF6E7FAA);
-const kTextColor = Color(0xFF222455);
-final kSecondaryTextColor = const Color(0xFF6E7FAA).withOpacity(0.8);
-final kTextFieldColor = Colors.white.withOpacity(0.25);
-const kBackgroundColor = Colors.white;
+const primaryColor = Color(0xFF5663FF);
+const secondaryColor = Color(0xFF6E7FAA);
+const textColor = Color(0xFF222455);
+final ktextColor = const Color(0xFF6E7FAA).withOpacity(0.8);
+final textFieldColor = Colors.white.withOpacity(0.25);
+final backgroundColor = Colors.grey[50];
+const appBarColor = Colors.white;
+const ratingBarColor = Color(0xFFF6FBFF);
+const ratingStarColor = Color(0xFFffcc00);
 
 // Food Category Gradients
-const kItalianGradient = LinearGradient(colors: [
+const italianGradient = LinearGradient(colors: [
   Color(0xFFFF5673),
   Color(0xFFFF8C48),
 ]);
-const kChineseGradient = LinearGradient(colors: [
+const chineseGradient = LinearGradient(colors: [
   Color(0xFF832BF6),
   Color(0xFFFF4665),
 ]);
-const kMaxicanGradient = LinearGradient(colors: [
+const maxicanGradient = LinearGradient(colors: [
   Color(0xFF2DCEF8),
   Color(0xFF3B40FE),
 ]);
-const kThaiGradient = LinearGradient(colors: [
+const thaiGradient = LinearGradient(colors: [
   Color(0xFF009DC5),
   Color(0xFF21E590),
 ]);
 
-const kArabianGradient = LinearGradient(colors: [
+const arabianGradient = LinearGradient(colors: [
   Color(0xFFFF870E),
   Color(0xFFD236D2),
 ]);
-const kIndianGradient = LinearGradient(colors: [
+const indianGradient = LinearGradient(colors: [
   Color(0xFFFE327E),
   Color(0xFF5C51FF),
 ]);
-const kAmericanGradient = LinearGradient(colors: [
+const americanGradient = LinearGradient(colors: [
   Color(0xFF2CE3F1),
   Color(0xFF6143FF),
 ]);
-const kKorianGradient = LinearGradient(colors: [
+const korianGradient = LinearGradient(colors: [
   Color(0xFFFF5673),
   Color(0xFFFF8C48),
 ]);
@@ -47,22 +50,22 @@ const kKorianGradient = LinearGradient(colors: [
 LinearGradient getCategoryGradient(FCategory category) {
   switch (category) {
     case FCategory.American:
-      return kAmericanGradient;
+      return americanGradient;
     case FCategory.Arabian:
-      return kArabianGradient;
+      return arabianGradient;
     case FCategory.Chinese:
-      return kChineseGradient;
+      return chineseGradient;
     case FCategory.Indian:
-      return kIndianGradient;
+      return indianGradient;
     case FCategory.Italian:
-      return kItalianGradient;
+      return italianGradient;
     case FCategory.Korean:
-      return kKorianGradient;
+      return korianGradient;
     case FCategory.Maxian:
-      return kMaxicanGradient;
+      return maxicanGradient;
     case FCategory.Thai:
-      return kThaiGradient;
+      return thaiGradient;
     default:
-      return kItalianGradient;
+      return italianGradient;
   }
 }

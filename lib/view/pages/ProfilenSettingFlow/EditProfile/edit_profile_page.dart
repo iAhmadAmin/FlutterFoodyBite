@@ -27,10 +27,10 @@ class _EditPofilePageState extends State<EditPofilePage> {
       ),
       body: SizedBox.expand(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kPadding),
+          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
           child: Column(
             children: [
-              const SizedBox(height: kPadding * 2),
+              const SizedBox(height: defaultPadding * 2),
               SizedBox(
                 height: getRelativeWidth(0.3),
                 width: getRelativeWidth(0.3),
@@ -38,7 +38,7 @@ class _EditPofilePageState extends State<EditPofilePage> {
                   children: [
                     CircleAvatar(
                       radius: getRelativeWidth(0.15),
-                      backgroundImage: AssetImage(Images.d1),
+                      backgroundImage: const AssetImage(Images.d1),
                     ),
                     Positioned(
                       right: 0,
@@ -47,7 +47,7 @@ class _EditPofilePageState extends State<EditPofilePage> {
                           height: 38,
                           width: 38,
                           decoration: BoxDecoration(
-                              color: kPrimaryColor,
+                              color: primaryColor,
                               shape: BoxShape.circle,
                               border: Border.all(
                                 width: 2,
@@ -62,14 +62,14 @@ class _EditPofilePageState extends State<EditPofilePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: kPadding * 3),
+              const SizedBox(height: defaultPadding * 3),
               InputField(
                 hint: 'John Williams',
                 controller: _nameController,
                 isWhite: false,
                 iconPath: MIcons.user_o,
               ),
-              const SizedBox(height: kPadding),
+              const SizedBox(height: defaultPadding),
               InputField(
                 hint: 'john.williams@gmail.com',
                 controller: _emailController,
@@ -82,7 +82,7 @@ class _EditPofilePageState extends State<EditPofilePage> {
                 label: 'Update',
                 onTap: () {},
               ),
-              const SizedBox(height: kPadding * 2),
+              const SizedBox(height: defaultPadding * 2),
             ],
           ),
         ),

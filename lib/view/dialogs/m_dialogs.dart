@@ -18,10 +18,10 @@ class MDialogs {
           height: 1.5,
         ),
         titlePadding: const EdgeInsets.fromLTRB(
-          kPadding * 1.5,
-          kPadding * 2,
-          kPadding * 1.5,
-          kPadding * 2,
+          defaultPadding * 1.5,
+          defaultPadding * 2,
+          defaultPadding * 1.5,
+          defaultPadding * 2,
         ),
         content: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -32,7 +32,7 @@ class MDialogs {
                 'No',
                 style: TextStyle(
                   fontSize: 16,
-                  color: kSecondaryTextColor,
+                  color: ktextColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -43,7 +43,7 @@ class MDialogs {
                 'Yes',
                 style: TextStyle(
                   fontSize: 16,
-                  color: kPrimaryColor,
+                  color: primaryColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -69,24 +69,24 @@ class MDialogs {
                 'Edit',
                 style: TextStyle(
                   fontSize: 16,
-                  color: kTextColor,
+                  color: textColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            const SizedBox(height: kPadding * 2),
+            const SizedBox(height: defaultPadding * 2),
             GestureDetector(
               onTap: onDeleteTap,
               child: const Text(
                 'Delete',
                 style: TextStyle(
                   fontSize: 16,
-                  color: kTextColor,
+                  color: textColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            const SizedBox(height: kPadding * 2),
+            const SizedBox(height: defaultPadding * 2),
             GestureDetector(
               onTap: () {
                 Get.back();
@@ -95,7 +95,7 @@ class MDialogs {
                 'Cancel',
                 style: TextStyle(
                   fontSize: 16,
-                  color: kSecondaryTextColor,
+                  color: ktextColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),

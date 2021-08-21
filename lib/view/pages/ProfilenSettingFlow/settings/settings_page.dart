@@ -17,20 +17,20 @@ class SettingsPage extends StatelessWidget {
         ),
         body: SizedBox.expand(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kPadding),
+            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Column(
               children: [
-                const SizedBox(height: kPadding / 2),
+                const SizedBox(height: defaultPadding / 2),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Account',
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
-                          color: kSecondaryTextColor,
+                          color: ktextColor,
                         ),
                   ),
                 ),
-                const SizedBox(height: kPadding / 2),
+                const SizedBox(height: defaultPadding / 2),
                 SettingButton(
                   label: 'Change Password',
                   onTap: () {
@@ -43,17 +43,17 @@ class SettingsPage extends StatelessWidget {
                     Get.to(() => ChangeLanguagePage());
                   },
                 ),
-                const SizedBox(height: kPadding),
+                const SizedBox(height: defaultPadding),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Others',
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
-                          color: kSecondaryTextColor,
+                          color: ktextColor,
                         ),
                   ),
                 ),
-                const SizedBox(height: kPadding / 2),
+                const SizedBox(height: defaultPadding / 2),
                 SettingButton(
                   label: 'Privacy Policy',
                   onTap: () {},
@@ -62,7 +62,7 @@ class SettingsPage extends StatelessWidget {
                   label: 'Terms & Conditions',
                   onTap: () {},
                 ),
-                const SizedBox(height: kPadding),
+                const SizedBox(height: defaultPadding),
                 GestureDetector(
                   onTap: () {
                     MDialogs.confirmationDialog(
@@ -78,7 +78,7 @@ class SettingsPage extends StatelessWidget {
                     child: Text(
                       'Logout',
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
-                            color: kPrimaryColor,
+                            color: primaryColor,
                             fontWeight: FontWeight.w600,
                           ),
                     ),
@@ -105,7 +105,7 @@ class SettingButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: kPadding * 0.8),
+        padding: const EdgeInsets.symmetric(vertical: defaultPadding * 0.8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -118,7 +118,7 @@ class SettingButton extends StatelessWidget {
             Icon(
               Icons.keyboard_arrow_right,
               size: 28,
-              color: kSecondaryTextColor,
+              color: ktextColor,
             ),
           ],
         ),

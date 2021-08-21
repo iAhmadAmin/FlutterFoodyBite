@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/utils/size_config.dart';
@@ -35,7 +34,7 @@ class MenuPhotoPage extends StatelessWidget {
         height: SizeConfig.screenHeight,
         width: SizeConfig.screenWidth,
         padding: const EdgeInsets.symmetric(
-          horizontal: kPadding,
+          horizontal: defaultPadding,
         ),
         child: StaggeredGridView.countBuilder(
           crossAxisCount: 3,
@@ -50,7 +49,7 @@ class MenuPhotoPage extends StatelessWidget {
               child: Hero(
                 tag: foodsImgList[index],
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(kBorderRadius),
+                  borderRadius: BorderRadius.circular(defaultBorderRadius),
                   child: Image.asset(
                     foodsImgList[index],
                     fit: BoxFit.cover,
@@ -60,8 +59,8 @@ class MenuPhotoPage extends StatelessWidget {
             );
           },
           staggeredTileBuilder: (int index) => _tileCounts[index % 10],
-          mainAxisSpacing: kPadding / 2,
-          crossAxisSpacing: kPadding / 2,
+          mainAxisSpacing: defaultPadding / 2,
+          crossAxisSpacing: defaultPadding / 2,
         ),
       ),
     );

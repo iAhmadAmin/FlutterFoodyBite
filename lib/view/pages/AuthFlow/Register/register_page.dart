@@ -48,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: SizeConfig.screenWidth,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: kPadding * 2,
+                    horizontal: defaultPadding * 2,
                   ),
                   child: Column(
                     children: [
@@ -105,7 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   height: 40,
                                   width: 40,
                                   decoration: BoxDecoration(
-                                      color: kPrimaryColor,
+                                      color: primaryColor,
                                       shape: BoxShape.circle,
                                       border: Border.all(
                                         width: 2,
@@ -132,7 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 hint: 'Name',
                                 iconPath: MIcons.user_o,
                               ),
-                              const SizedBox(height: kPadding),
+                              const SizedBox(height: defaultPadding),
                               InputField(
                                 textInputType: TextInputType.emailAddress,
                                 controller: _emailController,
@@ -141,7 +141,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 validator: (val) =>
                                     Validators.emailValidator(val),
                               ),
-                              const SizedBox(height: kPadding),
+                              const SizedBox(height: defaultPadding),
                               InputField(
                                 textInputType: TextInputType.visiblePassword,
                                 isPassword: true,
@@ -151,7 +151,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 validator: (val) =>
                                     Validators.passwordValidator(val),
                               ),
-                              const SizedBox(height: kPadding),
+                              const SizedBox(height: defaultPadding),
                               InputField(
                                 textInputType: TextInputType.visiblePassword,
                                 isPassword: true,
@@ -176,7 +176,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           _validateInput();
                         },
                       ),
-                      const SizedBox(height: kPadding * 3),
+                      const SizedBox(height: defaultPadding * 3),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -198,7 +198,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   .textTheme
                                   .subtitle1
                                   .copyWith(
-                                    color: kPrimaryColor,
+                                    color: primaryColor,
                                     fontWeight: FontWeight.w400,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -206,7 +206,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: kPadding),
+                      const SizedBox(height: defaultPadding),
                     ],
                   ),
                 ),

@@ -4,7 +4,6 @@ import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/user_model.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
-import 'package:get/get.dart';
 
 class UserListingPage extends StatelessWidget {
   const UserListingPage(
@@ -29,15 +28,15 @@ class UserListingPage extends StatelessWidget {
               if (findNewFriends)
                 Padding(
                   padding: const EdgeInsets.only(
-                    left: kPadding,
-                    bottom: kPadding * 1.5,
+                    left: defaultPadding,
+                    bottom: defaultPadding * 1.5,
                   ),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Suggestions',
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
-                            color: kSecondaryTextColor,
+                            color: ktextColor,
                           ),
                     ),
                   ),
@@ -63,8 +62,8 @@ class UserTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: kPadding),
-      padding: const EdgeInsets.only(bottom: kPadding * 1.2),
+      margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: const EdgeInsets.only(bottom: defaultPadding * 1.2),
       child: Row(
         children: [
           CircleAvatar(
@@ -74,7 +73,7 @@ class UserTile extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            width: kPadding,
+            width: defaultPadding,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,11 +81,11 @@ class UserTile extends StatelessWidget {
               Text(
                 user.name,
                 style: Theme.of(context).textTheme.subtitle1.copyWith(
-                      color: kTextColor,
+                      color: textColor,
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              const SizedBox(height: kPadding / 2),
+              const SizedBox(height: defaultPadding / 2),
               Text(
                 user.reviews.length.toString() + ' Reviews',
                 style: Theme.of(context)

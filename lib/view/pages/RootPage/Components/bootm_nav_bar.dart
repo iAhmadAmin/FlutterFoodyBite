@@ -22,16 +22,29 @@ class BottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      height: getRelativeHeight(0.09),
+      height: getRelativeHeight(0.11),
       width: SizeConfig.screenWidth,
       child: Stack(
         children: [
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: getRelativeHeight(0.065),
+              height: getRelativeHeight(0.075),
               width: SizeConfig.screenWidth,
-              color: Colors.white,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    offset: Offset(0, -1),
+                    blurRadius: 10,
+                  ),
+                ],
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -77,20 +90,19 @@ class BottomNavigation extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 15,
-                        spreadRadius: 0,
                         offset: const Offset(0, 4),
-                        color: kPrimaryColor.withOpacity(0.75),
+                        color: primaryColor.withOpacity(0.75),
                       ),
                       // BoxShadow(
                       //   blurRadius: 25,
                       //   offset: Offset(0, 5),
-                      //   color: kPrimaryColor.withOpacity(0.75),
+                      //   color: primaryColor.withOpacity(0.75),
                       // )
                     ],
-                    color: kPrimaryColor,
+                    color: primaryColor,
                   ),
-                  height: getRelativeWidth(0.135),
-                  width: getRelativeWidth(0.135),
+                  height: getRelativeWidth(0.15),
+                  width: getRelativeWidth(0.15),
                   child: Center(
                       child: Icon(
                     centerIcon,
@@ -131,7 +143,7 @@ class BottomNavItem extends StatelessWidget {
         child: SvgPicture.asset(
           iconPath,
           height: 20,
-          color: index == selectedIndex ? kPrimaryColor : kSecondaryColor,
+          color: index == selectedIndex ? primaryColor : secondaryColor,
         ),
       ),
     );

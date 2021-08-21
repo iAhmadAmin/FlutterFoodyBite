@@ -31,34 +31,34 @@ class ProfilePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              //const SizedBox(height: kPadding),
+              //const SizedBox(height: defaultPadding),
               CircleAvatar(
                 radius: getRelativeWidth(0.15),
-                backgroundImage: AssetImage(Images.d1),
+                backgroundImage: const AssetImage(Images.d1),
               ),
-              const SizedBox(height: kPadding),
+              const SizedBox(height: defaultPadding),
               Text(
                 'Jayson Acevedo',
                 style: Theme.of(context).textTheme.headline5.copyWith(
-                      color: kTextColor,
+                      color: textColor,
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              const SizedBox(height: kPadding / 4),
+              const SizedBox(height: defaultPadding / 4),
               Text(
                 'jayson.acevedo@gmail.com',
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2
-                    .copyWith(color: kSecondaryTextColor),
+                    .copyWith(color: ktextColor),
               ),
-              const SizedBox(height: kPadding * 1.5),
+              const SizedBox(height: defaultPadding * 1.5),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 CountTile(
                   label: 'Reviews',
                   count: 120,
                   onTap: () {
-                    Get.to(() => ReviewRatingPage(showMyRatings: true));
+                    Get.to(() => const ReviewRatingPage(showMyRatings: true));
                   },
                 ),
                 Container(
@@ -67,7 +67,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   height: 30,
                   width: 0.5,
-                  color: kSecondaryTextColor,
+                  color: ktextColor,
                 ),
                 CountTile(
                     label: 'Followers',
@@ -84,7 +84,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   height: 30,
                   width: 0.5,
-                  color: kSecondaryTextColor,
+                  color: ktextColor,
                 ),
                 CountTile(
                     label: 'Following',
@@ -97,7 +97,7 @@ class ProfilePage extends StatelessWidget {
                           ));
                     })
               ]),
-              const SizedBox(height: kPadding * 1.5),
+              const SizedBox(height: defaultPadding * 1.5),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 MButton(
                   label: isMe ? 'Edit Profile' : 'Follow',
@@ -111,7 +111,7 @@ class ProfilePage extends StatelessWidget {
                   width: getRelativeWidth(0.35),
                   height: 45,
                 ),
-                const SizedBox(width: kPadding),
+                const SizedBox(width: defaultPadding),
                 MButton(
                   isFilled: false,
                   label: isMe ? 'Settings' : 'Block',
@@ -124,10 +124,10 @@ class ProfilePage extends StatelessWidget {
                   height: 45,
                 ),
               ]),
-              const SizedBox(height: kPadding),
+              const SizedBox(height: defaultPadding),
               const Divider(
-                height: kPadding,
-                color: kSecondaryColor,
+                height: defaultPadding,
+                color: secondaryColor,
               ),
               ListView.builder(
                 shrinkWrap: true,
@@ -158,7 +158,7 @@ class ProfilePage extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: kPadding * 4),
+              const SizedBox(height: defaultPadding * 8),
             ],
           ),
         ),
@@ -186,14 +186,14 @@ class CountTile extends StatelessWidget {
         Text(
           count.toString(),
           style: Theme.of(context).textTheme.headline6.copyWith(
-                color: kPrimaryColor,
+                color: primaryColor,
                 fontWeight: FontWeight.bold,
               ),
         ),
-        const SizedBox(height: kPadding / 3),
+        const SizedBox(height: defaultPadding / 3),
         Text(label,
             style: Theme.of(context).textTheme.bodyText1.copyWith(
-                  color: kSecondaryTextColor,
+                  color: ktextColor,
                   fontWeight: FontWeight.w600,
                 )),
       ]),

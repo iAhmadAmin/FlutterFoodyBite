@@ -31,12 +31,12 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
           actions: [
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(right: kPadding),
+                padding: const EdgeInsets.only(right: defaultPadding),
                 child: GestureDetector(
                   onTap: () {},
                   child: Text('Update',
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
-                            color: kPrimaryColor,
+                            color: primaryColor,
                           )),
                 ),
               ),
@@ -48,16 +48,16 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                left: kPadding,
-                bottom: kPadding / 2,
-                top: kPadding / 2,
+                left: defaultPadding,
+                bottom: defaultPadding / 2,
+                top: defaultPadding / 2,
               ),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Select Language',
                   style: Theme.of(context).textTheme.subtitle1.copyWith(
-                        color: kSecondaryTextColor,
+                        color: ktextColor,
                       ),
                 ),
               ),
@@ -93,8 +93,8 @@ class LanguageSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        left: kPadding,
-        right: kPadding / 2,
+        left: defaultPadding,
+        right: defaultPadding / 2,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +107,7 @@ class LanguageSelector extends StatelessWidget {
             value: radioValue,
             groupValue: 1,
             onChanged: onChanged,
-            activeColor: kPrimaryColor,
+            activeColor: primaryColor,
           ),
         ],
       ),

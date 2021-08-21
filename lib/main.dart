@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'JosefinSans',
-        scaffoldBackgroundColor: kBackgroundColor,
+        scaffoldBackgroundColor: backgroundColor,
       ),
       home: Root(),
     );

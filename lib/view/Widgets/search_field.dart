@@ -23,14 +23,14 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(
-        horizontal: kPadding,
+        horizontal: defaultPadding,
       ),
       height: 50,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(kBorderRadius / 2),
+        borderRadius: BorderRadius.circular(defaultBorderRadius / 2),
         color: Colors.white,
         border: Border.all(
-          color: kSecondaryTextColor,
+          color: ktextColor,
           width: 0.2,
         ),
       ),
@@ -41,23 +41,23 @@ class SearchField extends StatelessWidget {
               onFieldSubmitted: onFieldSubmitted,
               controller: controller,
               textAlignVertical: TextAlignVertical.center,
-              cursorColor: kTextColor,
+              cursorColor: textColor,
               style: Theme.of(context)
                   .textTheme
                   .subtitle1
-                  .copyWith(color: kTextColor),
+                  .copyWith(color: textColor),
               decoration: InputDecoration(
                 hintText: hint,
                 hintStyle: Theme.of(context)
                     .textTheme
                     .subtitle1
-                    .copyWith(color: kSecondaryTextColor),
+                    .copyWith(color: ktextColor),
                 border: InputBorder.none,
                 prefixIcon: Transform.scale(
                   scale: 0.34,
                   child: SvgPicture.asset(
                     MIcons.search,
-                    color: kSecondaryTextColor,
+                    color: ktextColor,
                     height: 30,
                   ),
                 ),
@@ -71,13 +71,13 @@ class SearchField extends StatelessWidget {
                 scale: 0.55,
                 child: SvgPicture.asset(
                   MIcons.filter,
-                  color: kSecondaryTextColor,
+                  color: ktextColor,
                   height: 30,
                 ),
               ),
             ),
           const SizedBox(
-            width: kPadding,
+            width: defaultPadding,
           ),
         ],
       ),

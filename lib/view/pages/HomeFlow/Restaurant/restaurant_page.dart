@@ -55,9 +55,9 @@ class RestaurantPage extends StatelessWidget {
                   children: [
                     RestTopTile(imgPath: restaurant.displayFoodImg),
                     RestInfoTile(restaurant: restaurant),
-                    const SizedBox(height: kPadding / 2),
+                    const SizedBox(height: defaultPadding / 2),
                     const MenuPhotoBar(),
-                    const SizedBox(height: kPadding * 2),
+                    const SizedBox(height: defaultPadding * 2),
                     HeadinBar(
                         label: 'Review & Ratings',
                         count: '32',
@@ -67,13 +67,13 @@ class RestaurantPage extends StatelessWidget {
                               ));
                         }),
                     const SizedBox(
-                      height: kPadding,
+                      height: defaultPadding,
                     ),
                     ReviewTile(
                       review: reviewList[0],
                     ),
                     ReviewTile(review: reviewList[1]),
-                    const SizedBox(height: kPadding * 3),
+                    const SizedBox(height: defaultPadding * 3),
                   ],
                 ),
               ),
@@ -86,7 +86,9 @@ class RestaurantPage extends StatelessWidget {
                 child: RoundButton(
                     label: 'Rate Your Experience',
                     onTap: () {
-                      Get.to(() => AddReviewPage());
+                      Get.to(
+                        () => AddReviewPage(),
+                      );
                     }),
               ),
           ],
@@ -112,7 +114,7 @@ class MenuPhotoBar extends StatelessWidget {
             onTap: () {
               Get.to(() => const MenuPhotoPage());
             }),
-        const SizedBox(height: kPadding / 2),
+        const SizedBox(height: defaultPadding / 2),
         SizedBox(
           height: getRelativeWidth(0.35),
           child: ListView.builder(
@@ -121,19 +123,20 @@ class MenuPhotoBar extends StatelessWidget {
               itemBuilder: (_, index) {
                 return index < foodPhotos.length
                     ? Padding(
-                        padding: const EdgeInsets.only(left: kPadding),
+                        padding: const EdgeInsets.only(left: defaultPadding),
                         child: SizedBox(
                           height: getRelativeWidth(0.35),
                           width: getRelativeWidth(0.4),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(kBorderRadius),
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius),
                             child: Image.asset(foodPhotos[index],
                                 fit: BoxFit.cover),
                           ),
                         ),
                       )
                     : const SizedBox(
-                        width: kPadding,
+                        width: defaultPadding,
                       );
               }),
         ),
@@ -158,9 +161,10 @@ class RestTopTile extends StatelessWidget {
                 tag: imgPath, child: Image.asset(imgPath, fit: BoxFit.cover)),
           ),
           Positioned(
-            bottom: kPadding,
-            right: kPadding * 2,
-            left: kPadding * 2,
+            bottom: defaultPadding,
+            right: defaultPadding * 2,
+            left: defaultPadding * 2,
+            // ignore: missing_required_param
             child: GlassmorphicContainer(
                 height: 45,
                 borderRadius: 30,
@@ -196,16 +200,16 @@ class RestTopTile extends StatelessWidget {
                           child: Icon(
                             Icons.call,
                             size: 14,
-                            color: kPrimaryColor,
+                            color: primaryColor,
                           )),
                       const SizedBox(
-                        width: kPadding / 2,
+                        width: defaultPadding / 2,
                       ),
                       Text('+1 212-673-3754',
                           style: TextStyle(color: Colors.white)),
                       VerticalDivider(
                         color: Colors.white,
-                        width: kPadding * 2,
+                        width: defaultPadding * 2,
                       ),
                       CircleAvatar(
                           radius: 13,
@@ -213,10 +217,10 @@ class RestTopTile extends StatelessWidget {
                           child: Icon(
                             Icons.alt_route,
                             size: 16,
-                            color: kPrimaryColor,
+                            color: primaryColor,
                           )),
                       const SizedBox(
-                        width: kPadding / 2,
+                        width: defaultPadding / 2,
                       ),
                       Text('Direction', style: TextStyle(color: Colors.white))
                     ],
@@ -240,7 +244,7 @@ class RestInfoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(kPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -249,7 +253,7 @@ class RestInfoTile extends StatelessWidget {
             children: [
               Text(restaurant.name,
                   style: Theme.of(context).textTheme.subtitle1.copyWith(
-                        color: kTextColor,
+                        color: textColor,
                         fontWeight: FontWeight.w800,
                       )),
               const SizedBox(
@@ -261,12 +265,12 @@ class RestInfoTile extends StatelessWidget {
               ),
               Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: kPadding * 0.55,
-                    vertical: kPadding * 0.2,
+                    horizontal: defaultPadding * 0.55,
+                    vertical: defaultPadding * 0.2,
                   ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(kBorderRadius),
-                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(defaultBorderRadius),
+                    color: primaryColor,
                   ),
                   child: Text(
                     '1.2 km',
@@ -276,33 +280,21 @@ class RestInfoTile extends StatelessWidget {
                         ),
                   )),
               const Spacer(),
-              Icon(
-                Icons.star,
-                size: 18,
-                color: Colors.yellow[700],
-              ),
-              const SizedBox(width: 4),
-              Text(
-                restaurant.totalRating.toString(),
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(fontWeight: FontWeight.w800),
+              RatingChip(
+                rating: restaurant.totalRating,
               ),
             ],
           ),
           const SizedBox(
-            height: kPadding / 2,
+            height: defaultPadding / 2,
           ),
           Text(
             restaurant.address,
-            style: Theme.of(context)
-                .textTheme
-                .caption
-                .copyWith(color: kSecondaryTextColor),
+            style:
+                Theme.of(context).textTheme.caption.copyWith(color: ktextColor),
           ),
           const SizedBox(
-            height: kPadding / 3,
+            height: defaultPadding / 3,
           ),
           RichText(
             text: TextSpan(

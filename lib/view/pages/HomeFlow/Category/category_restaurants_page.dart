@@ -5,7 +5,6 @@ import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
-import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
 
 class CategoryRestaurantsPage extends StatefulWidget {
@@ -34,13 +33,13 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
     final List<Color> _colors = getCategoryGradient(widget.category).colors;
 
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: MAppBar(
-        title: _currentCategory.toString().split('.').last,
-        appBar: AppBar(),
-        txtColor: Colors.white,
-        bgColor: Colors.transparent,
-      ),
+      //extendBodyBehindAppBar: true,
+      // appBar: MAppBar(
+      //   title: _currentCategory.toString().split('.').last,
+      //   appBar: AppBar(),
+      //   txtColor: Colors.white,
+      //   bgColor: Colors.transparent,
+      // ),
       body: Column(
         children: [
           SizedBox(
@@ -71,7 +70,7 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
                   ),
                 ),
                 Positioned(
-                    bottom: kPadding / 2,
+                    bottom: defaultPadding / 2,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: FCategory.values.map((e) {
@@ -88,6 +87,26 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
                         );
                       }).toList(),
                     )),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: defaultPadding,
+                  ),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          _currentCategory.toString().split('.').last,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(width: defaultPadding),
+                      ]),
+                )
               ],
             ),
           ),

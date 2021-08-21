@@ -15,11 +15,11 @@ class CategoryChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.symmetric(
-          horizontal: kPadding * 0.55,
-          vertical: kPadding * 0.2,
+          horizontal: defaultPadding * 0.55,
+          vertical: defaultPadding * 0.2,
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius),
+          borderRadius: BorderRadius.circular(defaultBorderRadius),
           gradient: getCategoryGradient(category),
         ),
         child: Center(

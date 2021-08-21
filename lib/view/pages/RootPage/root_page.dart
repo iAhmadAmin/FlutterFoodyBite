@@ -14,11 +14,11 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   final _pages = [
-    HomePage(),
+    const HomePage(),
     FavouriteRestaurantsPage(),
-    NewReviewPage(),
+    const NewReviewPage(),
     NotificationsPage(),
-    ProfilePage(isMe: true),
+    const ProfilePage(isMe: true),
   ];
 
   int _selectedIndex = 0;

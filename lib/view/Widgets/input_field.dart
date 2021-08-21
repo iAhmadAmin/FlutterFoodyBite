@@ -34,10 +34,11 @@ class _InputFieldState extends State<InputField> {
       controller: widget.controller,
       validator: widget.validator ??
           (val) {
-            if (val.isEmpty || val == null)
+            if (val.isEmpty || val == null) {
               return 'Required';
-            else
+            } else {
               return null;
+            }
           },
       textAlignVertical: TextAlignVertical.center,
       style: Theme.of(context).textTheme.bodyText1.copyWith(
@@ -49,15 +50,16 @@ class _InputFieldState extends State<InputField> {
       obscureText: widget.isPassword ? _hidePass : false,
       decoration: InputDecoration(
         hintText: widget.hint,
-        hintStyle: Theme.of(context).textTheme.subtitle2.copyWith(
-              color: widget.isWhite ? Colors.white : kSecondaryTextColor,
-            ),
+        hintStyle: Theme.of(context)
+            .textTheme
+            .subtitle2
+            .copyWith(color: widget.isWhite ? Colors.white : ktextColor),
         prefixIcon: widget.iconPath != null
             ? Transform.scale(
                 scale: 0.4,
                 child: SvgPicture.asset(
                   widget.iconPath,
-                  color: !widget.isWhite ? kPrimaryColor : Colors.white,
+                  color: !widget.isWhite ? primaryColor : Colors.white,
                   height: 12,
                 ),
               )
@@ -69,28 +71,20 @@ class _InputFieldState extends State<InputField> {
                     _hidePass = !_hidePass;
                   });
                 },
-                child: Icon(
-                  Icons.remove_red_eye,
-                  color: !_hidePass ? kPrimaryColor : kSecondaryTextColor,
-                ),
+                child: Icon(Icons.remove_red_eye,
+                    color: !_hidePass ? primaryColor : textColor),
               )
             : null,
         filled: true,
-        fillColor: kTextFieldColor,
+        fillColor: textFieldColor,
         enabledBorder: OutlineInputBorder(
-          borderSide: widget.isWhite
-              ? BorderSide.none
-              : BorderSide(
-                  color: kSecondaryTextColor,
-                ),
+          borderSide:
+              widget.isWhite ? BorderSide.none : BorderSide(color: ktextColor),
           borderRadius: BorderRadius.circular(12),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: widget.isWhite
-              ? BorderSide.none
-              : BorderSide(
-                  color: kSecondaryTextColor,
-                ),
+          borderSide:
+              widget.isWhite ? BorderSide.none : BorderSide(color: ktextColor),
           borderRadius: BorderRadius.circular(12),
         ),
       ),

@@ -94,7 +94,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               child: Text(
                 "Foodybite",
                 style: Theme.of(context).textTheme.headline2.copyWith(
-                      color: kTextColor,
+                      color: textColor,
                       fontWeight: FontWeight.bold,
                     ),
               ),

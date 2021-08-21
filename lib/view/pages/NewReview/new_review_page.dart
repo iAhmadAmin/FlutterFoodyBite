@@ -42,14 +42,14 @@ class _NewReviewPageState extends State<NewReviewPage> {
           appBar: AppBar(),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: kPadding),
+              padding: const EdgeInsets.only(right: defaultPadding),
               child: Center(
                 child: GestureDetector(
                   onTap: () {},
                   child: Text(
                     'Post',
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
-                          color: kPrimaryColor,
+                          color: primaryColor,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
@@ -62,7 +62,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
             child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: kPadding),
+              const SizedBox(height: defaultPadding),
               SearchField(
                 controller: _searchController,
                 hint: 'Search Restaurant',
@@ -72,40 +72,40 @@ class _NewReviewPageState extends State<NewReviewPage> {
                   print('controller text: ' + _searchController.text);
                 },
               ),
-              const SizedBox(height: kPadding),
+              const SizedBox(height: defaultPadding),
               _searchController.text.isNotEmpty
                   ? _restaurant == null
-                      ? Text(
-                          'No Restaurant with name: ${_searchController.text}, try searching again')
+                      ? Text('No Restaurant with name: '
+                          '${_searchController.text}, try searching again')
                       : RestaurantTile(
                           forAddReview: true, restaurant: _restaurant)
-                  : SizedBox(),
-              const SizedBox(height: kPadding * 2),
+                  : const SizedBox(),
+              const SizedBox(height: defaultPadding * 2),
               const Text('Ratings',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                   )),
-              const SizedBox(height: kPadding),
+              const SizedBox(height: defaultPadding),
               RatingBar(onRatingChange: (val) {}),
-              const SizedBox(height: kPadding * 1),
+              const SizedBox(height: defaultPadding * 1),
               Text('Rate your experience',
                   style: TextStyle(
-                    color: kSecondaryTextColor,
+                    color: ktextColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
                   )),
-              const SizedBox(height: kPadding * 2),
+              const SizedBox(height: defaultPadding * 2),
               const Text('Review',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                   )),
-              const SizedBox(height: kPadding),
+              const SizedBox(height: defaultPadding),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: kPadding),
+                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: InputField(
                   maxLines: 8,
                   isWhite: false,
@@ -116,13 +116,13 @@ class _NewReviewPageState extends State<NewReviewPage> {
               if (widget.isUpdate)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(
-                      kPadding, kPadding * 3, kPadding, 0),
+                      defaultPadding, defaultPadding * 3, defaultPadding, 0),
                   child: MButton(
                     label: 'Update',
                     onTap: () {},
                   ),
                 ),
-              const SizedBox(height: kPadding * 4),
+              const SizedBox(height: defaultPadding * 4),
             ],
           ),
         )));

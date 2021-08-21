@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
@@ -23,6 +24,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _searchController = TextEditingController();
+  final _fixedExtentScrollController = FixedExtentScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,13 +39,14 @@ class _HomePageState extends State<HomePage> {
                 height: getRelativeHeight(0.04),
               ),
               SearchField(
+                controller: _searchController,
                 hint: 'Find Restaurants',
                 onLeadingTap: () {
                   Get.to(() => FilterPage());
                 },
               ),
               const SizedBox(
-                height: kPadding * 2,
+                height: defaultPadding * 2,
               ),
               HeadinBar(
                 label: 'Trending Restaurants',
@@ -50,46 +55,70 @@ class _HomePageState extends State<HomePage> {
                   Get.to(() => const TrendingRestarurantsPage());
                 },
               ),
-              const SizedBox(height: kPadding / 2),
+              const SizedBox(height: defaultPadding / 2),
               SizedBox(
                 height: getRelativeWidth(0.62),
                 width: getRelativeWidth(1),
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: restaurantList.length + 1,
-                    itemBuilder: (_, index) {
-                      return index < restaurantList.length
-                          ? SizedBox(
-                              width: getRelativeWidth(0.9),
-                              child: RestaurantTile(
-                                restaurant: restaurantList[index],
-                                margin: const EdgeInsets.only(
-                                  left: kPadding,
-                                  bottom: 3,
-                                ),
-                              ),
-                            )
-                          : const SizedBox(
-                              width: kPadding,
-                            );
+                child: CarouselSlider.builder(
+                    options: CarouselOptions(
+                      viewportFraction: 0.91,
+                      reverse: true,
+                      height: getRelativeWidth(0.62),
+                    ),
+                    itemCount: restaurantList.length,
+                    itemBuilder: (_, index, __) {
+                      return SizedBox(
+                        width: getRelativeWidth(0.9),
+                        child: RestaurantTile(
+                          restaurant: restaurantList[index],
+                          margin: const EdgeInsets.only(
+                            right: defaultPadding,
+                            bottom: 3,
+                          ),
+                        ),
+                      );
                     }),
               ),
+              // SizedBox(
+              //   height: getRelativeWidth(0.62),
+              //   width: getRelativeWidth(1),
+              //   child: ListView.builder(
+              //       scrollDirection: Axis.horizontal,
+              //       itemCount: restaurantList.length + 1,
+              //
+              //       itemBuilder: (_, index) {
+              //         return index < restaurantList.length
+              //             ? SizedBox(
+              //                 width: getRelativeWidth(0.9),
+              //                 child: RestaurantTile(
+              //                   restaurant: restaurantList[index],
+              //                   margin: const EdgeInsets.only(
+              //                     left: defaultPadding,
+              //                     bottom: 3,
+              //                   ),
+              //                 ),
+              //               )
+              //             : const SizedBox(
+              //                 width: defaultPadding,
+              //               );
+              //       }),
+              // ),
               const SizedBox(
-                height: kPadding * 2,
+                height: defaultPadding * 2,
               ),
               HeadinBar(
                 label: 'Categories',
                 count: '9',
                 onTap: () {
                   Get.to(
-                    () => CategorySelectorPage(),
+                    () => const CategorySelectorPage(),
                   );
                 },
               ),
-              const SizedBox(height: kPadding / 2),
+              const SizedBox(height: defaultPadding / 2),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: kPadding,
+                  horizontal: defaultPadding,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                height: kPadding * 2,
+                height: defaultPadding * 2,
               ),
               HeadinBar(
                 label: 'Friends',
@@ -121,42 +150,48 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
-              const SizedBox(height: kPadding / 2),
+              const SizedBox(height: defaultPadding / 2),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: kPadding),
+                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.d1),
+                      backgroundImage: const AssetImage(Images.d1),
                     ),
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.d2),
+                      backgroundImage: const AssetImage(Images.d2),
                     ),
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.d3),
+                      backgroundImage: const AssetImage(Images.d3),
                     ),
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.d4),
+                      backgroundImage: const AssetImage(Images.d4),
                     ),
                     CircleAvatar(
                       radius: getRelativeWidth(0.08),
-                      backgroundImage: AssetImage(Images.d5),
+                      backgroundImage: const AssetImage(Images.d5),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: kPadding * 5,
+              SizedBox(
+                height: getRelativeHeight(0.12),
               ),
             ],
           ),
         ),
       ),
     ));
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 }

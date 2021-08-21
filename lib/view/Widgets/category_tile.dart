@@ -36,7 +36,7 @@ class CategoryTile extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius),
+          borderRadius: BorderRadius.circular(defaultBorderRadius),
         ),
         child: Stack(
           alignment: Alignment.center,
@@ -45,7 +45,7 @@ class CategoryTile extends StatelessWidget {
               height: height,
               width: width,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(kBorderRadius),
+                borderRadius: BorderRadius.circular(defaultBorderRadius),
                 child: Hero(
                   tag: category,
                   child: Image.asset(
@@ -59,7 +59,7 @@ class CategoryTile extends StatelessWidget {
               height: height,
               width: width,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kBorderRadius),
+                borderRadius: BorderRadius.circular(defaultBorderRadius),
                 gradient: LinearGradient(colors: [
                   _colors.first.withOpacity(0.5),
                   _colors.last.withOpacity(0.5),
@@ -75,7 +75,7 @@ class CategoryTile extends StatelessWidget {
             ),
             if (showDivider)
               Positioned(
-                right: kPadding,
+                right: defaultPadding,
                 child: Container(
                     height: 30,
                     width: 5,

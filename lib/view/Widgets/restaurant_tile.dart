@@ -7,6 +7,7 @@ import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/Restaurant/restaurant_page.dart';
+import 'package:foodybite/view/widgets/review_tile.dart';
 import 'package:get/get.dart';
 
 import 'category_chip.dart';
@@ -18,7 +19,8 @@ class RestaurantTile extends StatelessWidget {
     this.forFavourite = false,
     this.forProfile = false,
     this.menuTap,
-    this.margin = const EdgeInsets.fromLTRB(kPadding, kPadding, kPadding, 0),
+    this.margin = const EdgeInsets.fromLTRB(
+        defaultPadding, defaultPadding, defaultPadding, 0),
   });
 
   final bool forAddReview, forFavourite, forProfile;
@@ -43,7 +45,7 @@ class RestaurantTile extends StatelessWidget {
           height: getRelativeWidth(0.62),
           width: getRelativeWidth(1),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(kBorderRadius),
+              borderRadius: BorderRadius.circular(defaultBorderRadius),
               color: Colors.white,
               boxShadow: const [
                 BoxShadow(
@@ -66,8 +68,8 @@ class RestaurantTile extends StatelessWidget {
                         SizedBox.expand(
                           child: ClipRRect(
                             borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(kBorderRadius),
-                              topRight: Radius.circular(kBorderRadius),
+                              topLeft: Radius.circular(defaultBorderRadius),
+                              topRight: Radius.circular(defaultBorderRadius),
                             ),
                             child: Hero(
                               tag: restaurant.displayFoodImg,
@@ -79,68 +81,74 @@ class RestaurantTile extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                            top: kPadding,
-                            right: kPadding,
-                            child: forAddReview
-                                ? GestureDetector(
-                                    onTap: () {},
-                                    child: const CircleAvatar(
-                                      backgroundColor: Colors.white,
-                                      radius: 12,
-                                      child: Icon(
-                                        Icons.close,
-                                        size: 18,
-                                        color: Colors.redAccent,
-                                      ),
+                          top: defaultPadding,
+                          right: defaultPadding,
+                          child: forAddReview
+                              ? GestureDetector(
+                                  onTap: () {},
+                                  child: const CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    radius: 12,
+                                    child: Icon(
+                                      Icons.close,
+                                      size: 18,
+                                      color: Colors.redAccent,
                                     ),
-                                  )
-                                : Container(
-                                    height: 26,
-                                    width: 60,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(
-                                            kBorderRadius / 2),
-                                        boxShadow: const [
-                                          BoxShadow(
-                                            color: Colors.black12,
-                                            offset: Offset(1, 2),
-                                            blurRadius: 5,
-                                          )
-                                        ]),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.star,
-                                          size: 18,
-                                          color: Colors.yellow[700],
-                                        ),
-                                        const SizedBox(width: 4),
-                                        Text(
-                                          restaurant.totalRating.toString(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .caption
-                                              .copyWith(
-                                                  fontWeight: FontWeight.w800),
-                                        ),
-                                      ],
-                                    ))),
+                                  ),
+                                )
+                              : RatingChip(
+                                  rating: restaurant.totalRating,
+                                ),
+                          // Container(
+                          //     padding: const EdgeInsets.symmetric(
+                          //       horizontal: defaultPadding / 2,
+                          //       vertical: defaultPadding / 6,
+                          //     ),
+                          //     decoration: BoxDecoration(
+                          //         color: Colors.white,
+                          //         borderRadius: BorderRadius.circular(
+                          //             defaultBorderRadius / 2),
+                          //         boxShadow: const [
+                          //           BoxShadow(
+                          //             color: Colors.black12,
+                          //             offset: Offset(1, 2),
+                          //             blurRadius: 5,
+                          //           )
+                          //         ]),
+                          //     child: Row(
+                          //       mainAxisAlignment:
+                          //           MainAxisAlignment.center,
+                          //       children: [
+                          //         Icon(
+                          //           Icons.star,
+                          //           size: 18,
+                          //           color: Colors.yellow[700],
+                          //         ),
+                          //         const SizedBox(width: 4),
+                          //         Text(
+                          //           restaurant.totalRating.toString(),
+                          //           style: Theme.of(context)
+                          //               .textTheme
+                          //               .caption
+                          //               .copyWith(
+                          //                   fontWeight: FontWeight.w800),
+                          //         ),
+                          //       ],
+                          //     ))
+                        ),
                         if (!forAddReview)
                           Positioned(
-                              top: kPadding,
-                              left: kPadding,
+                              top: defaultPadding,
+                              left: defaultPadding,
                               child: Container(
                                 padding: const EdgeInsets.symmetric(
-                                  horizontal: kPadding / 2,
-                                  vertical: kPadding / 6,
+                                  horizontal: defaultPadding / 2,
+                                  vertical: defaultPadding / 6,
                                 ),
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(
-                                        kBorderRadius / 2),
+                                        defaultBorderRadius / 2),
                                     boxShadow: const [
                                       BoxShadow(
                                         color: Colors.black12,
@@ -175,8 +183,8 @@ class RestaurantTile extends StatelessWidget {
                   width: getRelativeWidth(1),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: kPadding / 2,
-                      vertical: kPadding / 2,
+                      horizontal: defaultPadding / 2,
+                      vertical: defaultPadding / 2,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,7 +197,7 @@ class RestaurantTile extends StatelessWidget {
                                     .textTheme
                                     .subtitle1
                                     .copyWith(
-                                      color: kTextColor,
+                                      color: textColor,
                                       fontWeight: FontWeight.w800,
                                     )),
                             const SizedBox(
@@ -202,13 +210,13 @@ class RestaurantTile extends StatelessWidget {
                             if (!forProfile && !forFavourite)
                               Container(
                                   padding: const EdgeInsets.symmetric(
-                                    horizontal: kPadding * 0.55,
-                                    vertical: kPadding * 0.2,
+                                    horizontal: defaultPadding * 0.55,
+                                    vertical: defaultPadding * 0.2,
                                   ),
                                   decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(kBorderRadius),
-                                    color: kPrimaryColor,
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius),
+                                    color: primaryColor,
                                   ),
                                   child: Text(
                                     '1.2 km',
@@ -239,7 +247,7 @@ class RestaurantTile extends StatelessWidget {
                               GestureDetector(
                                 onTap: menuTap,
                                 child: const Icon(Icons.more_vert,
-                                    color: kTextColor),
+                                    color: textColor),
                               ),
                           ],
                         ),
@@ -248,7 +256,7 @@ class RestaurantTile extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .caption
-                              .copyWith(color: kSecondaryTextColor),
+                              .copyWith(color: ktextColor),
                         )
                       ],
                     ),
@@ -257,7 +265,7 @@ class RestaurantTile extends StatelessWidget {
               ),
               if (forFavourite)
                 Positioned(
-                  right: kPadding,
+                  right: defaultPadding,
                   bottom: getRelativeWidth(0.12),
                   child: CircleAvatar(
                     radius: 20,
@@ -265,7 +273,7 @@ class RestaurantTile extends StatelessWidget {
                     child: SvgPicture.asset(
                       MIcons.bookmark_f,
                       height: 16,
-                      color: kPrimaryColor,
+                      color: primaryColor,
                     ),
                   ),
                 ),

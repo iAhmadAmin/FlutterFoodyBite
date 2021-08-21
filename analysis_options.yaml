@@ -3,11 +3,11 @@ linter:
     missing_required_param: true  
     prefer_const_declarations: true  
     prefer_const_constructors: true
-    avoid_print: true
+    # avoid_print: true
     unnecessary_parenthesis: true
     prefer_final_locals: true
     avoid_redundant_argument_values: true
-    #curly_braces_in_flow_control_structures: true
+    curly_braces_in_flow_control_structures: true
     prefer_const_constructors_in_immutables: true
     always_declare_return_types: false
     type_annotate_public_apis: true
@@ -16,13 +16,17 @@ linter:
     unnecessary_new: true
     sized_box_for_whitespace: true
     prefer_const_literals_to_create_immutables: true
+    directives_ordering: true
+    lines_longer_than_80_chars: true
 
 analyzer:
   errors:
+    lines_longer_than_80_chars: warning
+    directives_ordering: warning
     missing_required_param: warning
     prefer_const_declarations: warning
     prefer_const_constructors: warning
-    avoid_print: warning
+    #avoid_print: warning
     unnecessary_parenthesis: warning
     prefer_final_locals: warning
     always_declare_return_types: warning

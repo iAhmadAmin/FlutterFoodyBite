@@ -23,25 +23,25 @@ class _AddReviewPageState extends State<AddReviewPage> {
           actions: [
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.close, color: kSecondaryColor),
+              icon: const Icon(Icons.close, color: secondaryColor),
             ),
           ],
         ),
         body: SizedBox.expand(
             child: Column(
           children: [
-            const SizedBox(height: kPadding * 2),
-            RatingBar(onRatingChange: (val) {}),
-            const SizedBox(height: kPadding * 1),
+            const SizedBox(height: defaultPadding * 2),
+            RatingBar(initialRating: 0, onRatingChange: (val) {}),
+            const SizedBox(height: defaultPadding * 1),
             Text('Rate your experience',
                 style: TextStyle(
-                  color: kSecondaryTextColor,
+                  color: ktextColor,
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                 )),
-            const SizedBox(height: kPadding * 2),
+            const SizedBox(height: defaultPadding * 3),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kPadding),
+              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
               child: InputField(
                 maxLines: 8,
                 isWhite: false,

@@ -26,19 +26,19 @@ class MButton extends StatelessWidget {
         height: height ?? 55,
         width: width ?? getRelativeWidth(1),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius),
+          borderRadius: BorderRadius.circular(defaultBorderRadius),
           border: isFilled
               ? null
               : Border.all(
-                  color: kSecondaryColor,
+                  color: secondaryColor,
                 ),
-          color: isFilled ? kPrimaryColor : Colors.white,
+          color: isFilled ? primaryColor : Colors.white,
         ),
         child: Center(
           child: Text(
             label,
             style: Theme.of(context).textTheme.bodyText1.copyWith(
-                  color: isFilled ? Colors.white : kSecondaryColor,
+                  color: isFilled ? Colors.white : secondaryColor,
                   fontSize: txtSize ?? 14,
                 ),
           ),

@@ -5,10 +5,11 @@ class DateTimeUtils {
     final diff = calculateDateDifference(date);
     if (diff == -1) return "Yesterday";
     if (diff == 0) return "Today";
-    if (diff == 1)
+    if (diff == 1) {
       return "Tomorrow";
-    else
+    } else {
       return DateFormat.EEEE().format(date);
+    }
   }
 
   static int calculateDateDifference(DateTime date) {

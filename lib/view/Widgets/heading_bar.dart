@@ -17,16 +17,16 @@ class HeadinBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: const EdgeInsets.only(
-          bottom: kPadding / 2,
+          bottom: defaultPadding / 2,
         ),
-        padding: const EdgeInsets.symmetric(horizontal: kPadding),
+        padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               label,
               style: Theme.of(context).textTheme.headline6.copyWith(
-                    color: kTextColor,
+                    color: textColor,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -34,7 +34,7 @@ class HeadinBar extends StatelessWidget {
               onTap: onTap,
               child: Text('See all ($count)',
                   style: Theme.of(context).textTheme.subtitle2.copyWith(
-                        color: kSecondaryTextColor,
+                        color: ktextColor,
                       )),
             )
           ],

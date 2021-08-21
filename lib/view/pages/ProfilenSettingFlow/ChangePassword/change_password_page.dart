@@ -25,10 +25,10 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
       ),
       body: SizedBox.expand(
         child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kPadding),
+            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Column(
               children: [
-                const SizedBox(height: kPadding * 2),
+                const SizedBox(height: defaultPadding * 2),
                 InputField(
                   validator: (value) => Validators.passwordValidator(value),
                   hint: 'Current Password',
@@ -37,7 +37,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   iconPath: MIcons.lock,
                   isWhite: false,
                 ),
-                const SizedBox(height: kPadding),
+                const SizedBox(height: defaultPadding),
                 InputField(
                   validator: (value) => Validators.passwordValidator(value),
                   hint: 'New Password',
@@ -46,7 +46,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   iconPath: MIcons.lock,
                   isWhite: false,
                 ),
-                const SizedBox(height: kPadding),
+                const SizedBox(height: defaultPadding),
                 InputField(
                   validator: (value) => Validators.confirmPasswordValidator(
                       _passwordController.text, value),
@@ -61,7 +61,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   label: 'Update',
                   onTap: () {},
                 ),
-                const SizedBox(height: kPadding),
+                const SizedBox(height: defaultPadding),
               ],
             )),
       ),

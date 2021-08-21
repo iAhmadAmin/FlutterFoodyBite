@@ -19,7 +19,7 @@ class MAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
-      backgroundColor: bgColor ?? kBackgroundColor,
+      backgroundColor: bgColor ?? appBarColor,
       centerTitle: true,
       title: Text(
         title,

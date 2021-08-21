@@ -7,8 +7,16 @@ import 'package:foodybite/view/widgets/restaurant_tile.dart';
 import 'package:foodybite/view/widgets/search_field.dart';
 import 'package:get/get.dart';
 
-class TrendingRestarurantsPage extends StatelessWidget {
+class TrendingRestarurantsPage extends StatefulWidget {
   const TrendingRestarurantsPage({Key key}) : super(key: key);
+
+  @override
+  _TrendingRestarurantsPageState createState() =>
+      _TrendingRestarurantsPageState();
+}
+
+class _TrendingRestarurantsPageState extends State<TrendingRestarurantsPage> {
+  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +28,9 @@ class TrendingRestarurantsPage extends StatelessWidget {
       body: SizedBox.expand(
         child: Column(
           children: [
+            const SizedBox(height: defaultPadding / 2),
             SearchField(
+              controller: _searchController,
               onLeadingTap: () {
                 Get.to(() => FilterPage());
               },
@@ -33,7 +43,7 @@ class TrendingRestarurantsPage extends StatelessWidget {
                       ? RestaurantTile(
                           restaurant: restaurantList[index],
                         )
-                      : const SizedBox(height: kPadding * 2);
+                      : const SizedBox(height: defaultPadding * 2);
                 },
               ),
             ),

@@ -43,7 +43,7 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
               SizedBox.expand(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: kPadding * 2,
+                    horizontal: defaultPadding * 2,
                   ),
                   child: Column(
                     children: [
@@ -51,7 +51,8 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
                         height: getRelativeHeight(0.16),
                       ),
                       Text(
-                          'Enter your email and will send you instructions on how to reset it',
+                          'Enter your email and will send you'
+                          ' instructions on how to reset it',
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.headline6.copyWith(
                                 color: Colors.white,

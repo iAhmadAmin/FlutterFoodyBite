@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox.expand(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: kPadding * 2,
+                    horizontal: defaultPadding * 2,
                   ),
                   child: Column(
                     children: [
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                               validator: (val) =>
                                   Validators.emailValidator(val),
                             ),
-                            const SizedBox(height: kPadding),
+                            const SizedBox(height: defaultPadding),
                             InputField(
                               iconPath: MIcons.lock,
                               controller: _passwordController,
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                               validator: (val) =>
                                   Validators.passwordValidator(val),
                             ),
-                            const SizedBox(height: kPadding),
+                            const SizedBox(height: defaultPadding),
                           ],
                         ),
                       ),
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                           Get.off(() => WelcomePage());
                         },
                       ),
-                      const SizedBox(height: kPadding * 5),
+                      const SizedBox(height: defaultPadding * 5),
                       GestureDetector(
                         onTap: () {
                           Get.off(() => RegisterPage());
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                         ),
                       ),
-                      const SizedBox(height: kPadding),
+                      const SizedBox(height: defaultPadding),
                     ],
                   ),
                 ),

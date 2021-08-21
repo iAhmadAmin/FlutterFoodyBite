@@ -56,7 +56,7 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
               }).toList(),
             ),
             Positioned(
-                bottom: kPadding,
+                bottom: defaultPadding,
                 child: SizedBox(
                   height: 15,
                   child: Row(
@@ -73,7 +73,7 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
                             child: CircleAvatar(
                               radius: _currentPage == i ? 4 : 3,
                               backgroundColor: _currentPage == i
-                                  ? kPrimaryColor
+                                  ? primaryColor
                                   : Colors.white24,
                             ),
                           ),
