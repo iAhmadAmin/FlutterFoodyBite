@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/RootPage/root_page.dart';
 import 'package:foodybite/view/widgets/app_title.dart';
@@ -71,7 +72,7 @@ class WelcomePage extends StatelessWidget {
                               ],
                             ),
                             child: Center(
-                              child: Text('Skip',
+                              child: Text(Values.skip.tr,
                                   style: Theme.of(context)
                                       .textTheme
                                       .subtitle1
@@ -86,8 +87,8 @@ class WelcomePage extends StatelessWidget {
                       const Spacer(),
                       Text(
                         '''
-                        Hi John,
-                        Welcome to
+                        ${Values.hi.tr} John
+                        ${Values.welcome_to.tr}
                         ''',
                         style: Theme.of(context).textTheme.headline3.copyWith(
                               color: Colors.white,
@@ -102,9 +103,7 @@ class WelcomePage extends StatelessWidget {
                       SizedBox(
                         height: getRelativeHeight(0.12),
                       ),
-                      Text(
-                          'Please turn on your GPS to find'
-                          ' out better restaurant suggestions near you.',
+                      Text(Values.please_turn_on_gps.tr,
                           textAlign: TextAlign.left,
                           style: Theme.of(context).textTheme.headline6.copyWith(
                                 color: Colors.white,
@@ -114,7 +113,7 @@ class WelcomePage extends StatelessWidget {
                         height: getRelativeHeight(0.12),
                       ),
                       MButton(
-                        label: 'Turn on GPS',
+                        label: Values.turn_on_gps.tr,
                         onTap: () {},
                       ),
                       SizedBox(

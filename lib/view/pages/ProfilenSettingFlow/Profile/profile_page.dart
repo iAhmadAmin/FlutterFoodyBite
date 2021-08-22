@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/constants/values.dart';
+import 'package:foodybite/controllers/profile_controller.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/dialogs/m_dialogs.dart';
@@ -16,15 +18,15 @@ import 'package:foodybite/view/widgets/restaurant_tile.dart';
 import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({@required this.isMe});
-
+  ProfilePage({@required this.isMe});
   final bool isMe;
+  final _profileController = Get.put(ProfileController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MAppBar(
-        title: isMe ? 'My Profile' : 'Profile',
+        title: isMe ? Values.my_profile.tr : Values.profile.tr,
         appBar: AppBar(),
       ),
       body: SizedBox.expand(
@@ -32,10 +34,16 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: defaultPadding),
-              CircleAvatar(
-                radius: getRelativeWidth(0.15),
-                backgroundImage: const AssetImage(Images.d1),
-              ),
+              GetBuilder<ProfileController>(builder: (_con) {
+                return CircleAvatar(
+                  radius: getRelativeWidth(0.15),
+                  backgroundImage: _con.imageFile != null
+                      ? FileImage(_con.imageFile)
+                      : const AssetImage(
+                          Images.d1,
+                        ),
+                );
+              }),
               const SizedBox(height: defaultPadding),
               Text(
                 'Jayson Acevedo',
@@ -55,7 +63,7 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: defaultPadding * 1.5),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 CountTile(
-                  label: 'Reviews',
+                  label: Values.reviews.tr,
                   count: 120,
                   onTap: () {
                     Get.to(() => const ReviewRatingPage(showMyRatings: true));
@@ -70,11 +78,11 @@ class ProfilePage extends StatelessWidget {
                   color: secondaryTextColor,
                 ),
                 CountTile(
-                    label: 'Followers',
+                    label: Values.followers.tr,
                     count: 240,
                     onTap: () {
                       Get.to(() => UserListingPage(
-                            appBarTitle: 'Followers',
+                            appBarTitle: Values.followers.tr,
                             userList: userList,
                           ));
                     }),
@@ -87,11 +95,11 @@ class ProfilePage extends StatelessWidget {
                   color: secondaryTextColor,
                 ),
                 CountTile(
-                    label: 'Following',
+                    label: Values.following.tr,
                     count: 74,
                     onTap: () {
                       Get.to(() => UserListingPage(
-                            appBarTitle: 'Following',
+                            appBarTitle: Values.following.tr,
                             userList: userList,
                             isFollowing: true,
                           ));
@@ -100,7 +108,7 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: defaultPadding * 1.5),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 MButton(
-                  label: isMe ? 'Edit Profile' : 'Follow',
+                  label: isMe ? Values.edit_profile.tr : Values.follow.tr,
                   onTap: isMe
                       ? () {
                           Get.to(
@@ -114,7 +122,7 @@ class ProfilePage extends StatelessWidget {
                 const SizedBox(width: defaultPadding),
                 MButton(
                   isFilled: false,
-                  label: isMe ? 'Settings' : 'Block',
+                  label: isMe ? Values.settings.tr : Values.block.tr,
                   onTap: isMe
                       ? () {
                           Get.to(() => SettingsPage());
@@ -141,7 +149,7 @@ class ProfilePage extends StatelessWidget {
                       onDeleteTap: () {
                         Get.back();
                         MDialogs.confirmationDialog(
-                          title: 'Are you sure you want to delete this post?',
+                          title: Values.are_you_sure_delete_post.tr,
                           onYesTap: () {},
                           onNoTap: () {
                             Get.back();

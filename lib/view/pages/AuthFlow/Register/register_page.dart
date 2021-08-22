@@ -4,6 +4,7 @@ import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/Widgets/input_field.dart';
@@ -129,14 +130,14 @@ class _RegisterPageState extends State<RegisterPage> {
                               SizedBox(height: getRelativeHeight(0.05)),
                               InputField(
                                 controller: _nameController,
-                                hint: 'Name',
+                                hint: Values.name.tr,
                                 iconPath: MIcons.user_o,
                               ),
                               const SizedBox(height: defaultPadding),
                               InputField(
                                 textInputType: TextInputType.emailAddress,
                                 controller: _emailController,
-                                hint: 'Email',
+                                hint: Values.email.tr,
                                 iconPath: MIcons.mail,
                                 validator: (val) =>
                                     Validators.emailValidator(val),
@@ -146,7 +147,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 textInputType: TextInputType.visiblePassword,
                                 isPassword: true,
                                 controller: _passwordController,
-                                hint: 'Password',
+                                hint: Values.password.tr,
                                 iconPath: MIcons.lock,
                                 validator: (val) =>
                                     Validators.passwordValidator(val),
@@ -156,7 +157,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 textInputType: TextInputType.visiblePassword,
                                 isPassword: true,
                                 controller: _confirmPasswordController,
-                                hint: 'Confirm Password',
+                                hint: Values.confirm_password.tr,
                                 iconPath: MIcons.lock,
                                 validator: (val) =>
                                     Validators.confirmPasswordValidator(
@@ -171,7 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const Spacer(),
                       MButton(
-                        label: 'Register',
+                        label: Values.register.tr,
                         onTap: () {
                           _validateInput();
                         },
@@ -181,7 +182,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Already have an account? ',
+                            Values.already_have_account.tr,
                             style:
                                 Theme.of(context).textTheme.subtitle1.copyWith(
                                       color: Colors.white,
@@ -193,7 +194,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               Get.off(() => LoginPage());
                             },
                             child: Text(
-                              'Login',
+                              ' ' + Values.login.tr,
                               style: Theme.of(context)
                                   .textTheme
                                   .subtitle1

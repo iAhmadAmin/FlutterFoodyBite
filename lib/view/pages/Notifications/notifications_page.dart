@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/notification_model.dart';
 import 'package:foodybite/utils/datetime_utils.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
+import 'package:get/get.dart';
 
 class NotificationsPage extends StatelessWidget {
   @override
@@ -12,7 +14,7 @@ class NotificationsPage extends StatelessWidget {
     return Scaffold(
       appBar: MAppBar(
         appBar: AppBar(),
-        title: 'Notifications',
+        title: Values.notifications.tr,
       ),
       body: SizedBox.expand(
           child: ListView.builder(

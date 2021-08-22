@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -9,6 +10,7 @@ import 'package:foodybite/view/widgets/mbutton.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
 import 'package:foodybite/view/widgets/search_field.dart';
+import 'package:get/get.dart';
 
 class NewReviewPage extends StatefulWidget {
   const NewReviewPage({
@@ -42,7 +44,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
 
     return Scaffold(
         appBar: MAppBar(
-          title: widget.isUpdate ? 'Edit Review' : 'New Review',
+          title: widget.isUpdate ? Values.edit_review.tr : Values.new_review.tr,
           appBar: AppBar(),
           actions: [
             Padding(
@@ -51,7 +53,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
                 child: GestureDetector(
                   onTap: () {},
                   child: Text(
-                    'Post',
+                    Values.post.tr,
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
                           color: primaryColor,
                           fontWeight: FontWeight.w600,
@@ -69,7 +71,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
               const SizedBox(height: defaultPadding),
               SearchField(
                 controller: _searchController,
-                hint: 'Search Restaurant',
+                hint: Values.search_restaurants.tr,
                 onFieldSubmitted: (value) {
                   setState(() {});
                 },
@@ -100,8 +102,8 @@ class _NewReviewPageState extends State<NewReviewPage> {
                         )
                   : const SizedBox(),
               const SizedBox(height: defaultPadding * 2),
-              const Text('Ratings',
-                  style: TextStyle(
+              Text(Values.ratings.tr,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
@@ -109,15 +111,15 @@ class _NewReviewPageState extends State<NewReviewPage> {
               const SizedBox(height: defaultPadding),
               RatingBar(initialRating: 0, onRatingChange: (val) {}),
               const SizedBox(height: defaultPadding * 1),
-              Text('Rate your experience',
+              Text(Values.rate_your_experience.tr,
                   style: TextStyle(
                     color: secondaryTextColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
                   )),
               const SizedBox(height: defaultPadding * 2),
-              const Text('Review',
-                  style: TextStyle(
+              Text(Values.review.tr,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
@@ -128,7 +130,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
                 child: InputField(
                   maxLines: 8,
                   isWhite: false,
-                  hint: 'Write your experience',
+                  hint: Values.write_your_experience.tr,
                   controller: _experienceController,
                 ),
               ),
@@ -137,7 +139,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
                   padding: const EdgeInsets.fromLTRB(
                       defaultPadding, defaultPadding * 3, defaultPadding, 0),
                   child: MButton(
-                    label: 'Update',
+                    label: Values.update.tr,
                     onTap: () {},
                   ),
                 ),

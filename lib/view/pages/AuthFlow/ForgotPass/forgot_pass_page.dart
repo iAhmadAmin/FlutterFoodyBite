@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
+import 'package:get/get.dart';
 
 class ForgotPassPage extends StatefulWidget {
   @override
@@ -22,7 +24,7 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
         resizeToAvoidBottomInset: false,
         extendBodyBehindAppBar: true,
         appBar: MAppBar(
-          title: 'Forgot Password',
+          title: Values.forgot_password.tr,
           appBar: AppBar(),
           txtColor: Colors.white,
           bgColor: Colors.transparent,
@@ -50,9 +52,7 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
                       SizedBox(
                         height: getRelativeHeight(0.16),
                       ),
-                      Text(
-                          'Enter your email and will send you'
-                          ' instructions on how to reset it',
+                      Text(Values.enter_email_for_forgot_password.tr,
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.headline6.copyWith(
                                 color: Colors.white,
@@ -62,7 +62,7 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
                         height: getRelativeHeight(0.06),
                       ),
                       InputField(
-                        hint: 'Email',
+                        hint: Values.email.tr,
                         controller: _emailController,
                         iconPath: MIcons.mail,
                         textInputType: TextInputType.emailAddress,
@@ -70,7 +70,7 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
                       ),
                       const Spacer(),
                       MButton(
-                        label: 'Send',
+                        label: Values.send.tr,
                         onTap: () {},
                       ),
                       SizedBox(

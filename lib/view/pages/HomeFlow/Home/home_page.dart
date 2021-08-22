@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
@@ -25,7 +26,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _searchController = TextEditingController();
-  final _fixedExtentScrollController = FixedExtentScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SearchField(
                 controller: _searchController,
-                hint: 'Find Restaurants',
+                hint: Values.find_restaurants.tr,
                 onLeadingTap: () {
                   Get.to(() => FilterPage());
                 },
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                 height: defaultPadding * 2,
               ),
               HeadinBar(
-                label: 'Trending Restaurants',
+                label: Values.trending_restaurants.tr,
                 count: '29',
                 onTap: () {
                   Get.to(() => const TrendingRestarurantsPage());
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                 height: defaultPadding * 2,
               ),
               HeadinBar(
-                label: 'Categories',
+                label: Values.categories.tr,
                 count: '9',
                 onTap: () {
                   Get.to(
@@ -139,13 +139,13 @@ class _HomePageState extends State<HomePage> {
                 height: defaultPadding * 2,
               ),
               HeadinBar(
-                label: 'Friends',
+                label: Values.friends.tr,
                 count: '56',
                 onTap: () {
                   Get.to(
                     () => UserListingPage(
                         isFollowing: true,
-                        appBarTitle: 'Following',
+                        appBarTitle: Values.following.tr,
                         userList: userList),
                   );
                 },

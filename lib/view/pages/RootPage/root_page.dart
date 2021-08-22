@@ -18,7 +18,7 @@ class _RootPageState extends State<RootPage> {
     FavouriteRestaurantsPage(),
     const NewReviewPage(),
     NotificationsPage(),
-    const ProfilePage(isMe: true),
+    ProfilePage(isMe: true),
   ];
 
   int _selectedIndex = 0;

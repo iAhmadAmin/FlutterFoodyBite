@@ -66,7 +66,7 @@ class UserTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(
-          () => const ProfilePage(isMe: false),
+          () => ProfilePage(isMe: false),
         );
       },
       child: Container(

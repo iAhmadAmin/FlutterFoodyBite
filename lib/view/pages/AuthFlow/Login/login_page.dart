@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/pages/AuthFlow/ForgotPass/forgot_pass_page.dart';
@@ -58,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                             InputField(
                               iconPath: MIcons.mail,
                               controller: _emailController,
-                              hint: 'Email',
+                              hint: Values.email.tr,
                               validator: (val) =>
                                   Validators.emailValidator(val),
                             ),
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                               iconPath: MIcons.lock,
                               controller: _passwordController,
                               isPassword: true,
-                              hint: 'Password',
+                              hint: Values.password.tr,
                               validator: (val) =>
                                   Validators.passwordValidator(val),
                             ),
@@ -82,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                             Get.to(() => ForgotPassPage());
                           },
                           child: Text(
-                            'Forgot Password?',
+                            Values.forgot_password.tr,
                             style:
                                 Theme.of(context).textTheme.bodyText1.copyWith(
                                       color: Colors.white,
@@ -94,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: getRelativeHeight(0.2),
                       ),
                       MButton(
-                        label: 'Login',
+                        label: Values.login.tr,
                         onTap: () {
                           //inputValidation,
                           Get.off(() => WelcomePage());
@@ -106,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                           Get.off(() => RegisterPage());
                         },
                         child: Text(
-                          'Create New Account',
+                          Values.create_new_account.tr,
                           style: Theme.of(context).textTheme.subtitle1.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w300,

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 enum Language {
   English,
   Chinese,
+  Spanish,
   Arabic,
 }
 
