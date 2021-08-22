@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
+import 'package:get/get.dart';
 import 'package:photo_view/photo_view.dart';
 
 class PhotoViewPage extends StatefulWidget {
@@ -27,7 +29,7 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: MAppBar(
-        title: 'Filter',
+        title: Values.preview.tr,
         txtColor: Colors.white,
         bgColor: Colors.transparent,
         appBar: AppBar(),

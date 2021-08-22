@@ -4,6 +4,7 @@ import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/Restaurant/restaurant_page.dart';
@@ -161,7 +162,9 @@ class RestaurantTile extends StatelessWidget {
                                     ]),
                                 child: Center(
                                   child: Text(
-                                    restaurant.isOpen ? 'OPEN' : 'CLOSE',
+                                    restaurant.isOpen
+                                        ? Values.open.tr
+                                        : Values.close.tr,
                                     style: Theme.of(context)
                                         .textTheme
                                         .caption

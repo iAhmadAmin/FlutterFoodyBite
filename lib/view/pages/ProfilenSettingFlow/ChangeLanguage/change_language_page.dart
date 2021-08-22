@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:get/get.dart';
 
@@ -24,14 +25,14 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
     return Scaffold(
         appBar: MAppBar(
           appBar: AppBar(),
-          title: 'change_language'.tr,
+          title: Values.change_language.tr,
           actions: [
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(right: defaultPadding),
                 child: GestureDetector(
                   onTap: () {},
-                  child: Text('Update',
+                  child: Text(Values.update.tr,
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
                             color: primaryColor,
                           )),
@@ -52,7 +53,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Select Language',
+                  Values.select_language.tr,
                   style: Theme.of(context).textTheme.subtitle1.copyWith(
                         color: secondaryTextColor,
                       ),

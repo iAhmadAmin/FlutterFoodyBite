@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:foodybite/view/widgets/round_button.dart';
+import 'package:get/get.dart';
 
 class FilterPage extends StatefulWidget {
   @override
@@ -21,7 +23,7 @@ class _FilterPageState extends State<FilterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MAppBar(
-        title: 'Filter',
+        title: Values.filter.tr,
         appBar: AppBar(),
         actions: [
           IconButton(
@@ -36,8 +38,8 @@ class _FilterPageState extends State<FilterPage> {
             const SizedBox(
               height: defaultPadding * 1.5,
             ),
-            const Text('Select Category',
-                style: TextStyle(
+            Text(Values.select_category.tr,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
                   fontSize: 18,
@@ -93,8 +95,8 @@ class _FilterPageState extends State<FilterPage> {
             const SizedBox(
               height: defaultPadding * 2,
             ),
-            const Text('Distance',
-                style: TextStyle(
+            Text(Values.distance.tr,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
                   fontSize: 18,
@@ -151,8 +153,8 @@ class _FilterPageState extends State<FilterPage> {
             const SizedBox(
               height: defaultPadding * 2,
             ),
-            const Text('Ratings',
-                style: TextStyle(
+            Text(Values.ratings.tr,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
                   fontSize: 18,
@@ -172,7 +174,7 @@ class _FilterPageState extends State<FilterPage> {
                 Expanded(
                   child: RoundButton(
                     onTap: () {},
-                    label: 'Reset',
+                    label: Values.reset.tr,
                     rightRound: false,
                   ),
                 ),
@@ -183,7 +185,7 @@ class _FilterPageState extends State<FilterPage> {
                 Expanded(
                   child: RoundButton(
                     onTap: () {},
-                    label: 'Apply',
+                    label: Values.apply.tr,
                     leftRound: false,
                   ),
                 ),

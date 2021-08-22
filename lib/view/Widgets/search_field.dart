@@ -7,7 +7,7 @@ import 'package:foodybite/constants/icons.dart';
 class SearchField extends StatelessWidget {
   const SearchField({
     this.onLeadingTap,
-    this.hint = 'Search',
+    @required this.hint,
     this.suffixWidget,
     @required this.controller,
     this.onFieldSubmitted,

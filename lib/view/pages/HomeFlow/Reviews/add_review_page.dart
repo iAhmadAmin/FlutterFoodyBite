@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:foodybite/view/widgets/round_button.dart';
+import 'package:get/get.dart';
 
 class AddReviewPage extends StatefulWidget {
   @override
@@ -18,7 +20,7 @@ class _AddReviewPageState extends State<AddReviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: MAppBar(
-          title: 'Review & Ratings',
+          title: Values.review_n_ratings.tr,
           appBar: AppBar(),
           actions: [
             IconButton(
@@ -33,7 +35,7 @@ class _AddReviewPageState extends State<AddReviewPage> {
             const SizedBox(height: defaultPadding * 2),
             RatingBar(initialRating: 0, onRatingChange: (val) {}),
             const SizedBox(height: defaultPadding * 1),
-            Text('Rate your experience',
+            Text(Values.rate_your_experience.tr,
                 style: TextStyle(
                   color: secondaryTextColor,
                   fontWeight: FontWeight.w600,
@@ -45,13 +47,13 @@ class _AddReviewPageState extends State<AddReviewPage> {
               child: InputField(
                 maxLines: 8,
                 isWhite: false,
-                hint: 'Write your experience',
+                hint: Values.write_your_experience.tr,
                 controller: _experienceController,
               ),
             ),
             const Spacer(),
             RoundButton(
-              label: 'Done',
+              label: Values.done.tr,
               onTap: () {},
             ),
           ],

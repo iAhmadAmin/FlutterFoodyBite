@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
+import 'package:get/get.dart';
 
 class ChangePasswordPage extends StatefulWidget {
   @override
@@ -21,7 +23,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
     return Scaffold(
       appBar: MAppBar(
         appBar: AppBar(),
-        title: 'Change Password',
+        title: Values.change_password.tr,
       ),
       body: SizedBox.expand(
         child: Padding(
@@ -31,7 +33,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 const SizedBox(height: defaultPadding * 2),
                 InputField(
                   validator: (value) => Validators.passwordValidator(value),
-                  hint: 'Current Password',
+                  hint: Values.current_password.tr,
                   controller: _currentPassController,
                   isPassword: true,
                   iconPath: MIcons.lock,
@@ -40,7 +42,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 const SizedBox(height: defaultPadding),
                 InputField(
                   validator: (value) => Validators.passwordValidator(value),
-                  hint: 'New Password',
+                  hint: Values.new_password.tr,
                   controller: _passwordController,
                   isPassword: true,
                   iconPath: MIcons.lock,
@@ -50,7 +52,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 InputField(
                   validator: (value) => Validators.confirmPasswordValidator(
                       _passwordController.text, value),
-                  hint: 'Confirm Password',
+                  hint: Values.confirm_password.tr,
                   controller: _passwordController,
                   isPassword: true,
                   iconPath: MIcons.lock,
@@ -58,7 +60,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 ),
                 const Spacer(),
                 MButton(
-                  label: 'Update',
+                  label: Values.update.tr,
                   onTap: () {},
                 ),
                 const SizedBox(height: defaultPadding),

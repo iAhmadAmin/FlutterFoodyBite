@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/PhotoView/photo_view_page.dart';
@@ -27,7 +28,7 @@ class MenuPhotoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MAppBar(
-        title: 'Menu & Photos',
+        title: Values.menu_n_photos.tr,
         appBar: AppBar(),
       ),
       body: Container(

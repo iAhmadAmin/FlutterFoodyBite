@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/view/dialogs/m_dialogs.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/ChangeLanguage/change_language_page.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/ChangePassword/change_password_page.dart';
@@ -13,7 +14,7 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
         appBar: MAppBar(
           appBar: AppBar(),
-          title: 'Settings',
+          title: Values.settings.tr,
         ),
         body: SizedBox.expand(
           child: Column(
@@ -27,7 +28,7 @@ class SettingsPage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Account',
+                    Values.account.tr,
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
                           color: secondaryTextColor,
                         ),
@@ -36,13 +37,13 @@ class SettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: defaultPadding / 2),
               SettingButton(
-                label: 'Change Password',
+                label: Values.change_password.tr,
                 onTap: () {
                   Get.to(() => ChangePasswordPage());
                 },
               ),
               SettingButton(
-                label: 'change_language'.tr,
+                label: Values.change_language.tr,
                 onTap: () {
                   Get.to(() => ChangeLanguagePage());
                 },
@@ -56,7 +57,7 @@ class SettingsPage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Others',
+                    Values.others.tr,
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
                           color: secondaryTextColor,
                         ),
@@ -65,17 +66,17 @@ class SettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: defaultPadding / 2),
               SettingButton(
-                label: 'Privacy Policy',
+                label: Values.privacy_policy.tr,
                 onTap: () {},
               ),
               SettingButton(
-                label: 'Terms & Conditions',
+                label: Values.terms_n_conditions.tr,
                 onTap: () {},
               ),
               GestureDetector(
                 onTap: () {
                   MDialogs.confirmationDialog(
-                    title: 'Are you sure you want to logout?',
+                    title: Values.are_you_sure_logout.tr,
                     onNoTap: () {
                       Get.back();
                     },
@@ -93,7 +94,7 @@ class SettingsPage extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Logout',
+                      Values.logout.tr,
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
                             color: primaryColor,
                             fontWeight: FontWeight.w800,

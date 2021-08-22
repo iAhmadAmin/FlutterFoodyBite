@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/view/pages/HomeFlow/Filter/filter_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -22,7 +23,7 @@ class _TrendingRestarurantsPageState extends State<TrendingRestarurantsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MAppBar(
-        title: 'Trending Restaurants',
+        title: Values.trending_restaurants.tr,
         appBar: AppBar(),
       ),
       body: SizedBox.expand(

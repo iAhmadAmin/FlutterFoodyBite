@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/user_model.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/Profile/profile_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -36,7 +37,7 @@ class UserListingPage extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Suggestions',
+                      Values.suggestions.tr,
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
                             color: secondaryTextColor,
                           ),
@@ -100,7 +101,7 @@ class UserTile extends StatelessWidget {
                 ),
                 const SizedBox(height: defaultPadding / 2),
                 Text(
-                  user.reviews.length.toString() + ' Reviews',
+                  user.reviews.length.toString() + ' ' + Values.reviews.tr,
                   style: Theme.of(context)
                       .textTheme
                       .caption
@@ -112,7 +113,7 @@ class UserTile extends StatelessWidget {
             MButton(
               isFilled: !isFollowing,
               txtSize: 12,
-              label: isFollowing ? 'Unfollow' : 'Follow',
+              label: isFollowing ? Values.unfollow.tr : Values.follow.tr,
               onTap: () {},
               height: 26,
               width: 70,

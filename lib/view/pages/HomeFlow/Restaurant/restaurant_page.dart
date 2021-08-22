@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
@@ -59,7 +60,7 @@ class RestaurantPage extends StatelessWidget {
                     const MenuPhotoBar(),
                     const SizedBox(height: defaultPadding * 2),
                     HeadinBar(
-                        label: 'Review & Ratings',
+                        label: Values.review_n_ratings.tr,
                         count: '32',
                         onTap: () {
                           Get.to(() => const ReviewRatingPage(
@@ -84,7 +85,7 @@ class RestaurantPage extends StatelessWidget {
                 right: 0,
                 left: 0,
                 child: RoundButton(
-                    label: 'Rate Your Experience',
+                    label: Values.rate_your_experience.tr,
                     onTap: () {
                       Get.to(
                         () => AddReviewPage(),
@@ -109,7 +110,7 @@ class MenuPhotoBar extends StatelessWidget {
     return Column(
       children: [
         HeadinBar(
-            label: 'Menu & Photos',
+            label: Values.menu_n_photos.tr,
             count: '25',
             onTap: () {
               Get.to(() => const MenuPhotoPage());
@@ -193,8 +194,8 @@ class RestTopTile extends StatelessWidget {
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      CircleAvatar(
+                    children: [
+                      const CircleAvatar(
                           radius: 13,
                           backgroundColor: Colors.white,
                           child: Icon(
@@ -205,13 +206,13 @@ class RestTopTile extends StatelessWidget {
                       const SizedBox(
                         width: defaultPadding / 2,
                       ),
-                      Text('+1 212-673-3754',
+                      const Text('+1 212-673-3754',
                           style: TextStyle(color: Colors.white)),
-                      VerticalDivider(
+                      const VerticalDivider(
                         color: Colors.white,
                         width: defaultPadding * 2,
                       ),
-                      CircleAvatar(
+                      const CircleAvatar(
                           radius: 13,
                           backgroundColor: Colors.white,
                           child: Icon(
@@ -222,7 +223,12 @@ class RestTopTile extends StatelessWidget {
                       const SizedBox(
                         width: defaultPadding / 2,
                       ),
-                      Text('Direction', style: TextStyle(color: Colors.white))
+                      Text(
+                        Values.direction.tr,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      )
                     ],
                   ),
                 )),
@@ -300,14 +306,14 @@ class RestInfoTile extends StatelessWidget {
           ),
           RichText(
             text: TextSpan(
-                text: 'Open Now',
+                text: Values.open_now.tr,
                 style: Theme.of(context)
                     .textTheme
                     .caption
                     .copyWith(color: Colors.green),
                 children: [
                   TextSpan(
-                    text: ' daily time',
+                    text: ' ' + Values.daily_time.tr,
                     style: Theme.of(context)
                         .textTheme
                         .caption

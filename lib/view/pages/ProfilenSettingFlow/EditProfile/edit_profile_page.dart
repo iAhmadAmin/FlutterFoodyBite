@@ -3,6 +3,7 @@ import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/controllers/profile_controller.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
@@ -27,7 +28,7 @@ class _EditPofilePageState extends State<EditPofilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MAppBar(
-        title: 'Edit Profile',
+        title: Values.edit_profile.tr,
         appBar: AppBar(),
       ),
       body: SizedBox.expand(
@@ -104,7 +105,7 @@ class _EditPofilePageState extends State<EditPofilePage> {
               ),
               const Spacer(),
               MButton(
-                label: 'Update',
+                label: Values.update.tr,
                 onTap: () {},
               ),
               const SizedBox(height: defaultPadding * 2),

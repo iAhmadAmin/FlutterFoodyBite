@@ -37,7 +37,8 @@
 
 //     final rRect = RRect.fromRectAndRadius(
 //       Rect.fromCenter(
-//           center: center, width: thumbHeight * 1.2, height: thumbHeight * .6),
+//           center: center, width: thumbHeight * 1.2,
+// height: thumbHeight * .6),
 //       Radius.circular(thumbRadius * .4),
 //     );
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
+import 'package:get/get.dart';
 
 class HeadinBar extends StatelessWidget {
   const HeadinBar({
@@ -32,7 +34,7 @@ class HeadinBar extends StatelessWidget {
             ),
             GestureDetector(
               onTap: onTap,
-              child: Text('See all ($count)',
+              child: Text(Values.see_all.tr + ' ($count)',
                   style: Theme.of(context).textTheme.subtitle2.copyWith(
                         color: secondaryTextColor,
                       )),
