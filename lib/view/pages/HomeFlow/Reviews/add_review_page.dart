@@ -35,7 +35,7 @@ class _AddReviewPageState extends State<AddReviewPage> {
             const SizedBox(height: defaultPadding * 1),
             Text('Rate your experience',
                 style: TextStyle(
-                  color: ktextColor,
+                  color: secondaryTextColor,
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                 )),

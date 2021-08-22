@@ -31,7 +31,7 @@ class ProfilePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              //const SizedBox(height: defaultPadding),
+              const SizedBox(height: defaultPadding),
               CircleAvatar(
                 radius: getRelativeWidth(0.15),
                 backgroundImage: const AssetImage(Images.d1),
@@ -50,7 +50,7 @@ class ProfilePage extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2
-                    .copyWith(color: ktextColor),
+                    .copyWith(color: secondaryTextColor),
               ),
               const SizedBox(height: defaultPadding * 1.5),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -67,7 +67,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   height: 30,
                   width: 0.5,
-                  color: ktextColor,
+                  color: secondaryTextColor,
                 ),
                 CountTile(
                     label: 'Followers',
@@ -84,7 +84,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   height: 30,
                   width: 0.5,
-                  color: ktextColor,
+                  color: secondaryTextColor,
                 ),
                 CountTile(
                     label: 'Following',
@@ -193,7 +193,7 @@ class CountTile extends StatelessWidget {
         const SizedBox(height: defaultPadding / 3),
         Text(label,
             style: Theme.of(context).textTheme.bodyText1.copyWith(
-                  color: ktextColor,
+                  color: secondaryTextColor,
                   fontWeight: FontWeight.w600,
                 )),
       ]),

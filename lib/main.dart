@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
+import 'package:foodybite/translations/string_values.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/AuthFlow/Splash/splash_page.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      translations: StringValues(),
+      locale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en', 'US'),
       theme: ThemeData(
         fontFamily: 'JosefinSans',
         scaffoldBackgroundColor: backgroundColor,

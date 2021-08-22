@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/user_model.dart';
+import 'package:foodybite/view/pages/ProfilenSettingFlow/Profile/profile_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
+import 'package:get/get.dart';
 
 class UserListingPage extends StatelessWidget {
   const UserListingPage(
@@ -36,7 +38,7 @@ class UserListingPage extends StatelessWidget {
                     child: Text(
                       'Suggestions',
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
-                            color: ktextColor,
+                            color: secondaryTextColor,
                           ),
                     ),
                   ),
@@ -61,50 +63,62 @@ class UserTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
-      padding: const EdgeInsets.only(bottom: defaultPadding * 1.2),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 24,
-            backgroundImage: AssetImage(
-              user.imgPath,
+    return GestureDetector(
+      onTap: () {
+        Get.to(
+          () => const ProfilePage(isMe: false),
+        );
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          horizontal: defaultPadding,
+        ),
+        padding: const EdgeInsets.only(
+          bottom: defaultPadding,
+          top: defaultPadding / 2,
+        ),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 24,
+              backgroundImage: AssetImage(
+                user.imgPath,
+              ),
             ),
-          ),
-          const SizedBox(
-            width: defaultPadding,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                user.name,
-                style: Theme.of(context).textTheme.subtitle1.copyWith(
-                      color: textColor,
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
-              const SizedBox(height: defaultPadding / 2),
-              Text(
-                user.reviews.length.toString() + ' Reviews',
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(fontWeight: FontWeight.w800),
-              ),
-            ],
-          ),
-          const Spacer(),
-          MButton(
-            isFilled: !isFollowing,
-            txtSize: 12,
-            label: isFollowing ? 'Unfollow' : 'Follow',
-            onTap: () {},
-            height: 26,
-            width: 70,
-          ),
-        ],
+            const SizedBox(
+              width: defaultPadding,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  user.name,
+                  style: Theme.of(context).textTheme.subtitle1.copyWith(
+                        color: textColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+                const SizedBox(height: defaultPadding / 2),
+                Text(
+                  user.reviews.length.toString() + ' Reviews',
+                  style: Theme.of(context)
+                      .textTheme
+                      .caption
+                      .copyWith(fontWeight: FontWeight.w800),
+                ),
+              ],
+            ),
+            const Spacer(),
+            MButton(
+              isFilled: !isFollowing,
+              txtSize: 12,
+              label: isFollowing ? 'Unfollow' : 'Follow',
+              onTap: () {},
+              height: 26,
+              width: 70,
+            ),
+          ],
+        ),
       ),
     );
   }

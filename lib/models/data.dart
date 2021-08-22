@@ -195,18 +195,36 @@ List<NotificationModel> notificationList = [
     iconPath: Images.d1,
     source: 'Branson Hawkins',
     description: 'Start following you',
-    dateTime: DateTime.utc(2021, 08, 19, 05, 30),
+    dateTime: DateTime.utc(2021, 08, 22, 10, 30),
   ),
   NotificationModel(
     iconPath: Images.d3,
     source: 'Julia Lari',
     description: 'Checked in at Happy Bones',
-    dateTime: DateTime.utc(2021, 08, 18, 05, 30),
+    dateTime: DateTime.utc(2021, 08, 22, 05, 30),
   ),
   NotificationModel(
     iconPath: Images.d1,
     source: 'Random Person',
     description: 'Checked in at Uncle Bones',
-    dateTime: DateTime.utc(2021, 08, 12, 05, 30),
+    dateTime: DateTime.utc(2021, 08, 21, 05, 30),
+  ),
+  NotificationModel(
+    iconPath: Images.d1,
+    source: 'Branson Hawkins',
+    description: 'Start following you',
+    dateTime: DateTime.utc(2021, 08, 20, 05, 30),
+  ),
+  NotificationModel(
+    iconPath: Images.d3,
+    source: 'Julia Lari',
+    description: 'Checked in at Happy Bones',
+    dateTime: DateTime.utc(2021, 08, 19, 05, 30),
+  ),
+  NotificationModel(
+    iconPath: Images.d1,
+    source: 'Random Person',
+    description: 'Checked in at Uncle Bones',
+    dateTime: DateTime.utc(2021, 08, 18, 05, 30),
   )
 ];

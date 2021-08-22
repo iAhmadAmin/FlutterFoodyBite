@@ -5,7 +5,7 @@ import 'package:foodybite/models/restaurant_model.dart';
 const primaryColor = Color(0xFF5663FF);
 const secondaryColor = Color(0xFF6E7FAA);
 const textColor = Color(0xFF222455);
-final ktextColor = const Color(0xFF6E7FAA).withOpacity(0.8);
+final secondaryTextColor = const Color(0xFF6E7FAA).withOpacity(0.8);
 final textFieldColor = Colors.white.withOpacity(0.25);
 final backgroundColor = Colors.grey[50];
 const appBarColor = Colors.white;

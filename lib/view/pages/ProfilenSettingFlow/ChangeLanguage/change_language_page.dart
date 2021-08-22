@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
+import 'package:get/get.dart';
 
 enum Language {
   English,
   Chinese,
-  Spanish,
-  Hindi,
   Arabic,
-  Russian,
-  Japanese,
-  French,
 }
 
 class ChangeLanguagePage extends StatefulWidget {
@@ -27,7 +23,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
     return Scaffold(
         appBar: MAppBar(
           appBar: AppBar(),
-          title: 'Change Language',
+          title: 'change_language'.tr,
           actions: [
             Center(
               child: Padding(
@@ -50,14 +46,14 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
               padding: const EdgeInsets.only(
                 left: defaultPadding,
                 bottom: defaultPadding / 2,
-                top: defaultPadding / 2,
+                top: defaultPadding,
               ),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Select Language',
                   style: Theme.of(context).textTheme.subtitle1.copyWith(
-                        color: ktextColor,
+                        color: secondaryTextColor,
                       ),
                 ),
               ),
@@ -67,6 +63,9 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
                 onChanged: (v) {
                   setState(() {
                     _currentLanguage = l;
+                    Get.updateLocale(
+                      const Locale('zh', 'CN'),
+                    );
                   });
                 },
                 title: l.toString().split('.').last,
@@ -91,11 +90,17 @@ class LanguageSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 3,
+      ),
       padding: const EdgeInsets.only(
         left: defaultPadding,
         right: defaultPadding / 2,
+        top: defaultPadding / 3,
+        bottom: defaultPadding / 3,
       ),
+      color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

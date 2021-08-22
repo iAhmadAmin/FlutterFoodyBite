@@ -16,76 +16,93 @@ class SettingsPage extends StatelessWidget {
           title: 'Settings',
         ),
         body: SizedBox.expand(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-            child: Column(
-              children: [
-                const SizedBox(height: defaultPadding / 2),
-                Align(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: defaultPadding,
+                  bottom: defaultPadding / 2,
+                  top: defaultPadding,
+                ),
+                child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Account',
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
-                          color: ktextColor,
+                          color: secondaryTextColor,
                         ),
                   ),
                 ),
-                const SizedBox(height: defaultPadding / 2),
-                SettingButton(
-                  label: 'Change Password',
-                  onTap: () {
-                    Get.to(() => ChangePasswordPage());
-                  },
+              ),
+              const SizedBox(height: defaultPadding / 2),
+              SettingButton(
+                label: 'Change Password',
+                onTap: () {
+                  Get.to(() => ChangePasswordPage());
+                },
+              ),
+              SettingButton(
+                label: 'change_language'.tr,
+                onTap: () {
+                  Get.to(() => ChangeLanguagePage());
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: defaultPadding,
+                  bottom: defaultPadding / 2,
+                  top: defaultPadding,
                 ),
-                SettingButton(
-                  label: 'Change Language',
-                  onTap: () {
-                    Get.to(() => ChangeLanguagePage());
-                  },
-                ),
-                const SizedBox(height: defaultPadding),
-                Align(
+                child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Others',
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
-                          color: ktextColor,
+                          color: secondaryTextColor,
                         ),
                   ),
                 ),
-                const SizedBox(height: defaultPadding / 2),
-                SettingButton(
-                  label: 'Privacy Policy',
-                  onTap: () {},
-                ),
-                SettingButton(
-                  label: 'Terms & Conditions',
-                  onTap: () {},
-                ),
-                const SizedBox(height: defaultPadding),
-                GestureDetector(
-                  onTap: () {
-                    MDialogs.confirmationDialog(
-                      title: 'Are you sure you want to logout?',
-                      onNoTap: () {
-                        Get.back();
-                      },
-                      onYesTap: () {},
-                    );
-                  },
+              ),
+              const SizedBox(height: defaultPadding / 2),
+              SettingButton(
+                label: 'Privacy Policy',
+                onTap: () {},
+              ),
+              SettingButton(
+                label: 'Terms & Conditions',
+                onTap: () {},
+              ),
+              GestureDetector(
+                onTap: () {
+                  MDialogs.confirmationDialog(
+                    title: 'Are you sure you want to logout?',
+                    onNoTap: () {
+                      Get.back();
+                    },
+                    onYesTap: () {},
+                  );
+                },
+                child: Container(
+                  height: 50,
+                  color: Colors.white,
+                  padding: const EdgeInsets.only(
+                    left: defaultPadding,
+                    bottom: defaultPadding,
+                    top: defaultPadding,
+                  ),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Logout',
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
                             color: primaryColor,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w800,
                           ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ));
   }
@@ -104,8 +121,13 @@ class SettingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: defaultPadding * 0.8),
+      child: Container(
+        margin: const EdgeInsets.only(
+          bottom: 3,
+        ),
+        color: Colors.white,
+        padding: const EdgeInsets.symmetric(
+            horizontal: defaultPadding, vertical: defaultPadding * 0.8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -118,7 +140,7 @@ class SettingButton extends StatelessWidget {
             Icon(
               Icons.keyboard_arrow_right,
               size: 28,
-              color: ktextColor,
+              color: secondaryTextColor,
             ),
           ],
         ),

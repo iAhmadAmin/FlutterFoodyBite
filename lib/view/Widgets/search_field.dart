@@ -30,7 +30,7 @@ class SearchField extends StatelessWidget {
         borderRadius: BorderRadius.circular(defaultBorderRadius / 2),
         color: Colors.white,
         border: Border.all(
-          color: ktextColor,
+          color: secondaryTextColor,
           width: 0.2,
         ),
       ),
@@ -51,13 +51,13 @@ class SearchField extends StatelessWidget {
                 hintStyle: Theme.of(context)
                     .textTheme
                     .subtitle1
-                    .copyWith(color: ktextColor),
+                    .copyWith(color: secondaryTextColor),
                 border: InputBorder.none,
                 prefixIcon: Transform.scale(
                   scale: 0.34,
                   child: SvgPicture.asset(
                     MIcons.search,
-                    color: ktextColor,
+                    color: secondaryTextColor,
                     height: 30,
                   ),
                 ),
@@ -71,7 +71,7 @@ class SearchField extends StatelessWidget {
                 scale: 0.55,
                 child: SvgPicture.asset(
                   MIcons.filter,
-                  color: ktextColor,
+                  color: secondaryTextColor,
                   height: 30,
                 ),
               ),

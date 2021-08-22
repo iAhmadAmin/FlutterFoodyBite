@@ -66,7 +66,7 @@ class NotificationTile extends StatelessWidget {
                     Text(
                       DateTimeUtils.dateToString(notification.dateTime),
                       style: Theme.of(context).textTheme.caption.copyWith(
-                            color: ktextColor,
+                            color: secondaryTextColor,
                           ),
                     ),
                   ],
@@ -77,7 +77,7 @@ class NotificationTile extends StatelessWidget {
                 Text(
                   notification.description,
                   style: Theme.of(context).textTheme.caption.copyWith(
-                        color: ktextColor,
+                        color: secondaryTextColor,
                       ),
                 ),
               ],

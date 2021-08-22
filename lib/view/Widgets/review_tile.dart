@@ -52,7 +52,7 @@ class ReviewTile extends StatelessWidget {
                 Text(
                   review.review,
                   style: Theme.of(context).textTheme.caption.copyWith(
-                        color: ktextColor,
+                        color: secondaryTextColor,
                       ),
                 ),
               ],

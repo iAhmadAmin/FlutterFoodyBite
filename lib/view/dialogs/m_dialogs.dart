@@ -28,11 +28,11 @@ class MDialogs {
           children: [
             GestureDetector(
               onTap: onNoTap,
-              child: Text(
+              child: const Text(
                 'No',
                 style: TextStyle(
                   fontSize: 16,
-                  color: ktextColor,
+                  color: textColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -91,11 +91,53 @@ class MDialogs {
               onTap: () {
                 Get.back();
               },
-              child: Text(
+              child: const Text(
                 'Cancel',
                 style: TextStyle(
                   fontSize: 16,
-                  color: ktextColor,
+                  color: textColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        ));
+  }
+
+  static Future<void> imagePickerDialog() {
+    return Get.defaultDialog(
+        barrierDismissible: false,
+        title: 'Upload profile photo',
+        titleStyle: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          height: 1.5,
+        ),
+        titlePadding: const EdgeInsets.fromLTRB(
+          defaultPadding * 1.5,
+          defaultPadding * 2,
+          defaultPadding * 1.5,
+          defaultPadding * 2,
+        ),
+        content: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            GestureDetector(
+              child: const Text(
+                'No',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: textColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            GestureDetector(
+              child: const Text(
+                'Yes',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: primaryColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),

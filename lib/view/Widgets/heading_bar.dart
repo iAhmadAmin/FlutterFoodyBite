@@ -34,7 +34,7 @@ class HeadinBar extends StatelessWidget {
               onTap: onTap,
               child: Text('See all ($count)',
                   style: Theme.of(context).textTheme.subtitle2.copyWith(
-                        color: ktextColor,
+                        color: secondaryTextColor,
                       )),
             )
           ],

@@ -50,10 +50,9 @@ class _InputFieldState extends State<InputField> {
       obscureText: widget.isPassword ? _hidePass : false,
       decoration: InputDecoration(
         hintText: widget.hint,
-        hintStyle: Theme.of(context)
-            .textTheme
-            .subtitle2
-            .copyWith(color: widget.isWhite ? Colors.white : ktextColor),
+        hintStyle: Theme.of(context).textTheme.subtitle2.copyWith(
+              color: widget.isWhite ? Colors.white : secondaryTextColor,
+            ),
         prefixIcon: widget.iconPath != null
             ? Transform.scale(
                 scale: 0.4,
@@ -71,20 +70,28 @@ class _InputFieldState extends State<InputField> {
                     _hidePass = !_hidePass;
                   });
                 },
-                child: Icon(Icons.remove_red_eye,
-                    color: !_hidePass ? primaryColor : textColor),
+                child: Icon(
+                  Icons.remove_red_eye,
+                  color: !_hidePass ? primaryColor : secondaryColor,
+                ),
               )
             : null,
         filled: true,
-        fillColor: textFieldColor,
+        fillColor: widget.isWhite ? textFieldColor : Colors.white,
         enabledBorder: OutlineInputBorder(
-          borderSide:
-              widget.isWhite ? BorderSide.none : BorderSide(color: ktextColor),
+          borderSide: widget.isWhite
+              ? BorderSide.none
+              : BorderSide(
+                  color: secondaryTextColor,
+                ),
           borderRadius: BorderRadius.circular(12),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide:
-              widget.isWhite ? BorderSide.none : BorderSide(color: ktextColor),
+          borderSide: widget.isWhite
+              ? BorderSide.none
+              : BorderSide(
+                  color: secondaryTextColor,
+                ),
           borderRadius: BorderRadius.circular(12),
         ),
       ),

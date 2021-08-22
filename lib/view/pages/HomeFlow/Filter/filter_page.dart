@@ -139,11 +139,11 @@ class _FilterPageState extends State<FilterPage> {
                 children: [
                   Text(
                     '0',
-                    style: TextStyle(color: ktextColor),
+                    style: TextStyle(color: secondaryTextColor),
                   ),
                   Text(
                     '100',
-                    style: TextStyle(color: ktextColor),
+                    style: TextStyle(color: secondaryTextColor),
                   ),
                 ],
               ),
@@ -161,6 +161,7 @@ class _FilterPageState extends State<FilterPage> {
               height: defaultPadding * 2,
             ),
             RatingBar(
+              initialRating: 4,
               onRatingChange: (val) {
                 print(val);
               },

@@ -16,17 +16,20 @@ class RestaurantTile extends StatelessWidget {
   const RestaurantTile({
     @required this.restaurant,
     this.forAddReview = false,
+    this.selectedForReview = false,
     this.forFavourite = false,
     this.forProfile = false,
     this.menuTap,
+    this.closeTap,
+    this.addReviewTap,
     this.margin = const EdgeInsets.fromLTRB(
         defaultPadding, defaultPadding, defaultPadding, 0),
   });
 
-  final bool forAddReview, forFavourite, forProfile;
+  final bool forAddReview, forFavourite, forProfile, selectedForReview;
   final Restaurant restaurant;
   final EdgeInsetsGeometry margin;
-  final VoidCallback menuTap;
+  final VoidCallback menuTap, addReviewTap, closeTap;
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +88,7 @@ class RestaurantTile extends StatelessWidget {
                           right: defaultPadding,
                           child: forAddReview
                               ? GestureDetector(
-                                  onTap: () {},
+                                  onTap: closeTap,
                                   child: const CircleAvatar(
                                     backgroundColor: Colors.white,
                                     radius: 12,
@@ -256,7 +259,7 @@ class RestaurantTile extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .caption
-                              .copyWith(color: ktextColor),
+                              .copyWith(color: secondaryTextColor),
                         )
                       ],
                     ),
@@ -274,6 +277,23 @@ class RestaurantTile extends StatelessWidget {
                       MIcons.bookmark_f,
                       height: 16,
                       color: primaryColor,
+                    ),
+                  ),
+                ),
+              if (forAddReview)
+                Positioned(
+                  right: defaultPadding,
+                  bottom: defaultPadding,
+                  child: GestureDetector(
+                    onTap: addReviewTap,
+                    child: CircleAvatar(
+                      radius: 18,
+                      backgroundColor:
+                          selectedForReview ? Colors.green : primaryColor,
+                      child: Icon(
+                        selectedForReview ? Icons.done : Icons.add,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

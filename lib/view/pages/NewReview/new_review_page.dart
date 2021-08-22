@@ -24,13 +24,17 @@ class _NewReviewPageState extends State<NewReviewPage> {
   final _experienceController = TextEditingController();
   final _searchController = TextEditingController();
   Restaurant _restaurant;
+  bool restSelected = false;
 
   @override
   Widget build(BuildContext context) {
     if (_searchController.text.length > 0) {
       try {
-        _restaurant =
-            restaurantList.firstWhere((r) => r.name == _searchController.text);
+        _restaurant = restaurantList.firstWhere(
+          (r) => r.name.toLowerCase().trim().contains(
+                _searchController.text.toLowerCase().trim(),
+              ),
+        );
       } catch (e) {
         _restaurant = null;
       }
@@ -68,8 +72,6 @@ class _NewReviewPageState extends State<NewReviewPage> {
                 hint: 'Search Restaurant',
                 onFieldSubmitted: (value) {
                   setState(() {});
-                  print(value);
-                  print('controller text: ' + _searchController.text);
                 },
               ),
               const SizedBox(height: defaultPadding),
@@ -78,7 +80,24 @@ class _NewReviewPageState extends State<NewReviewPage> {
                       ? Text('No Restaurant with name: '
                           '${_searchController.text}, try searching again')
                       : RestaurantTile(
-                          forAddReview: true, restaurant: _restaurant)
+                          closeTap: () {
+                            setState(() {
+                              _restaurant = null;
+                              _searchController.clear();
+                              restSelected = false;
+                            });
+                          },
+                          forAddReview: true,
+                          selectedForReview: restSelected,
+                          restaurant: _restaurant,
+                          addReviewTap: restSelected
+                              ? () {}
+                              : () {
+                                  setState(() {
+                                    restSelected = true;
+                                  });
+                                },
+                        )
                   : const SizedBox(),
               const SizedBox(height: defaultPadding * 2),
               const Text('Ratings',
@@ -88,11 +107,11 @@ class _NewReviewPageState extends State<NewReviewPage> {
                     fontSize: 18,
                   )),
               const SizedBox(height: defaultPadding),
-              RatingBar(onRatingChange: (val) {}),
+              RatingBar(initialRating: 0, onRatingChange: (val) {}),
               const SizedBox(height: defaultPadding * 1),
               Text('Rate your experience',
                   style: TextStyle(
-                    color: ktextColor,
+                    color: secondaryTextColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
                   )),
@@ -122,7 +141,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
                     onTap: () {},
                   ),
                 ),
-              const SizedBox(height: defaultPadding * 4),
+              const SizedBox(height: defaultPadding * 6),
             ],
           ),
         )));

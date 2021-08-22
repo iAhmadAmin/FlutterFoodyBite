@@ -290,8 +290,10 @@ class RestInfoTile extends StatelessWidget {
           ),
           Text(
             restaurant.address,
-            style:
-                Theme.of(context).textTheme.caption.copyWith(color: ktextColor),
+            style: Theme.of(context)
+                .textTheme
+                .caption
+                .copyWith(color: secondaryTextColor),
           ),
           const SizedBox(
             height: defaultPadding / 3,
