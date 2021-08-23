@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/values.dart';
+import 'package:foodybite/controllers/settings_controller.dart';
+import 'package:foodybite/view/dialogs/m_dialogs.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:get/get.dart';
 
 enum Language {
-  English,
-  Chinese,
-  Spanish,
-  Arabic,
+  english,
+  chinese,
+  spanish,
+  arabic,
 }
 
 class ChangeLanguagePage extends StatefulWidget {
@@ -18,7 +20,14 @@ class ChangeLanguagePage extends StatefulWidget {
 }
 
 class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
-  Language _currentLanguage = Language.English;
+  final _settingsController = Get.find<SettingsController>();
+  Language _currentLanguage;
+
+  @override
+  void initState() {
+    _currentLanguage = _settingsController.currentLanguage;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +38,24 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
           actions: [
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(right: defaultPadding),
+                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    MDialogs.confirmationDialog(
+                      title: Values.are_you_sure_change_language.tr,
+                      onNoTap: () {
+                        Get.back();
+                        setState(() {
+                          _currentLanguage =
+                              _settingsController.currentLanguage;
+                        });
+                      },
+                      onYesTap: () {
+                        Get.back();
+                        _settingsController.updateLanguage(_currentLanguage);
+                      },
+                    );
+                  },
                   child: Text(Values.update.tr,
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
                             color: primaryColor,
@@ -46,12 +70,15 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(
+                right: defaultPadding,
                 left: defaultPadding,
                 bottom: defaultPadding / 2,
                 top: defaultPadding,
               ),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Get.locale.languageCode == 'ar'
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
                 child: Text(
                   Values.select_language.tr,
                   style: Theme.of(context).textTheme.subtitle1.copyWith(
@@ -65,12 +92,9 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
                 onChanged: (v) {
                   setState(() {
                     _currentLanguage = l;
-                    Get.updateLocale(
-                      const Locale('zh', 'CN'),
-                    );
                   });
                 },
-                title: l.toString().split('.').last,
+                title: l.toString().split('.').last.tr,
                 radioValue: _currentLanguage == l ? 1 : 0,
               );
             }).toList(),
@@ -96,9 +120,13 @@ class LanguageSelector extends StatelessWidget {
       margin: const EdgeInsets.only(
         bottom: 3,
       ),
-      padding: const EdgeInsets.only(
-        left: defaultPadding,
-        right: defaultPadding / 2,
+      padding: EdgeInsets.only(
+        left: Get.locale.languageCode == 'ar'
+            ? defaultPadding / 2
+            : defaultPadding,
+        right: Get.locale.languageCode == 'ar'
+            ? defaultPadding
+            : defaultPadding / 2,
         top: defaultPadding / 3,
         bottom: defaultPadding / 3,
       ),

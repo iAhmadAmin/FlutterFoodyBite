@@ -77,7 +77,9 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       Align(
-                        alignment: Alignment.centerRight,
+                        alignment: Get.locale.languageCode == 'ar'
+                            ? Alignment.centerLeft
+                            : Alignment.centerRight,
                         child: GestureDetector(
                           onTap: () {
                             Get.to(() => ForgotPassPage());

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
+import 'package:foodybite/constants/values.dart';
 import 'package:get/get.dart';
 
 class MDialogs {
@@ -28,9 +29,9 @@ class MDialogs {
           children: [
             GestureDetector(
               onTap: onNoTap,
-              child: const Text(
-                'No',
-                style: TextStyle(
+              child: Text(
+                Values.no.tr,
+                style: const TextStyle(
                   fontSize: 16,
                   color: textColor,
                   fontWeight: FontWeight.w600,
@@ -39,9 +40,9 @@ class MDialogs {
             ),
             GestureDetector(
               onTap: onYesTap,
-              child: const Text(
-                'Yes',
-                style: TextStyle(
+              child: Text(
+                Values.yes.tr,
+                style: const TextStyle(
                   fontSize: 16,
                   color: primaryColor,
                   fontWeight: FontWeight.w600,
@@ -65,9 +66,9 @@ class MDialogs {
           children: [
             GestureDetector(
               onTap: onEditTap,
-              child: const Text(
-                'Edit',
-                style: TextStyle(
+              child: Text(
+                Values.edit.tr,
+                style: const TextStyle(
                   fontSize: 16,
                   color: textColor,
                   fontWeight: FontWeight.w600,
@@ -77,9 +78,9 @@ class MDialogs {
             const SizedBox(height: defaultPadding * 2),
             GestureDetector(
               onTap: onDeleteTap,
-              child: const Text(
-                'Delete',
-                style: TextStyle(
+              child: Text(
+                Values.delete.tr,
+                style: const TextStyle(
                   fontSize: 16,
                   color: textColor,
                   fontWeight: FontWeight.w600,
@@ -91,9 +92,9 @@ class MDialogs {
               onTap: () {
                 Get.back();
               },
-              child: const Text(
-                'Cancel',
-                style: TextStyle(
+              child: Text(
+                Values.cancel.tr,
+                style: const TextStyle(
                   fontSize: 16,
                   color: textColor,
                   fontWeight: FontWeight.w600,
@@ -109,7 +110,7 @@ class MDialogs {
     @required VoidCallback onGalleryTap,
   }) {
     return Get.defaultDialog(
-      title: 'Choose or take a best picture of yourselft.',
+      title: Values.chose_or_take_picture.tr,
       titleStyle: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w600,
@@ -134,7 +135,7 @@ class MDialogs {
                   color: primaryColor,
                 ),
                 Text(
-                  'Camera',
+                  Values.camera.tr,
                   style: TextStyle(
                     fontSize: 14,
                     color: secondaryTextColor,
@@ -154,7 +155,7 @@ class MDialogs {
                   color: primaryColor,
                 ),
                 Text(
-                  'Gallery',
+                  Values.gallery.tr,
                   style: TextStyle(
                     fontSize: 14,
                     color: secondaryTextColor,

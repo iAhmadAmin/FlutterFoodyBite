@@ -15,7 +15,7 @@ class FilterPage extends StatefulWidget {
 }
 
 class _FilterPageState extends State<FilterPage> {
-  FCategory selectedCategory = FCategory.Italian;
+  FCategory selectedCategory = FCategory.italian;
   double _sliderValue = 10;
   int _rating = 4;
 
@@ -79,7 +79,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: getRelativeWidth(0.25),
                       child: Center(
                         child: Text(
-                          c.toString().split('.').last,
+                          c.toString().split('.').last.tr,
                           style: TextStyle(
                             color: c == selectedCategory
                                 ? Colors.white
@@ -175,7 +175,8 @@ class _FilterPageState extends State<FilterPage> {
                   child: RoundButton(
                     onTap: () {},
                     label: Values.reset.tr,
-                    rightRound: false,
+                    rightRound: Get.locale.languageCode == 'ar' ? true : false,
+                    leftRound: Get.locale.languageCode == 'ar' ? false : true,
                   ),
                 ),
                 const VerticalDivider(
@@ -186,7 +187,8 @@ class _FilterPageState extends State<FilterPage> {
                   child: RoundButton(
                     onTap: () {},
                     label: Values.apply.tr,
-                    leftRound: false,
+                    rightRound: Get.locale.languageCode == 'ar' ? false : true,
+                    leftRound: Get.locale.languageCode == 'ar' ? true : false,
                   ),
                 ),
               ],

@@ -1,4 +1,18 @@
 class Values {
+  static const arabian = 'arabian';
+  static const american = 'american';
+  static const indian = 'indian';
+  static const thai = 'thai';
+  static const chinese = 'chinese';
+  static const mexican = 'mexican';
+  static const italian = 'italian';
+  static const korean = 'korean';
+
+  static const arabic = 'arabic';
+  static const english = 'english';
+  static const spanish = 'spanish';
+
+  static const are_you_sure_change_language = "are_you_sure_change_language";
   static const email = 'email';
   static const password = 'password';
   static const forgot_password = 'forgot_password';

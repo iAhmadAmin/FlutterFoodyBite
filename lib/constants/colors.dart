@@ -49,21 +49,21 @@ const korianGradient = LinearGradient(colors: [
 
 LinearGradient getCategoryGradient(FCategory category) {
   switch (category) {
-    case FCategory.American:
+    case FCategory.american:
       return americanGradient;
-    case FCategory.Arabian:
+    case FCategory.arabian:
       return arabianGradient;
-    case FCategory.Chinese:
+    case FCategory.chinese:
       return chineseGradient;
-    case FCategory.Indian:
+    case FCategory.indian:
       return indianGradient;
-    case FCategory.Italian:
+    case FCategory.italian:
       return italianGradient;
-    case FCategory.Korean:
+    case FCategory.korean:
       return korianGradient;
-    case FCategory.Maxian:
+    case FCategory.mexican:
       return maxicanGradient;
-    case FCategory.Thai:
+    case FCategory.thai:
       return thaiGradient;
     default:
       return italianGradient;

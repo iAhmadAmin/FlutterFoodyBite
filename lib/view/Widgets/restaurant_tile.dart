@@ -84,62 +84,35 @@ class RestaurantTile extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Positioned(
-                          top: defaultPadding,
-                          right: defaultPadding,
-                          child: forAddReview
-                              ? GestureDetector(
-                                  onTap: closeTap,
-                                  child: const CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    radius: 12,
-                                    child: Icon(
-                                      Icons.close,
-                                      size: 18,
-                                      color: Colors.redAccent,
-                                    ),
+                        if (!forAddReview)
+                          Positioned(
+                            top: defaultPadding,
+                            right: defaultPadding,
+                            child: RatingChip(
+                              rating: restaurant.totalRating,
+                            ),
+                          ),
+                        if (forAddReview)
+                          Positioned(
+                              top: defaultPadding,
+                              right: Get.locale.languageCode == 'ar'
+                                  ? null
+                                  : defaultPadding,
+                              left: Get.locale.languageCode == 'ar'
+                                  ? defaultPadding
+                                  : null,
+                              child: GestureDetector(
+                                onTap: closeTap,
+                                child: const CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  radius: 12,
+                                  child: Icon(
+                                    Icons.close,
+                                    size: 18,
+                                    color: Colors.redAccent,
                                   ),
-                                )
-                              : RatingChip(
-                                  rating: restaurant.totalRating,
                                 ),
-                          // Container(
-                          //     padding: const EdgeInsets.symmetric(
-                          //       horizontal: defaultPadding / 2,
-                          //       vertical: defaultPadding / 6,
-                          //     ),
-                          //     decoration: BoxDecoration(
-                          //         color: Colors.white,
-                          //         borderRadius: BorderRadius.circular(
-                          //             defaultBorderRadius / 2),
-                          //         boxShadow: const [
-                          //           BoxShadow(
-                          //             color: Colors.black12,
-                          //             offset: Offset(1, 2),
-                          //             blurRadius: 5,
-                          //           )
-                          //         ]),
-                          //     child: Row(
-                          //       mainAxisAlignment:
-                          //           MainAxisAlignment.center,
-                          //       children: [
-                          //         Icon(
-                          //           Icons.star,
-                          //           size: 18,
-                          //           color: Colors.yellow[700],
-                          //         ),
-                          //         const SizedBox(width: 4),
-                          //         Text(
-                          //           restaurant.totalRating.toString(),
-                          //           style: Theme.of(context)
-                          //               .textTheme
-                          //               .caption
-                          //               .copyWith(
-                          //                   fontWeight: FontWeight.w800),
-                          //         ),
-                          //       ],
-                          //     ))
-                        ),
+                              )),
                         if (!forAddReview)
                           Positioned(
                               top: defaultPadding,
@@ -240,7 +213,9 @@ class RestaurantTile extends StatelessWidget {
                                   height: 25,
                                   width: 100,
                                   child: Stack(
-                                      alignment: Alignment.centerRight,
+                                      alignment: Get.locale.languageCode == 'ar'
+                                          ? Alignment.centerLeft
+                                          : Alignment.centerRight,
                                       children: [
                                         for (var i = 0; i < circleLimit; i++)
                                           ImageCircle(
@@ -271,7 +246,9 @@ class RestaurantTile extends StatelessWidget {
               ),
               if (forFavourite)
                 Positioned(
-                  right: defaultPadding,
+                  left: Get.locale.languageCode == 'ar' ? defaultPadding : null,
+                  right:
+                      Get.locale.languageCode == 'ar' ? null : defaultPadding,
                   bottom: getRelativeWidth(0.12),
                   child: CircleAvatar(
                     radius: 20,
@@ -285,7 +262,9 @@ class RestaurantTile extends StatelessWidget {
                 ),
               if (forAddReview)
                 Positioned(
-                  right: defaultPadding,
+                  right:
+                      Get.locale.languageCode == 'ar' ? null : defaultPadding,
+                  left: Get.locale.languageCode == 'ar' ? defaultPadding : null,
                   bottom: defaultPadding,
                   child: GestureDetector(
                     onTap: addReviewTap,
@@ -321,7 +300,8 @@ class ImageCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right: 20.0 * circleNo,
+      right: Get.locale.languageCode == 'ar' ? null : 20.0 * circleNo,
+      left: Get.locale.languageCode == 'ar' ? 20.0 * circleNo : null,
       child: CircleAvatar(
         radius: 13,
         backgroundColor: Colors.white,

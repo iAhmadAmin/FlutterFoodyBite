@@ -67,7 +67,7 @@ class CategoryTile extends StatelessWidget {
               ),
             ),
             Text(
-              category.toString().split('.').last,
+              category.toString().split('.').last.tr,
               style: Theme.of(context).textTheme.headline6.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

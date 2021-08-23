@@ -48,7 +48,7 @@ class _NewReviewPageState extends State<NewReviewPage> {
           appBar: AppBar(),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: defaultPadding),
+              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
               child: Center(
                 child: GestureDetector(
                   onTap: () {},

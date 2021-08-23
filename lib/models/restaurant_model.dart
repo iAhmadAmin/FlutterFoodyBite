@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:foodybite/models/review_model.dart';
 
 enum FCategory {
-  Italian,
-  Chinese,
-  American,
-  Indian,
-  Thai,
-  Korean,
-  Arabian,
-  Maxian,
+  italian,
+  chinese,
+  american,
+  indian,
+  thai,
+  korean,
+  arabian,
+  mexican,
 }
 
 class Restaurant {

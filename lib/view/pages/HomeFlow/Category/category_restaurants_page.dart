@@ -70,7 +70,7 @@ class CategoryRestaurantsPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          category.toString().split('.').last,
+                          category.toString().split('.').last.tr,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 22,

@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/values.dart';
+import 'package:foodybite/controllers/settings_controller.dart';
 import 'package:foodybite/view/dialogs/m_dialogs.dart';
+import 'package:foodybite/view/pages/AuthFlow/Login/login_page.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/ChangeLanguage/change_language_page.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/ChangePassword/change_password_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:get/get.dart';
 
 class SettingsPage extends StatelessWidget {
+  final _con = Get.put(SettingsController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,11 +26,14 @@ class SettingsPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(
                   left: defaultPadding,
+                  right: defaultPadding,
                   bottom: defaultPadding / 2,
                   top: defaultPadding,
                 ),
                 child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Get.locale.languageCode == 'ar'
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
                   child: Text(
                     Values.account.tr,
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
@@ -51,11 +58,14 @@ class SettingsPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(
                   left: defaultPadding,
+                  right: defaultPadding,
                   bottom: defaultPadding / 2,
                   top: defaultPadding,
                 ),
                 child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Get.locale.languageCode == 'ar'
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
                   child: Text(
                     Values.others.tr,
                     style: Theme.of(context).textTheme.subtitle1.copyWith(
@@ -80,19 +90,22 @@ class SettingsPage extends StatelessWidget {
                     onNoTap: () {
                       Get.back();
                     },
-                    onYesTap: () {},
+                    onYesTap: () {
+                      Get.offAll(() => LoginPage());
+                    },
                   );
                 },
                 child: Container(
-                  height: 50,
+                  // height: 50,
                   color: Colors.white,
-                  padding: const EdgeInsets.only(
-                    left: defaultPadding,
-                    bottom: defaultPadding,
-                    top: defaultPadding,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: defaultPadding,
+                    horizontal: defaultPadding,
                   ),
                   child: Align(
-                    alignment: Alignment.centerLeft,
+                    alignment: Get.locale.languageCode == 'ar'
+                        ? Alignment.centerRight
+                        : Alignment.centerLeft,
                     child: Text(
                       Values.logout.tr,
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
@@ -139,7 +152,9 @@ class SettingButton extends StatelessWidget {
                   ),
             ),
             Icon(
-              Icons.keyboard_arrow_right,
+              Get.locale.languageCode == 'ar'
+                  ? Icons.keyboard_arrow_left
+                  : Icons.keyboard_arrow_right,
               size: 28,
               color: secondaryTextColor,
             ),

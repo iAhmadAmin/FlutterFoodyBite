@@ -124,13 +124,13 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CategoryTile(
-                      category: FCategory.Italian,
+                      category: FCategory.italian,
                     ),
                     CategoryTile(
-                      category: FCategory.Chinese,
+                      category: FCategory.chinese,
                     ),
                     CategoryTile(
-                      category: FCategory.Thai,
+                      category: FCategory.thai,
                     ),
                   ],
                 ),

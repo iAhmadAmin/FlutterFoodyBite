@@ -25,7 +25,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     });
 
     Future.delayed(const Duration(milliseconds: 2400), () {
-      Get.off(() => LoginPage());
+      Get.off(
+        () => LoginPage(),
+        transition: Transition.leftToRight,
+        duration: const Duration(milliseconds: 400),
+      );
     });
 
     _slideAnimationController = AnimationController(

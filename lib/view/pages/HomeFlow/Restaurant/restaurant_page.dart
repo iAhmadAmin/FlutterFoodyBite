@@ -124,7 +124,14 @@ class MenuPhotoBar extends StatelessWidget {
               itemBuilder: (_, index) {
                 return index < foodPhotos.length
                     ? Padding(
-                        padding: const EdgeInsets.only(left: defaultPadding),
+                        padding: EdgeInsets.only(
+                          right: Get.locale.languageCode == 'ar'
+                              ? defaultPadding
+                              : 0,
+                          left: Get.locale.languageCode == 'ar'
+                              ? 0
+                              : defaultPadding,
+                        ),
                         child: SizedBox(
                           height: getRelativeWidth(0.35),
                           width: getRelativeWidth(0.4),

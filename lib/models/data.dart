@@ -16,7 +16,7 @@ List<Restaurant> restaurantList = [
     totalRating: 4.5,
     address: '394 Broome St, New York, NY 10013, USA',
     isOpen: true,
-    category: FCategory.Italian,
+    category: FCategory.italian,
     reviews: reviewList,
     foodImages: foodsImgList,
   ),
@@ -28,7 +28,7 @@ List<Restaurant> restaurantList = [
     totalRating: 4.3,
     address: '7 Spring St, New York, NY 10012, USA',
     isOpen: true,
-    category: FCategory.Chinese,
+    category: FCategory.chinese,
   ),
   Restaurant(
     reviews: reviewList,
@@ -38,7 +38,7 @@ List<Restaurant> restaurantList = [
     totalRating: 4.2,
     address: '7 Spring St, New York, NY 10012, USA',
     isOpen: false,
-    category: FCategory.Chinese,
+    category: FCategory.chinese,
   ),
 ];
 

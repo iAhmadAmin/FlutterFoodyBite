@@ -45,21 +45,21 @@ class Images {
 
   static String getCategoryImage(FCategory category) {
     switch (category) {
-      case FCategory.American:
+      case FCategory.american:
         return american;
-      case FCategory.Arabian:
+      case FCategory.arabian:
         return arabian;
-      case FCategory.Chinese:
+      case FCategory.chinese:
         return chinese;
-      case FCategory.Indian:
+      case FCategory.indian:
         return indian;
-      case FCategory.Italian:
+      case FCategory.italian:
         return italian;
-      case FCategory.Korean:
+      case FCategory.korean:
         return korean;
-      case FCategory.Maxian:
+      case FCategory.mexican:
         return maxican;
-      case FCategory.Thai:
+      case FCategory.thai:
         return thai;
       default:
         return italian;

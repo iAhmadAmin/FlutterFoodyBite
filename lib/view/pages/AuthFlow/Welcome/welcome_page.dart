@@ -97,9 +97,12 @@ class WelcomePage extends StatelessWidget {
                               height: 0.6,
                             ),
                       ),
-                      const Align(
-                          alignment: Alignment.centerLeft,
-                          child: AppTitle(color: Colors.yellow)),
+                      Align(
+                        alignment: Get.locale.languageCode == 'ar'
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                        child: const AppTitle(color: Colors.yellow),
+                      ),
                       SizedBox(
                         height: getRelativeHeight(0.12),
                       ),

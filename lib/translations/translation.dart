@@ -10,6 +10,18 @@ class Translation extends Translations {
       };
 
   Map<String, String> _zh = {
+    "are_you_sure_change_language": "您确定要更改应用程序的语言吗？",
+    "arabic": "阿拉伯语",
+    "spanish": "西班牙语",
+    "english": "英语",
+    "mexican": "墨西哥菜",
+    "arabian": "阿拉伯的",
+    "korean": "韩语",
+    "indian": "印度人",
+    "thai": "泰语",
+    "american": "美国人",
+    "chinese": "中文",
+    "italian": "意大利语",
     "review": "回顾",
     "categories": "类别",
     "skip": "跳过",
@@ -94,6 +106,18 @@ class Translation extends Translations {
   };
 
   Map<String, String> _es = {
+    "are_you_sure_change_language":
+        "¿Estás seguro de que deseas cambiar el idioma de la aplicación?",
+    "araibc": "Arábica",
+    "spanish": "Español",
+    "english": "Inglés",
+    "mexican": "Mexicano",
+    "arabian": "árabe",
+    "korean": "Coreano",
+    "thai": "Tailandés",
+    "american": "Americano",
+    "chinese": "Chino",
+    "italian": "Italiano",
     "review": "Revisar",
     "categories": "Categorías",
     "skip": "Saltar",
@@ -179,10 +203,23 @@ class Translation extends Translations {
         "¿Estás seguro de que deseas eliminar esta publicación?",
     "chose_or_take_picture": "Elija o tome la mejor foto de usted mismo.",
     "camera": "Cámara",
-    "gallery": "Galería"
+    "gallery": "Galería",
+    "indian": "Indio"
   };
 
   Map<String, String> _ar = {
+    "are_you_sure_change_language": "هل أنت متأكد أنك تريد تغيير لغة التطبيق؟",
+    "arabic": "عربي",
+    "spanish": "الأسبانية",
+    "english": "إنجليزي",
+    "mexican": "مكسيكي",
+    "arabian": "عربي",
+    "korean": "الكورية",
+    "thai": "التايلاندية",
+    "indian": "هندي",
+    "american": "أمريكي",
+    "chinese": "صينى",
+    "italian": "إيطالي",
     "review": "إعادة النظر",
     "categories": "فئات",
     "skip": "يتخطى",
@@ -270,6 +307,19 @@ class Translation extends Translations {
   };
 
   Map<String, String> _en = {
+    "are_you_sure_change_language":
+        "Are you sure you want to change the app's language?",
+    "arabic": "Arabic",
+    "spanish": "Spanish",
+    "english": "English",
+    "mexican": "Mexican",
+    "arabian": "Arabian",
+    "korean": "Korean",
+    "thai": "Thai",
+    "indian": "Indian",
+    "american": "American",
+    "chinese": "Chinese",
+    "italian": "Italian",
     "review": "Review",
     "categories": "Categories",
     "skip": "Skip",
