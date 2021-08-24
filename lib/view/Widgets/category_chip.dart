@@ -16,8 +16,8 @@ class CategoryChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.symmetric(
-          horizontal: defaultPadding * 0.55,
-          vertical: defaultPadding * 0.2,
+          horizontal: 8,
+          vertical: 4,
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(defaultBorderRadius),
@@ -27,7 +27,7 @@ class CategoryChip extends StatelessWidget {
           child: Text(
             category.toString().split('.').last.tr,
             style: Theme.of(context).textTheme.caption.copyWith(
-                  fontSize: 10,
+                  fontSize: 8,
                   color: Colors.white,
                 ),
           ),

@@ -46,12 +46,9 @@ class CategoryTile extends StatelessWidget {
               width: width,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(defaultBorderRadius),
-                child: Hero(
-                  tag: category,
-                  child: Image.asset(
-                    Images.getCategoryImage(category),
-                    fit: BoxFit.cover,
-                  ),
+                child: Image.asset(
+                  Images.getCategoryImage(category),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

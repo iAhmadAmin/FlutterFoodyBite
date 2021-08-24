@@ -7,6 +7,7 @@ import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
+import 'package:foodybite/view/widgets/no_restaurant.dart';
 import 'package:foodybite/view/widgets/rating_bar.dart';
 import 'package:foodybite/view/widgets/restaurant_tile.dart';
 import 'package:foodybite/view/widgets/search_field.dart';
@@ -79,8 +80,12 @@ class _NewReviewPageState extends State<NewReviewPage> {
               const SizedBox(height: defaultPadding),
               _searchController.text.isNotEmpty
                   ? _restaurant == null
-                      ? Text('No Restaurant with name: '
-                          '${_searchController.text}, try searching again')
+                      ? const NoRestaurantTile(
+                          title: "No Restaurant found with "
+                              "this name",
+                          subtitle: 'Try searching again with different name '
+                              'or make sure you entered correct name.',
+                        )
                       : RestaurantTile(
                           closeTap: () {
                             setState(() {

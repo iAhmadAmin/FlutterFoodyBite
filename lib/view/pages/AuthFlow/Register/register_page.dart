@@ -100,8 +100,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             ),
                             Positioned(
-                              right: Get.locale.languageCode == 'ar' ? null : 0,
-                              left: Get.locale.languageCode == 'ar' ? 0 : null,
+                              right: 0,
                               bottom: 0,
                               child: Container(
                                   height: 40,

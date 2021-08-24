@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/values.dart';
+import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/user_model.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/Profile/profile_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -67,7 +68,9 @@ class UserTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(
-          () => ProfilePage(isMe: false),
+          () => ProfilePage(
+              user: userList[0],
+              isMe: false),
         );
       },
       child: Container(

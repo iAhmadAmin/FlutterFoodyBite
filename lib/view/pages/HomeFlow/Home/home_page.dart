@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/consts.dart';
-import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
@@ -10,6 +9,7 @@ import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/Category/category_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Filter/filter_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Trending/trending_restaurants_page.dart';
+import 'package:foodybite/view/pages/ProfilenSettingFlow/Profile/profile_page.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/UserListing/user_listing_page.dart';
 import 'package:foodybite/view/widgets/category_tile.dart';
 import 'package:foodybite/view/widgets/heading_bar.dart';
@@ -52,7 +52,9 @@ class _HomePageState extends State<HomePage> {
                 label: Values.trending_restaurants.tr,
                 count: '29',
                 onTap: () {
-                  Get.to(() => const TrendingRestarurantsPage());
+                  Get.to(
+                    () => const TrendingRestarurantsPage(),
+                  );
                 },
               ),
               const SizedBox(height: defaultPadding / 2),
@@ -151,34 +153,46 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               const SizedBox(height: defaultPadding / 2),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CircleAvatar(
-                      radius: getRelativeWidth(0.08),
-                      backgroundImage: const AssetImage(Images.d1),
-                    ),
-                    CircleAvatar(
-                      radius: getRelativeWidth(0.08),
-                      backgroundImage: const AssetImage(Images.d2),
-                    ),
-                    CircleAvatar(
-                      radius: getRelativeWidth(0.08),
-                      backgroundImage: const AssetImage(Images.d3),
-                    ),
-                    CircleAvatar(
-                      radius: getRelativeWidth(0.08),
-                      backgroundImage: const AssetImage(Images.d4),
-                    ),
-                    CircleAvatar(
-                      radius: getRelativeWidth(0.08),
-                      backgroundImage: const AssetImage(Images.d5),
-                    ),
-                  ],
+              SizedBox(
+                height: 80,
+                width: getRelativeWidth(1),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: userList.length > 6 ? 6 : userList.length,
+                  itemBuilder: (_, index) {
+                    return Align(
+                      alignment: Alignment.topCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: Get.locale.languageCode == 'ar'
+                              ? 0
+                              : defaultPadding,
+                          right: Get.locale.languageCode == 'ar'
+                              ? defaultPadding
+                              : 0,
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.to(
+                              () => ProfilePage(
+                                isMe: false,
+                                user: userList[index],
+                              ),
+                            );
+                          },
+                          child: CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage(
+                              userList[index].imgPath,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
+
               SizedBox(
                 height: getRelativeHeight(0.12),
               ),

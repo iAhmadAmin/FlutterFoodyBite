@@ -11,4 +11,5 @@ class MIcons {
   static const search = 'assets/icons/search.svg';
   static const user_f = 'assets/icons/user_f.svg';
   static const user_o = 'assets/icons/user_o.svg';
+  static const no_food = 'assets/icons/nofood.svg';
 }

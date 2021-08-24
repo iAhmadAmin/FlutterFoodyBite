@@ -165,8 +165,7 @@ class RestTopTile extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox.expand(
-            child: Hero(
-                tag: imgPath, child: Image.asset(imgPath, fit: BoxFit.cover)),
+            child: Image.asset(imgPath, fit: BoxFit.cover),
           ),
           Positioned(
             bottom: defaultPadding,

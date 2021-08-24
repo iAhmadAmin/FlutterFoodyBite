@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
-import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/constants/values.dart';
 import 'package:foodybite/controllers/profile_controller.dart';
 import 'package:foodybite/models/data.dart';
+import 'package:foodybite/models/user_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/dialogs/m_dialogs.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/review_rating_page.dart';
@@ -18,8 +18,12 @@ import 'package:foodybite/view/widgets/restaurant_tile.dart';
 import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
-  ProfilePage({@required this.isMe});
+  ProfilePage({
+    @required this.isMe,
+    @required this.user,
+  });
   final bool isMe;
+  final UserModel user;
   final _profileController = Get.put(ProfileController());
 
   @override
@@ -39,14 +43,14 @@ class ProfilePage extends StatelessWidget {
                   radius: getRelativeWidth(0.15),
                   backgroundImage: _con.imageFile != null
                       ? FileImage(_con.imageFile)
-                      : const AssetImage(
-                          Images.d1,
+                      : AssetImage(
+                          user.imgPath,
                         ),
                 );
               }),
               const SizedBox(height: defaultPadding),
               Text(
-                'Jayson Acevedo',
+                user.name,
                 style: Theme.of(context).textTheme.headline5.copyWith(
                       color: textColor,
                       fontWeight: FontWeight.w600,
@@ -195,14 +199,14 @@ class CountTile extends StatelessWidget {
           count.toString(),
           style: Theme.of(context).textTheme.headline6.copyWith(
                 color: primaryColor,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
         ),
         const SizedBox(height: defaultPadding / 3),
         Text(label,
             style: Theme.of(context).textTheme.bodyText1.copyWith(
                   color: secondaryTextColor,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                 )),
       ]),
     );

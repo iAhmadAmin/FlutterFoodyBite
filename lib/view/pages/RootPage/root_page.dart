@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/icons.dart';
+import 'package:foodybite/models/data.dart';
 import 'package:foodybite/view/pages/Favourite/favourite_restaurants_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Home/home_page.dart';
 import 'package:foodybite/view/pages/NewReview/new_review_page.dart';
@@ -18,7 +19,10 @@ class _RootPageState extends State<RootPage> {
     FavouriteRestaurantsPage(),
     const NewReviewPage(),
     NotificationsPage(),
-    ProfilePage(isMe: true),
+    ProfilePage(
+      user: userList[0],
+      isMe: true,
+    ),
   ];
 
   int _selectedIndex = 0;

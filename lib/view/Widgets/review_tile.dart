@@ -73,7 +73,7 @@ class RatingChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         color: ratingBarColor,
@@ -82,16 +82,16 @@ class RatingChip extends StatelessWidget {
         children: [
           const Icon(
             Icons.star,
-            size: 18,
+            size: 16,
             color: ratingStarColor,
           ),
           const SizedBox(width: 4),
           Text(
             rating.toString(),
-            style: Theme.of(context)
-                .textTheme
-                .bodyText1
-                .copyWith(fontWeight: FontWeight.w600),
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),

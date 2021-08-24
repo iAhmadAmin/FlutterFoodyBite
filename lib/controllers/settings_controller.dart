@@ -1,24 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:foodybite/services/local_db_service.dart';
 import 'package:foodybite/view/pages/ProfilenSettingFlow/ChangeLanguage/change_language_page.dart';
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
   Language currentLanguage;
+  Locale currentLocale;
+  final _localDBService = LocalDBService();
 
   @override
   void onInit() {
-    currentLanguage = _getLanguageByLocale(Get.locale);
+    final langFromDB = _localDBService.getLanguage();
+    print(langFromDB);
+    if (langFromDB != null) {
+      currentLanguage = _getLanguageByLocale(langFromDB);
+      currentLocale = _getLocaleByLanguage(currentLanguage);
+    } else {
+      currentLocale = Get.deviceLocale;
+      currentLanguage = _getLanguageByLocale(currentLocale.languageCode);
+    }
     super.onInit();
   }
 
   void updateLanguage(Language language) {
-    Get.updateLocale(_getLocaleByLanguage(language));
+    final _locale = _getLocaleByLanguage(language);
+    Get.updateLocale(_locale);
+    _localDBService.saveLanguage(_locale.languageCode);
     currentLanguage = language;
     update();
   }
 
-  Language _getLanguageByLocale(Locale locale) {
-    switch (locale.languageCode) {
+  Language _getLanguageByLocale(String l_code) {
+    switch (l_code) {
       case 'en':
         return Language.english;
       case 'zh':

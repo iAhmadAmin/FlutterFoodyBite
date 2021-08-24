@@ -49,6 +49,7 @@ class MenuPhotoPage extends StatelessWidget {
               },
               child: Hero(
                 tag: foodsImgList[index],
+                transitionOnUserGestures: true,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(defaultBorderRadius),
                   child: Image.asset(

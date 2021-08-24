@@ -48,6 +48,7 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
               children: foodsImgList.map((img) {
                 return Hero(
                   tag: img,
+                  transitionOnUserGestures: true,
                   child: PhotoView(
                     backgroundDecoration: const BoxDecoration(
                       color: Color(0xFF25262E),

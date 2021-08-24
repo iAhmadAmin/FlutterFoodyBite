@@ -45,7 +45,7 @@ class NotificationTile extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            radius: 24,
+            radius: 26,
             backgroundImage: AssetImage(notification.iconPath),
           ),
           const SizedBox(

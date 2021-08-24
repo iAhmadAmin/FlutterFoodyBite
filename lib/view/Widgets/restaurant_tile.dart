@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
-import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/constants/values.dart';
+import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/Restaurant/restaurant_page.dart';
@@ -75,12 +75,9 @@ class RestaurantTile extends StatelessWidget {
                               topLeft: Radius.circular(defaultBorderRadius),
                               topRight: Radius.circular(defaultBorderRadius),
                             ),
-                            child: Hero(
-                              tag: restaurant.displayFoodImg,
-                              child: Image.asset(
-                                restaurant.displayFoodImg,
-                                fit: BoxFit.cover,
-                              ),
+                            child: Image.asset(
+                              restaurant.displayFoodImg,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
@@ -138,15 +135,14 @@ class RestaurantTile extends StatelessWidget {
                                     restaurant.isOpen
                                         ? Values.open.tr
                                         : Values.close.tr,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .caption
-                                        .copyWith(
-                                            color: restaurant.isOpen
-                                                ? Colors.green
-                                                : Colors.red,
-                                            height: 1.2,
-                                            fontWeight: FontWeight.w600),
+                                    style: TextStyle(
+                                      color: restaurant.isOpen
+                                          ? Colors.green
+                                          : Colors.red,
+                                      height: 1.2,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               )),
@@ -189,8 +185,8 @@ class RestaurantTile extends StatelessWidget {
                             if (!forProfile && !forFavourite)
                               Container(
                                   padding: const EdgeInsets.symmetric(
-                                    horizontal: defaultPadding * 0.55,
-                                    vertical: defaultPadding * 0.2,
+                                    horizontal: 8,
+                                    vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(
@@ -204,7 +200,7 @@ class RestaurantTile extends StatelessWidget {
                                         .caption
                                         .copyWith(
                                           color: Colors.white,
-                                          fontSize: 10,
+                                          fontSize: 8,
                                         ),
                                   )),
                             const Spacer(),
@@ -219,7 +215,7 @@ class RestaurantTile extends StatelessWidget {
                                       children: [
                                         for (var i = 0; i < circleLimit; i++)
                                           ImageCircle(
-                                            imgPath: Images.food,
+                                            imgPath: userList[i].imgPath,
                                             circleNo: i,
                                             more: i == 0 ? more : 0,
                                           ),
