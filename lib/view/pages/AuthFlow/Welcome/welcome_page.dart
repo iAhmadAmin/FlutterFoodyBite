@@ -48,7 +48,7 @@ class WelcomePage extends StatelessWidget {
                           child: GlassmorphicContainer(
                             width: 90,
                             height: 40,
-                            borderRadius: 12,
+                            borderRadius: 8,
                             blur: 3,
                             alignment: Alignment.bottomCenter,
                             border: 0,
@@ -56,8 +56,8 @@ class WelcomePage extends StatelessWidget {
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
-                                  const Color(0xFFffffff).withOpacity(0.15),
-                                  const Color(0xFFFFFFFF).withOpacity(0.05),
+                                  const Color(0xFFffffff).withOpacity(0.18),
+                                  const Color(0xFFFFFFFF).withOpacity(0.16),
                                 ],
                                 stops: const [
                                   0.1,
@@ -67,8 +67,8 @@ class WelcomePage extends StatelessWidget {
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
-                                Colors.white.withOpacity(0.15),
-                                Colors.white.withOpacity(0.5),
+                                Colors.white.withOpacity(0.25),
+                                Colors.white.withOpacity(0.25),
                               ],
                             ),
                             child: Center(

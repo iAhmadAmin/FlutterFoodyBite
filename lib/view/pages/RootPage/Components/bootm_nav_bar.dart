@@ -29,7 +29,7 @@ class BottomNavigation extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: getRelativeHeight(0.075),
+              height: getRelativeHeight(0.072),
               width: SizeConfig.screenWidth,
               decoration: const BoxDecoration(
                 color: Colors.white,
@@ -59,7 +59,7 @@ class BottomNavigation extends StatelessWidget {
                     iconPath: iconsPath[1],
                     selectedIndex: selectedIndex,
                     index: 1,
-                    size: 23,
+                    size: 21,
                   ),
                   SizedBox(
                     width: SizeConfig.screenWidth * 0.14,
@@ -69,7 +69,7 @@ class BottomNavigation extends StatelessWidget {
                     iconPath: iconsPath[2],
                     selectedIndex: selectedIndex,
                     index: 3,
-                    size: 26,
+                    size: 24,
                   ),
                   BottomNavItem(
                     onItemPressed: onItemPressed,
@@ -127,7 +127,7 @@ class BottomNavItem extends StatelessWidget {
     @required this.iconPath,
     @required this.index,
     @required this.selectedIndex,
-    this.size = 24,
+    this.size = 22,
   });
 
   final Function(int p1) onItemPressed;
