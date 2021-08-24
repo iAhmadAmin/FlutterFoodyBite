@@ -25,9 +25,9 @@ class SearchField extends StatelessWidget {
       margin: const EdgeInsets.symmetric(
         horizontal: defaultPadding,
       ),
-      height: 50,
+      height: 56,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(defaultBorderRadius / 2),
+        borderRadius: BorderRadius.circular(defaultBorderRadius),
         color: Colors.white,
         border: Border.all(
           color: secondaryTextColor,

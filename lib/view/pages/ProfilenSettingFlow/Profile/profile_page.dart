@@ -37,7 +37,7 @@ class ProfilePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: defaultPadding * 2),
               GetBuilder<ProfileController>(builder: (_con) {
                 return CircleAvatar(
                   radius: getRelativeWidth(0.15),

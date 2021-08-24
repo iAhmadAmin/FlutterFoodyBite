@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
+import 'package:foodybite/utils/size_config.dart';
 
 class RoundButton extends StatelessWidget {
   const RoundButton({
@@ -19,7 +20,7 @@ class RoundButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 50,
+        height: getRelativeHeight(0.075),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(leftRound ? 30 : 0),
@@ -30,7 +31,7 @@ class RoundButton extends StatelessWidget {
         child: Center(
           child: Text(
             label,
-            style: Theme.of(context).textTheme.bodyText1.copyWith(
+            style: Theme.of(context).textTheme.subtitle1.copyWith(
                   color: Colors.white,
                 ),
           ),

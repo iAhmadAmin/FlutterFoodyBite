@@ -7,7 +7,7 @@ import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/pages/AuthFlow/ForgotPass/forgot_pass_page.dart';
 import 'package:foodybite/view/pages/AuthFlow/Register/register_page.dart';
-import 'package:foodybite/view/pages/AuthFlow/Welcome/welcome_page.dart';
+import 'package:foodybite/view/pages/RootPage/root_page.dart';
 import 'package:foodybite/view/widgets/app_title.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                         label: Values.login.tr,
                         onTap: () {
                           //inputValidation,
-                          Get.off(() => WelcomePage());
+                          Get.off(() => RootPage());
                         },
                       ),
                       const SizedBox(height: defaultPadding * 5),

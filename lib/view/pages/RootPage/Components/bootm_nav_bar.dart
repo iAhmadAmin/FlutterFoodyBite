@@ -59,6 +59,7 @@ class BottomNavigation extends StatelessWidget {
                     iconPath: iconsPath[1],
                     selectedIndex: selectedIndex,
                     index: 1,
+                    size: 23,
                   ),
                   SizedBox(
                     width: SizeConfig.screenWidth * 0.14,
@@ -68,6 +69,7 @@ class BottomNavigation extends StatelessWidget {
                     iconPath: iconsPath[2],
                     selectedIndex: selectedIndex,
                     index: 3,
+                    size: 26,
                   ),
                   BottomNavItem(
                     onItemPressed: onItemPressed,
@@ -121,16 +123,17 @@ class BottomNavigation extends StatelessWidget {
 
 class BottomNavItem extends StatelessWidget {
   const BottomNavItem({
-    Key key,
     @required this.onItemPressed,
     @required this.iconPath,
     @required this.index,
     @required this.selectedIndex,
-  }) : super(key: key);
+    this.size = 24,
+  });
 
   final Function(int p1) onItemPressed;
   final String iconPath;
   final int index, selectedIndex;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +145,7 @@ class BottomNavItem extends StatelessWidget {
         width: SizeConfig.screenWidth * 0.18,
         child: SvgPicture.asset(
           iconPath,
-          height: 20,
+          height: size,
           color: index == selectedIndex ? primaryColor : secondaryColor,
         ),
       ),

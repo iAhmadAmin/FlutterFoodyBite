@@ -75,7 +75,7 @@ class _FilterPageState extends State<FilterPage> {
                               )
                             : null,
                       ),
-                      height: 42,
+                      height: 46,
                       width: getRelativeWidth(0.25),
                       child: Center(
                         child: Text(

@@ -46,13 +46,13 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
       body: Column(
         children: [
           SizedBox(
-            height: 95,
+            height: 105,
             width: getRelativeWidth(1),
             child: Stack(
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: 95,
+                  height: 105,
                   width: getRelativeWidth(1),
                   child: Image.asset(
                     Images.getCategoryImage(_currentCategory),
@@ -60,7 +60,7 @@ class _CategoryRestaurantsPageState extends State<CategoryRestaurantsPage> {
                   ),
                 ),
                 Container(
-                  height: 95,
+                  height: 105,
                   width: getRelativeWidth(1),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [

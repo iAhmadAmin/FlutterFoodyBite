@@ -10,6 +10,7 @@ import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/Widgets/input_field.dart';
 import 'package:foodybite/view/Widgets/mbutton.dart';
 import 'package:foodybite/view/pages/AuthFlow/Login/login_page.dart';
+import 'package:foodybite/view/pages/AuthFlow/Welcome/welcome_page.dart';
 import 'package:get/get.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 
@@ -174,7 +175,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       MButton(
                         label: Values.register.tr,
                         onTap: () {
-                          _validateInput();
+                          //_validateInput();
+                          Get.off(() => WelcomePage());
                         },
                       ),
                       const SizedBox(height: defaultPadding * 3),
