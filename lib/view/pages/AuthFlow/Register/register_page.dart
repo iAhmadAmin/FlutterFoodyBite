@@ -5,10 +5,12 @@ import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/constants/icons.dart';
 import 'package:foodybite/constants/images.dart';
 import 'package:foodybite/constants/values.dart';
+import 'package:foodybite/controllers/profile_controller.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/utils/validators.dart';
 import 'package:foodybite/view/Widgets/input_field.dart';
 import 'package:foodybite/view/Widgets/mbutton.dart';
+import 'package:foodybite/view/dialogs/m_dialogs.dart';
 import 'package:foodybite/view/pages/AuthFlow/Login/login_page.dart';
 import 'package:foodybite/view/pages/AuthFlow/Welcome/welcome_page.dart';
 import 'package:get/get.dart';
@@ -60,67 +62,99 @@ class _RegisterPageState extends State<RegisterPage> {
                       SizedBox(
                         height: getRelativeHeight(0.04),
                       ),
-                      SizedBox(
-                        height: getRelativeWidth(0.4),
-                        width: getRelativeWidth(0.4),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            GlassmorphicContainer(
-                              width: getRelativeWidth(0.4),
+                      GetBuilder<ProfileController>(
+                          init: ProfileController(),
+                          builder: (_con) {
+                            return SizedBox(
                               height: getRelativeWidth(0.4),
-                              borderRadius: 120,
-                              blur: 3,
-                              alignment: Alignment.bottomCenter,
-                              border: 0,
-                              linearGradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    const Color(0xFFffffff).withOpacity(0.15),
-                                    const Color(0xFFFFFFFF).withOpacity(0.05),
-                                  ],
-                                  stops: const [
-                                    0.1,
-                                    1,
-                                  ]),
-                              borderGradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Colors.white.withOpacity(0.15),
-                                  Colors.white.withOpacity(0.5),
+                              width: getRelativeWidth(0.4),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  GlassmorphicContainer(
+                                    width: getRelativeWidth(0.4),
+                                    height: getRelativeWidth(0.4),
+                                    borderRadius: 120,
+                                    blur: 3,
+                                    alignment: Alignment.bottomCenter,
+                                    border: 0,
+                                    linearGradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: [
+                                          const Color(0xFFffffff)
+                                              .withOpacity(0.15),
+                                          const Color(0xFFFFFFFF)
+                                              .withOpacity(0.05),
+                                        ],
+                                        stops: const [
+                                          0.1,
+                                          1,
+                                        ]),
+                                    borderGradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        Colors.white.withOpacity(0.15),
+                                        Colors.white.withOpacity(0.5),
+                                      ],
+                                    ),
+                                    child: _con.imageFile != null
+                                        ? Container(
+                                            height: getRelativeWidth(0.4),
+                                            width: getRelativeWidth(0.4),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(120),
+                                            ),
+                                            child: Image.file(
+                                              _con.imageFile,
+                                              fit: BoxFit.cover,
+                                            ))
+                                        : Center(
+                                            child: SvgPicture.asset(
+                                              MIcons.user_o,
+                                              height: 50,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                  ),
+                                  Positioned(
+                                    right: 4,
+                                    bottom: 4,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        MDialogs.imagePickerDialog(
+                                          onCameraTap: () {
+                                            Get.back();
+                                            _con.getImageFromCamer();
+                                          },
+                                          onGalleryTap: () {
+                                            Get.back();
+                                            _con.getImageFromGallery();
+                                          },
+                                        );
+                                      },
+                                      child: Container(
+                                          height: 40,
+                                          width: 40,
+                                          decoration: BoxDecoration(
+                                              color: primaryColor,
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                width: 2,
+                                                color: Colors.white,
+                                              )),
+                                          child: const Icon(
+                                            Icons.arrow_upward,
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                  ),
                                 ],
                               ),
-                              child: Center(
-                                child: SvgPicture.asset(
-                                  MIcons.user_o,
-                                  height: 50,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              right: 0,
-                              bottom: 0,
-                              child: Container(
-                                  height: 40,
-                                  width: 40,
-                                  decoration: BoxDecoration(
-                                      color: primaryColor,
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        width: 2,
-                                        color: Colors.white,
-                                      )),
-                                  child: const Icon(
-                                    Icons.arrow_upward,
-                                    color: Colors.white,
-                                  )),
-                            ),
-                          ],
-                        ),
-                      ),
+                            );
+                          }),
                       Form(
                         key: _registerFormKey,
                         child: SizedBox(

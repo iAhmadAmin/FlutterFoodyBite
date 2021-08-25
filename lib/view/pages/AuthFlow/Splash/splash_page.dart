@@ -24,7 +24,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       _slideAnimationController.forward();
     });
 
-    Future.delayed(const Duration(milliseconds: 2100), () {
+    Future.delayed(const Duration(milliseconds: 2300), () {
       Get.off(
         () => LoginPage(),
       );

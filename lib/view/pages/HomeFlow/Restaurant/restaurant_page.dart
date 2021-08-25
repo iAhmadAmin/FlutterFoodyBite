@@ -6,6 +6,7 @@ import 'package:foodybite/models/data.dart';
 import 'package:foodybite/models/restaurant_model.dart';
 import 'package:foodybite/utils/size_config.dart';
 import 'package:foodybite/view/pages/HomeFlow/MenuPhoto/menu_photo_page.dart';
+import 'package:foodybite/view/pages/HomeFlow/PhotoView/photo_view_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/add_review_page.dart';
 import 'package:foodybite/view/pages/HomeFlow/Reviews/review_rating_page.dart';
 import 'package:foodybite/view/widgets/app_bar.dart';
@@ -106,7 +107,7 @@ class MenuPhotoBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final foodPhotos = foodsImgList.getRange(1, 4).toList();
+    final foodPhotos = foodsImgList.getRange(0, 3).toList();
     return Column(
       children: [
         HeadinBar(
@@ -132,14 +133,19 @@ class MenuPhotoBar extends StatelessWidget {
                               ? 0
                               : defaultPadding,
                         ),
-                        child: SizedBox(
-                          height: getRelativeWidth(0.35),
-                          width: getRelativeWidth(0.4),
-                          child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.circular(defaultBorderRadius),
-                            child: Image.asset(foodPhotos[index],
-                                fit: BoxFit.cover),
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.to(() => PhotoViewPage(index: index));
+                          },
+                          child: SizedBox(
+                            height: getRelativeWidth(0.35),
+                            width: getRelativeWidth(0.4),
+                            child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.circular(defaultBorderRadius),
+                              child: Image.asset(foodPhotos[index],
+                                  fit: BoxFit.cover),
+                            ),
                           ),
                         ),
                       )
