@@ -1,5 +1,3 @@
-import 'package:get/get.dart';
-
 class Validators {
   static String passwordValidator(String value) {
     if (value.isEmpty || value == null) {
@@ -24,23 +22,24 @@ class Validators {
     }
   }
 
-  static String usernameValidator(String value) {
-    if (value.isEmpty || value == null) {
-      return "Required";
-    } else if (!GetUtils.isUsername(value)) {
-      return "Invalid Username";
-    } else {
-      return null;
-    }
-  }
+  // static String usernameValidator(String value) {
+  //   if (value.isEmpty || value == null) {
+  //     return "Required";
+  //   } else if (!GetUtils.isUsername(value)) {
+  //     return "Invalid Username";
+  //   } else {
+  //     return null;
+  //   }
+  // }
 
-  static String emailValidator(String value) {
-    if (value.isEmpty || value == null) {
-      return "Required";
-    } else if (!GetUtils.isEmail(value)) {
-      return "Invalid Email";
-    } else {
-      return null;
-    }
-  }
+  // static String emailValidator(String value) {
+  //   if (value.isEmpty || value == null) {
+  //     return "Required";
+  //   } else if (!GetUtils.isEmail(value)) {
+  //     return "Invalid Email";
+  //   } else {
+  //     return null;
+  //   }
+  // }
+
 }

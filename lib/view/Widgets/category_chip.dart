@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:foodybite/constants/colors.dart';
 import 'package:foodybite/constants/consts.dart';
 import 'package:foodybite/models/restaurant_model.dart';
-import 'package:get/get.dart';
 
 class CategoryChip extends StatelessWidget {
   const CategoryChip({
@@ -25,7 +24,7 @@ class CategoryChip extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            category.toString().split('.').last.tr,
+            category.toString().split('.').last,
             style: Theme.of(context).textTheme.caption.copyWith(
                   fontSize: 8,
                   color: Colors.white,

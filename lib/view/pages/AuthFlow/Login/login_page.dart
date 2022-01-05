@@ -11,7 +11,6 @@ import 'package:foodybite/view/pages/RootPage/root_page.dart';
 import 'package:foodybite/view/widgets/app_title.dart';
 import 'package:foodybite/view/widgets/input_field.dart';
 import 'package:foodybite/view/widgets/mbutton.dart';
-import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   @override
