@@ -35,6 +35,7 @@ class _TrendingRestarurantsPageState extends State<TrendingRestarurantsPage> {
               onLeadingTap: () {
                 Get.to(() => FilterPage());
               },
+              hint: '',
             ),
             Expanded(
               child: ListView.builder(
